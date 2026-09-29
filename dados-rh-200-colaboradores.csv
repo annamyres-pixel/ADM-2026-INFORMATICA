@@ -1,0 +1,201 @@
+﻿ID;Nome;Sexo;Idade;Estado_Civil;Escolaridade;Cargo;Departamento;Nivel_Hierarquico;Tempo_Empresa_Anos;Salario_R$;Tipo_Contrato;Avaliacao_Desempenho_1a5;Horas_Treinamento_Ano;Engajamento_%;Absenteismo_Dias_Ano;Risco_Turnover;Potencial_Lideranca;Ultima_Promocao_Ano
+COL-001;Diego Monteiro Araujo;M;38;Casado(a);MBA/Pos-graduacao;Diretor(a) Executivo(a);Diretoria;Diretoria;6.7;21143;CLT;4.7;80;89;4;Baixo;Medio;2025
+COL-002;Igor Rocha Almeida;M;55;Solteiro(a);MBA/Pos-graduacao;Diretor(a) Executivo(a);Diretoria;Diretoria;8.1;22278;PJ;4.2;80;76;0;Baixo;Medio;2022
+COL-003;Giovana Fonseca Araujo;F;41;Casado(a);MBA/Pos-graduacao;Diretor(a) Academico(a);Diretoria;Diretoria;7.4;20166;PJ;4.6;50;81;0;Baixo;Medio;2025
+COL-004;Hugo Ribeiro Barbosa;M;39;Uniao Estavel;MBA/Pos-graduacao;Diretor(a) Comercial;Diretoria;Diretoria;10.4;18653;PJ;3.6;40;56;6;Medio;Medio;2022
+COL-005;Leonardo Oliveira Vieira;M;52;Solteiro(a);Mestrado;Gerente de Lideranca e Coaching;Academia de Lideranca e Coaching;Gerencia;7.4;14187;CLT;4.9;50;84;0;Baixo;Baixo;2021
+COL-006;Laura Azevedo Moreira;F;34;Casado(a);Mestrado;Gerente de Lideranca e Coaching;Academia de Lideranca e Coaching;Gerencia;9.6;14940;CLT;3.7;50;85;1;Baixo;Alto;2022
+COL-007;Isabela Cavalcanti Cavalcanti;M;45;Solteiro(a);Superior Completo;Gerente de Design Instrucional;Design Instrucional e Conteudo EAD;Gerencia;5.8;11898;CLT Flex;4.1;60;58;5;Medio;Medio;2025
+COL-008;Otavio Dias Barros;M;46;Casado(a);MBA/Pos-graduacao;Gerente de Design Instrucional;Design Instrucional e Conteudo EAD;Gerencia;9.8;14525;CLT Flex;4.2;40;92;0;Baixo;Medio;2023
+COL-009;Beatriz Azevedo Peixoto;F;32;Casado(a);Superior Completo;Gerente de Facilitacao Corporativa;Facilitacao e Instrutoria Corporativa;Gerencia;9.1;12078;CLT Flex;4.7;60;92;4;Baixo;Alto;2023
+COL-010;Karina Barbosa Costa;M;51;Divorciado(a);MBA/Pos-graduacao;Gerente de Facilitacao Corporativa;Facilitacao e Instrutoria Corporativa;Gerencia;3.1;14805;CLT;3.6;90;75;5;Medio;Medio;2021
+COL-011;Vinicius Moraes Pinto;M;49;Solteiro(a);MBA/Pos-graduacao;Gerente Comercial B2B;Comercial e Vendas B2B;Gerencia;3.9;15393;CLT Flex;2.8;60;52;9;Alto;Medio;2026
+COL-012;Isabela Oliveira Rocha;F;48;Casado(a);MBA/Pos-graduacao;Gerente Comercial B2B;Comercial e Vendas B2B;Gerencia;4.7;12024;CLT;3.6;50;75;4;Medio;Medio;2022
+COL-013;Fabio Barros Freitas;F;39;Divorciado(a);Mestrado;Gerente de Psicologia Organizacional;Psicologia Organizacional e Avaliacao;Gerencia;6.4;13208;CLT;3.0;60;72;4;Medio;Alto;2024
+COL-014;Priscila Martins Correia;F;33;Casado(a);MBA/Pos-graduacao;Gerente de Operacoes e CX;Operacoes e CX;Gerencia;9.9;10903;CLT;3.8;90;81;4;Baixo;Medio;2022
+COL-015;Igor Moraes Souza;F;34;Casado(a);MBA/Pos-graduacao;Gerente de TI e Plataforma EAD;TI e Plataforma EAD;Gerencia;9.0;14254;CLT;4.3;60;80;3;Baixo;Medio;2024
+COL-016;Vanessa Araujo Dias;F;32;Solteiro(a);Superior Completo;Gerente Administrativo-Financeiro;Administrativo-Financeiro;Gerencia;4.9;14211;PJ;3.7;70;73;0;Baixo;Medio;2024
+COL-017;Isabela Teixeira Moraes;F;30;Casado(a);MBA/Pos-graduacao;Coordenador(a) de Coaching;Academia de Lideranca e Coaching;Coordenacao;5.3;9284;CLT;4.3;60;75;4;Baixo;Alto;2025
+COL-018;Nicolas Moraes Ferreira;F;47;Casado(a);MBA/Pos-graduacao;Coordenador(a) de Coaching;Academia de Lideranca e Coaching;Coordenacao;5.6;8335;CLT;4.0;60;84;2;Baixo;Baixo;2022
+COL-019;Marcos Pinto Dias;M;38;Casado(a);MBA/Pos-graduacao;Coordenador(a) de Coaching;Academia de Lideranca e Coaching;Coordenacao;7.6;8297;CLT;4.7;60;90;0;Baixo;Medio;2021
+COL-020;Natalia Monteiro Rodrigues;F;46;Uniao Estavel;Mestrado;Coordenador(a) de Conteudo EAD;Design Instrucional e Conteudo EAD;Coordenacao;5.7;9666;CLT;4.0;50;65;0;Medio;Alto;2021
+COL-021;Nicolas Gomes Mendes;F;48;Solteiro(a);MBA/Pos-graduacao;Coordenador(a) de Conteudo EAD;Design Instrucional e Conteudo EAD;Coordenacao;4.1;8581;CLT;5;110;90;2;Baixo;Medio;2022
+COL-022;Fabio Barbosa Teixeira;F;42;Uniao Estavel;MBA/Pos-graduacao;Coordenador(a) de Conteudo EAD;Design Instrucional e Conteudo EAD;Coordenacao;2.7;8110;CLT;3.9;60;80;4;Baixo;Medio;2021
+COL-023;Cesar Freitas Teixeira;M;40;Casado(a);Mestrado;Coordenador(a) de Instrutoria;Facilitacao e Instrutoria Corporativa;Coordenacao;7.3;9164;CLT Flex;4.3;110;86;3;Baixo;Medio;2022
+COL-024;Fernanda Moraes Rocha;F;32;Uniao Estavel;MBA/Pos-graduacao;Coordenador(a) de Instrutoria;Facilitacao e Instrutoria Corporativa;Coordenacao;2.2;9427;CLT;3.7;60;69;8;Medio;Alto;2021
+COL-025;Elisa Almeida Peixoto;F;31;Divorciado(a);Superior Completo;Coordenador(a) de Instrutoria;Facilitacao e Instrutoria Corporativa;Coordenacao;3.7;9586;CLT;4.3;60;78;5;Baixo;Baixo;2023
+COL-026;Gustavo Pinto Barros;F;39;Casado(a);MBA/Pos-graduacao;Coordenador(a) de Instrutoria;Facilitacao e Instrutoria Corporativa;Coordenacao;7.9;7973;CLT;3.9;50;77;3;Baixo;Baixo;2025
+COL-027;Daniela Braga Fonseca;F;39;Solteiro(a);Mestrado;Coordenador(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Coordenacao;6.0;8310;CLT;3.5;50;79;2;Medio;Medio;2024
+COL-028;Caio Pereira Dias;F;46;Casado(a);Superior Completo;Coordenador(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Coordenacao;3.8;8660;CLT;4.4;70;70;4;Medio;Alto;2024
+COL-029;Valentina Araujo Cavalcanti;F;48;Solteiro(a);MBA/Pos-graduacao;Coordenador(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Coordenacao;6.9;8762;CLT;4.4;40;82;0;Baixo;Alto;2024
+COL-030;Vitor Ferreira Farias;F;36;Solteiro(a);MBA/Pos-graduacao;Coordenador(a) Comercial;Comercial e Vendas B2B;Coordenacao;6.1;7936;CLT;4.4;90;77;0;Baixo;Medio;2021
+COL-031;Marcos Correia Peixoto;M;46;Casado(a);MBA/Pos-graduacao;Coordenador(a) Comercial;Comercial e Vendas B2B;Coordenacao;7.7;9312;CLT;4.4;60;70;7;Medio;Medio;2023
+COL-032;Igor Costa Freitas;F;36;Solteiro(a);MBA/Pos-graduacao;Coordenador(a) de Marketing;Marketing e Growth;Coordenacao;2.5;8670;CLT;3.6;90;79;4;Medio;Medio;2022
+COL-033;Jorge Freitas Azevedo;F;46;Casado(a);MBA/Pos-graduacao;Coordenador(a) de Marketing;Marketing e Growth;Coordenacao;2.4;9220;CLT;5;110;88;0;Baixo;Baixo;2023
+COL-034;Yasmin Ferreira Braga;M;46;Solteiro(a);Mestrado;Coordenador(a) de Avaliacao Psicologica;Psicologia Organizacional e Avaliacao;Coordenacao;7.4;9799;CLT;3.6;30;67;7;Medio;Medio;2022
+COL-035;Paulo Freitas Moreira;F;41;Solteiro(a);MBA/Pos-graduacao;Coordenador(a) de Avaliacao Psicologica;Psicologia Organizacional e Avaliacao;Coordenacao;6.0;8143;CLT;4.6;60;85;3;Baixo;Baixo;2024
+COL-036;Vanessa Teixeira Ferreira;M;44;Solteiro(a);MBA/Pos-graduacao;Coordenador(a) de Operacoes;Operacoes e CX;Coordenacao;5.2;8633;CLT;4.8;110;86;2;Baixo;Alto;2021
+COL-037;Diego Nunes Fonseca;F;31;Solteiro(a);Superior Completo;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;2.7;7932;CLT;5;70;82;3;Baixo;Medio;2025
+COL-038;Enzo Oliveira Ribeiro;M;40;Uniao Estavel;MBA/Pos-graduacao;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;5.4;6655;CLT;3.6;50;72;1;Medio;Medio;2021
+COL-039;Heitor Correia Braga;F;39;Uniao Estavel;MBA/Pos-graduacao;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;5.1;6525;PJ;4.8;40;80;5;Baixo;Medio;2026
+COL-040;Yasmin Fonseca Braga;M;45;Solteiro(a);Superior Completo;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;4.1;8191;CLT;3.4;90;75;2;Medio;Baixo;2022
+COL-041;Karina Teixeira Freitas;M;38;Solteiro(a);MBA/Pos-graduacao;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;6.2;6872;CLT;3.9;50;90;5;Baixo;Medio;2022
+COL-042;Anderson Monteiro Peixoto;F;35;Solteiro(a);Superior Completo;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;5.1;7505;CLT;3.5;50;67;5;Medio;Medio;2023
+COL-043;Clara Correia Sales;F;45;Solteiro(a);MBA/Pos-graduacao;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;5.4;7054;CLT;3.7;70;90;6;Baixo;Alto;2026
+COL-044;Arthur Dias Ferreira;M;44;Solteiro(a);Superior Completo;Coach Executivo Sr;Academia de Lideranca e Coaching;Senior;6.9;8205;CLT;3.7;40;87;3;Baixo;Medio;2021
+COL-045;Joao Fonseca Souza;M;39;Solteiro(a);Superior Completo;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;0.6;4782;CLT;5;30;93;0;Baixo;Medio;2026
+COL-046;Sofia Sales Barros;F;33;Casado(a);Superior Completo;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;1.6;5342;CLT;4.3;80;82;6;Baixo;Medio;2024
+COL-047;Rodrigo Oliveira Cardoso;F;25;Solteiro(a);MBA/Pos-graduacao;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;3.8;4625;CLT;3.9;30;89;4;Baixo;Medio;2024
+COL-048;Juliana Rodrigues Correia;F;33;Casado(a);MBA/Pos-graduacao;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;2.5;4678;PJ;4.6;60;70;0;Medio;Medio;2025
+COL-049;Samuel Pereira Peixoto;M;26;Casado(a);Superior Completo;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;4.1;5418;CLT;4.6;40;93;0;Baixo;Medio;2024
+COL-050;Olivia Fonseca Oliveira;F;37;Divorciado(a);MBA/Pos-graduacao;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;3.2;4252;CLT;2.8;80;46;2;Alto;Baixo;2026
+COL-051;Cesar Freitas Barbosa;M;29;Casado(a);Superior Completo;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;3.4;4769;CLT;3.8;60;76;1;Baixo;Medio;2022
+COL-052;Pedro Farias Freitas;F;36;Solteiro(a);MBA/Pos-graduacao;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;3.0;5131;CLT;4.3;30;83;0;Baixo;Baixo;2021
+COL-053;Larissa Gomes Nunes;F;29;Solteiro(a);Superior Completo;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.3;3140;CLT;4.3;40;86;5;Baixo;Alto;2026
+COL-054;Guilherme Correia Freitas;F;29;Casado(a);Superior Completo;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;0.8;3361;PJ;3.4;30;78;0;Medio;Baixo;2026
+COL-055;Olivia Silva Dias;M;28;Casado(a);Superior Completo;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;1.7;2892;CLT;4.2;60;82;3;Baixo;Medio;2025
+COL-056;Fernanda Teixeira Fonseca;M;30;Casado(a);Superior Incompleto;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.0;3386;CLT;2.8;40;56;3;Alto;Medio;2023
+COL-057;Cesar Almeida Mendes;F;27;Solteiro(a);Superior Completo;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.3;3222;PJ;4.6;120;68;8;Medio;Alto;2025
+COL-058;Karina Rocha Azevedo;F;28;Solteiro(a);Superior Completo;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;0.6;3391;CLT;5;50;94;1;Baixo;Medio;2026
+COL-059;Mariana Mendes Gomes;F;26;Solteiro(a);Superior Incompleto;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.7;2999;PJ;2.9;20;52;10;Alto;Medio;2021
+COL-060;Karina Braga Cavalcanti;M;21;Solteiro(a);Superior Completo;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.4;2800;CLT;3.9;40;64;6;Medio;Alto;2022
+COL-061;Erick Sales Nunes;M;24;Solteiro(a);Superior Incompleto;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;1.8;2737;CLT;5;40;87;6;Baixo;Alto;2024
+COL-062;Rodrigo Santos Moraes;M;27;Solteiro(a);Superior Incompleto;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;1.5;2809;CLT;3.5;50;75;7;Medio;Medio;2026
+COL-063;Fernanda Braga Moreira;F;46;Casado(a);Mestrado;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;5.8;7993;CLT;4.5;60;77;4;Baixo;Medio;2026
+COL-064;Nubia Martins Araujo;M;32;Casado(a);Superior Completo;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;6.5;7323;CLT;3.1;30;67;5;Medio;Baixo;2023
+COL-065;Yasmin Costa Rodrigues;F;45;Uniao Estavel;Mestrado;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;3.5;7027;PJ;4.3;50;70;5;Medio;Medio;2021
+COL-066;Hugo Moreira Sales;M;35;Uniao Estavel;Mestrado;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;5.5;6813;CLT Flex;3.1;50;71;3;Medio;Medio;2024
+COL-067;Sofia Freitas Carvalho;F;48;Casado(a);Mestrado;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;2.1;6478;CLT;3.9;110;89;0;Baixo;Medio;2026
+COL-068;Nubia Sales Rodrigues;F;29;Casado(a);MBA/Pos-graduacao;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;4.2;6199;CLT;3.3;50;55;10;Alto;Medio;2025
+COL-069;Pedro Ribeiro Souza;M;48;Solteiro(a);MBA/Pos-graduacao;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;4.2;6835;CLT Flex;4.2;70;90;2;Baixo;Baixo;2023
+COL-070;Enzo Barbosa Costa;F;30;Solteiro(a);Superior Incompleto;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;4.8;4731;CLT;4.6;60;85;2;Baixo;Medio;2022
+COL-071;Otavio Santos Ferreira;M;30;Solteiro(a);MBA/Pos-graduacao;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;4.2;4277;CLT;5;100;86;3;Baixo;Medio;2022
+COL-072;Guilherme Sales Almeida;F;31;Casado(a);MBA/Pos-graduacao;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;0.6;4343;CLT;4.2;50;79;0;Baixo;Baixo;2026
+COL-073;Samuel Costa Pereira;F;31;Casado(a);Superior Incompleto;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;0.7;5149;CLT;4.9;100;89;0;Baixo;Medio;2026
+COL-074;Mariana Carvalho Monteiro;F;28;Casado(a);Superior Completo;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;1.7;5096;CLT;4.5;40;75;2;Baixo;Medio;2024
+COL-075;Isabela Pereira Pereira;M;30;Casado(a);Superior Completo;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;4.5;4647;CLT;4.5;50;87;1;Baixo;Alto;2024
+COL-076;Priscila Souza Dias;F;27;Casado(a);MBA/Pos-graduacao;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;2.2;4066;CLT;3.5;50;71;5;Medio;Medio;2026
+COL-077;Laura Santos Peixoto;M;35;Solteiro(a);Superior Completo;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;2.8;4116;CLT;4.2;30;71;4;Medio;Baixo;2025
+COL-078;Isabela Rodrigues Santos;M;32;Divorciado(a);Superior Completo;Produtor(a) de Video Educacional Jr;Design Instrucional e Conteudo EAD;Junior;0.7;3119;CLT;3.2;40;73;5;Medio;Medio;2026
+COL-079;Karina Correia Mendes;F;29;Solteiro(a);Superior Completo;Produtor(a) de Video Educacional Jr;Design Instrucional e Conteudo EAD;Junior;1.4;2749;CLT;4.7;40;78;4;Baixo;Baixo;2021
+COL-080;Vinicius Oliveira Cardoso;M;28;Solteiro(a);Superior Incompleto;Produtor(a) de Video Educacional Jr;Design Instrucional e Conteudo EAD;Junior;1.4;2620;CLT;3.8;50;73;8;Baixo;Medio;2026
+COL-081;Leonardo Campos Monteiro;F;30;Solteiro(a);Superior Completo;Produtor(a) de Video Educacional Jr;Design Instrucional e Conteudo EAD;Junior;0.8;3368;CLT;3.9;40;78;3;Baixo;Medio;2026
+COL-082;Nubia Dias Carvalho;M;26;Casado(a);Superior Completo;Produtor(a) de Video Educacional Jr;Design Instrucional e Conteudo EAD;Junior;2.6;2443;CLT;3.5;20;69;6;Medio;Medio;2026
+COL-083;Debora Cardoso Rocha;F;26;Uniao Estavel;Superior Completo;Produtor(a) de Video Educacional Jr;Design Instrucional e Conteudo EAD;Junior;2.9;2871;PJ;4.2;30;73;0;Baixo;Medio;2023
+COL-084;Natalia Rodrigues Moreira;M;26;Casado(a);Superior Completo;Revisor(a) Pedagogico Pleno;Design Instrucional e Conteudo EAD;Pleno;1.0;4644;CLT;3.6;40;88;1;Medio;Alto;2026
+COL-085;Bianca Vieira Rodrigues;F;28;Casado(a);MBA/Pos-graduacao;Revisor(a) Pedagogico Pleno;Design Instrucional e Conteudo EAD;Pleno;3.4;3962;CLT Flex;3.3;50;67;1;Medio;Medio;2025
+COL-086;Joao Pereira Braga;F;39;Solteiro(a);Superior Completo;Revisor(a) Pedagogico Pleno;Design Instrucional e Conteudo EAD;Pleno;1.9;4162;CLT;2.7;20;64;4;Alto;Medio;2023
+COL-087;Karina Campos Martins;M;36;Uniao Estavel;Superior Completo;Revisor(a) Pedagogico Pleno;Design Instrucional e Conteudo EAD;Pleno;3.0;3684;CLT;3.8;60;86;3;Baixo;Alto;2023
+COL-088;Cesar Costa Rocha;F;42;Solteiro(a);Mestrado;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;4.4;7048;CLT;4.2;50;71;5;Medio;Medio;2026
+COL-089;Kleber Ferreira Peixoto;F;40;Casado(a);MBA/Pos-graduacao;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;5.5;7144;CLT Flex;4.7;40;90;4;Baixo;Medio;2026
+COL-090;Priscila Campos Pinto;M;30;Solteiro(a);MBA/Pos-graduacao;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;3.6;7421;CLT;3.8;70;99;0;Baixo;Baixo;2021
+COL-091;Alice Oliveira Rocha;F;37;Solteiro(a);MBA/Pos-graduacao;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;2.7;7740;CLT;4.7;130;90;3;Baixo;Medio;2026
+COL-092;Larissa Mendes Braga;M;47;Casado(a);MBA/Pos-graduacao;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;3.6;6132;CLT;3.4;70;86;0;Medio;Alto;2023
+COL-093;Flavia Peixoto Freitas;F;42;Casado(a);MBA/Pos-graduacao;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;2.8;7777;PJ;3.2;90;89;5;Medio;Medio;2024
+COL-094;Renata Pereira Gomes;M;34;Casado(a);Superior Completo;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;2.3;6312;CLT;3.9;50;91;0;Baixo;Medio;2021
+COL-095;Hugo Cardoso Santos;F;44;Uniao Estavel;MBA/Pos-graduacao;Instrutor(a) Corporativo Sr;Facilitacao e Instrutoria Corporativa;Senior;3.9;7738;PJ;4.8;90;80;0;Baixo;Medio;2021
+COL-096;Ana Pereira Santos;F;27;Solteiro(a);MBA/Pos-graduacao;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;3.4;4099;CLT;4.5;80;80;1;Baixo;Baixo;2024
+COL-097;Luiza Santos Campos;F;28;Casado(a);Superior Completo;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;3.8;4880;CLT;4.3;40;85;0;Baixo;Alto;2024
+COL-098;Alice Azevedo Campos;F;28;Solteiro(a);Superior Completo;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;0.5;4522;CLT;3.4;60;96;6;Medio;Alto;2026
+COL-099;Davi Rocha Ferreira;M;40;Solteiro(a);MBA/Pos-graduacao;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;2.3;4762;CLT;3.9;40;67;6;Medio;Medio;2021
+COL-100;Elisa Dias Araujo;F;34;Divorciado(a);MBA/Pos-graduacao;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;1.3;5395;CLT;4.2;50;81;4;Baixo;Baixo;2024
+COL-101;Cesar Correia Carvalho;F;30;Divorciado(a);Superior Incompleto;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;1.9;4435;CLT;4.0;50;94;3;Baixo;Baixo;2026
+COL-102;Priscila Pereira Barros;M;37;Solteiro(a);Superior Incompleto;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;3.8;4591;CLT;4.6;60;70;7;Medio;Medio;2021
+COL-103;Raquel Correia Souza;M;29;Solteiro(a);Superior Completo;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;1.9;3963;CLT;3.9;50;71;0;Medio;Baixo;2023
+COL-104;Giovana Pinto Cavalcanti;F;36;Solteiro(a);Superior Completo;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;4.1;5191;CLT;4.4;80;76;0;Baixo;Alto;2022
+COL-105;Eduardo Barbosa Peixoto;M;25;Casado(a);MBA/Pos-graduacao;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;3.6;4559;CLT;3.4;50;71;2;Medio;Alto;2026
+COL-106;Tatiane Martins Mendes;F;29;Divorciado(a);Superior Completo;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;2.4;2920;CLT;3.6;40;84;1;Medio;Alto;2021
+COL-107;Guilherme Cardoso Carvalho;M;31;Solteiro(a);Tecnico;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;3.0;2883;CLT;4.9;50;72;2;Baixo;Medio;2023
+COL-108;Kleber Lima Peixoto;M;23;Solteiro(a);Superior Completo;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;1.6;2569;CLT;2.8;80;55;3;Alto;Alto;2023
+COL-109;Rafael Barros Campos;F;27;Solteiro(a);Tecnico;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;0.4;3195;CLT;3.7;50;75;5;Baixo;Medio;2026
+COL-110;Monica Araujo Monteiro;M;21;Solteiro(a);Tecnico;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;1.7;2511;CLT;3.4;60;59;10;Alto;Baixo;2021
+COL-111;Diego Pereira Oliveira;F;31;Casado(a);Superior Completo;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;1.7;2714;CLT;4.4;50;93;4;Baixo;Baixo;2021
+COL-112;Clara Teixeira Moraes;M;30;Casado(a);Superior Completo;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;0.8;2785;CLT;3.7;50;69;2;Medio;Baixo;2026
+COL-113;Rafael Pinto Campos;F;22;Solteiro(a);Superior Incompleto;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;0.6;2625;CLT;3.7;60;90;1;Baixo;Baixo;2026
+COL-114;Jorge Braga Freitas;F;21;Solteiro(a);Superior Incompleto;Estagiario(a) de Facilitacao;Facilitacao e Instrutoria Corporativa;Estagio;0.4;1262;Estagio;2.8;40;75;4;Medio;Medio;2026
+COL-115;Emanuele Santos Pereira;F;25;Divorciado(a);Superior Incompleto;Estagiario(a) de Facilitacao;Facilitacao e Instrutoria Corporativa;Estagio;1.4;1367;Estagio;4.2;60;85;6;Baixo;Medio;2023
+COL-116;Natalia Barros Ferreira;M;44;Solteiro(a);MBA/Pos-graduacao;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;2.8;7645;CLT;4.0;60;86;0;Baixo;Medio;2021
+COL-117;Patricia Ferreira Almeida;M;39;Casado(a);Superior Completo;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;3.5;7840;CLT;3.9;50;86;0;Baixo;Baixo;2025
+COL-118;Heitor Farias Rodrigues;F;38;Casado(a);Superior Completo;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;3.5;6790;CLT;4.3;60;85;3;Baixo;Medio;2024
+COL-119;Anderson Santos Pinto;M;44;Divorciado(a);MBA/Pos-graduacao;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;6.6;7504;CLT;3.9;70;85;4;Baixo;Baixo;2023
+COL-120;Davi Lima Gomes;F;31;Solteiro(a);Mestrado;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;4.7;6309;CLT;3.4;70;86;2;Medio;Alto;2021
+COL-121;Anderson Souza Ferreira;F;47;Divorciado(a);Superior Completo;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;3.6;7192;CLT;4.5;40;83;5;Baixo;Medio;2025
+COL-122;Nicolas Braga Lima;F;45;Divorciado(a);MBA/Pos-graduacao;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;5.1;8352;CLT;4.8;60;72;2;Baixo;Medio;2026
+COL-123;Patricia Fonseca Azevedo;F;35;Casado(a);MBA/Pos-graduacao;Consultor(a) de Desenvolvimento Sr;Consultoria em Desenvolvimento de Equipes;Senior;3.1;7419;CLT;3.4;70;73;0;Medio;Baixo;2023
+COL-124;Igor Araujo Azevedo;F;36;Solteiro(a);MBA/Pos-graduacao;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;4.8;4299;CLT;3.5;60;67;6;Medio;Medio;2024
+COL-125;Sabrina Silva Monteiro;F;32;Solteiro(a);Superior Completo;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;3.3;5201;CLT;4.3;100;87;4;Baixo;Medio;2026
+COL-126;Valentina Cardoso Azevedo;M;29;Solteiro(a);Superior Completo;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;4.7;4974;CLT;4.6;100;76;7;Baixo;Baixo;2021
+COL-127;Bruno Nunes Fonseca;M;25;Solteiro(a);Superior Incompleto;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;1.3;4360;CLT Flex;4.2;80;73;3;Baixo;Medio;2021
+COL-128;Beatriz Farias Moreira;M;34;Uniao Estavel;Superior Completo;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;5.0;5112;CLT;2.7;30;59;4;Alto;Baixo;2023
+COL-129;Eduardo Ferreira Lima;M;24;Solteiro(a);MBA/Pos-graduacao;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;4.1;5162;CLT;3.7;60;67;1;Medio;Medio;2021
+COL-130;Larissa Souza Carvalho;F;31;Divorciado(a);Superior Completo;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;2.2;4914;CLT;4.2;40;79;2;Baixo;Medio;2026
+COL-131;Hugo Freitas Monteiro;F;29;Casado(a);Superior Completo;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;2.8;5440;CLT;4.6;60;79;4;Baixo;Medio;2024
+COL-132;Enzo Carvalho Souza;M;29;Casado(a);Tecnico;Assistente de Projetos Jr;Consultoria em Desenvolvimento de Equipes;Junior;2.5;3080;CLT;5;80;95;3;Baixo;Baixo;2021
+COL-133;Rafael Campos Freitas;M;29;Casado(a);Superior Completo;Assistente de Projetos Jr;Consultoria em Desenvolvimento de Equipes;Junior;1.7;2468;CLT;4.1;30;91;5;Baixo;Baixo;2024
+COL-134;Isabela Azevedo Souza;F;21;Solteiro(a);Superior Incompleto;Assistente de Projetos Jr;Consultoria em Desenvolvimento de Equipes;Junior;2.1;2615;CLT;4.5;80;81;0;Baixo;Alto;2023
+COL-135;Ingrid Pereira Azevedo;M;22;Casado(a);Tecnico;Assistente de Projetos Jr;Consultoria em Desenvolvimento de Equipes;Junior;1.5;2593;CLT;4.9;60;83;0;Baixo;Medio;2024
+COL-136;Pedro Barros Azevedo;F;26;Casado(a);Superior Completo;Assistente de Projetos Jr;Consultoria em Desenvolvimento de Equipes;Junior;3.0;2702;CLT;4.9;40;87;2;Baixo;Medio;2026
+COL-137;Camila Teixeira Barbosa;F;20;Solteiro(a);Superior Incompleto;Estagiario(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Estagio;0.4;1377;Estagio;4.6;30;70;8;Medio;Medio;2026
+COL-138;Henrique Ferreira Campos;F;23;Solteiro(a);Superior Incompleto;Estagiario(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Estagio;0.1;1224;Estagio;4.0;20;66;5;Medio;Medio;2026
+COL-139;Henrique Monteiro Sales;M;35;Casado(a);Superior Completo;Psicologo(a) Organizacional Sr;Psicologia Organizacional e Avaliacao;Senior;5.5;6653;CLT;4.3;90;99;5;Baixo;Medio;2023
+COL-140;Vanessa Nunes Cavalcanti;M;33;Solteiro(a);Superior Completo;Psicologo(a) Organizacional Sr;Psicologia Organizacional e Avaliacao;Senior;3.8;7015;CLT;4.0;70;69;6;Medio;Medio;2024
+COL-141;Helena Rocha Pereira;F;45;Solteiro(a);MBA/Pos-graduacao;Psicologo(a) Organizacional Sr;Psicologia Organizacional e Avaliacao;Senior;6.2;6615;PJ;4.6;60;86;0;Baixo;Medio;2023
+COL-142;Laura Barbosa Lima;M;39;Solteiro(a);MBA/Pos-graduacao;Psicologo(a) Organizacional Sr;Psicologia Organizacional e Avaliacao;Senior;5.5;6390;CLT;4.5;70;85;3;Baixo;Baixo;2025
+COL-143;Arthur Vieira Dias;F;38;Divorciado(a);MBA/Pos-graduacao;Psicologo(a) Organizacional Sr;Psicologia Organizacional e Avaliacao;Senior;6.5;6433;CLT Flex;4.6;40;82;3;Baixo;Alto;2022
+COL-144;Murilo Oliveira Fonseca;F;35;Uniao Estavel;Superior Completo;Analista de Assessment Pleno;Psicologia Organizacional e Avaliacao;Pleno;2.1;4818;CLT;4.9;60;85;0;Baixo;Alto;2023
+COL-145;Debora Moreira Barbosa;M;28;Solteiro(a);Superior Completo;Analista de Assessment Pleno;Psicologia Organizacional e Avaliacao;Pleno;3.0;4996;CLT;3.6;30;83;4;Medio;Medio;2026
+COL-146;Alice Oliveira Costa;M;39;Casado(a);Superior Completo;Analista de Assessment Pleno;Psicologia Organizacional e Avaliacao;Pleno;3.8;4521;CLT;3.4;50;84;1;Medio;Medio;2021
+COL-147;Davi Santos Silva;M;25;Casado(a);MBA/Pos-graduacao;Analista de Assessment Pleno;Psicologia Organizacional e Avaliacao;Pleno;2.4;5091;CLT;3.3;20;72;0;Medio;Medio;2024
+COL-148;Natalia Almeida Peixoto;F;27;Solteiro(a);Superior Completo;Assistente de Avaliacao Jr;Psicologia Organizacional e Avaliacao;Junior;1.7;2581;CLT;3.4;50;69;0;Medio;Baixo;2022
+COL-149;Karina Oliveira Pereira;F;24;Solteiro(a);Superior Incompleto;Assistente de Avaliacao Jr;Psicologia Organizacional e Avaliacao;Junior;0.9;2662;CLT;3.3;40;79;5;Medio;Medio;2026
+COL-150;Mariana Peixoto Oliveira;F;27;Solteiro(a);Superior Incompleto;Assistente de Avaliacao Jr;Psicologia Organizacional e Avaliacao;Junior;0.4;2309;CLT;4.1;80;73;1;Baixo;Baixo;2026
+COL-151;Kleber Costa Nunes;F;46;Solteiro(a);MBA/Pos-graduacao;Consultor(a) Comercial Sr;Comercial e Vendas B2B;Senior;1.8;5652;CLT;3.8;60;71;4;Medio;Alto;2022
+COL-152;Erick Souza Almeida;F;35;Solteiro(a);Superior Completo;Consultor(a) Comercial Sr;Comercial e Vendas B2B;Senior;6.2;6886;PJ;4.0;70;97;8;Baixo;Baixo;2025
+COL-153;Raquel Martins Sales;F;30;Divorciado(a);MBA/Pos-graduacao;Consultor(a) Comercial Sr;Comercial e Vendas B2B;Senior;5.7;7455;CLT;3.3;50;59;2;Alto;Medio;2024
+COL-154;Giovana Almeida Pereira;M;30;Solteiro(a);Superior Completo;Consultor(a) Comercial Sr;Comercial e Vendas B2B;Senior;3.1;6004;CLT;4.1;40;75;0;Baixo;Baixo;2023
+COL-155;Bianca Cavalcanti Silva;F;37;Solteiro(a);MBA/Pos-graduacao;Consultor(a) Comercial Sr;Comercial e Vendas B2B;Senior;5.7;5709;CLT;3.5;60;70;6;Medio;Alto;2025
+COL-156;Olivia Barbosa Rodrigues;F;36;Divorciado(a);MBA/Pos-graduacao;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;3.8;4645;PJ;4.1;50;83;5;Baixo;Alto;2023
+COL-157;Cesar Braga Cavalcanti;F;37;Solteiro(a);Superior Completo;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;1.8;5102;CLT;3.4;40;63;4;Alto;Medio;2024
+COL-158;Daniela Moraes Vieira;M;34;Divorciado(a);Superior Completo;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;2.4;5186;PJ;4.2;30;69;10;Medio;Alto;2023
+COL-159;Diego Farias Barbosa;F;39;Uniao Estavel;Superior Incompleto;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;4.0;4167;CLT;4.5;40;90;0;Baixo;Medio;2025
+COL-160;Priscila Cavalcanti Costa;F;33;Casado(a);MBA/Pos-graduacao;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;0.8;5129;PJ;3.5;30;71;5;Medio;Alto;2026
+COL-161;Fabio Gomes Braga;F;39;Solteiro(a);MBA/Pos-graduacao;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;2.9;4916;CLT;3.9;100;59;0;Medio;Alto;2022
+COL-162;Juliana Mendes Pinto;F;36;Solteiro(a);Superior Incompleto;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;2.0;5130;CLT;3.2;40;59;4;Alto;Medio;2025
+COL-163;Vitor Barbosa Peixoto;F;31;Casado(a);Superior Incompleto;SDR / Pre-Vendas Jr;Comercial e Vendas B2B;Junior;1.6;2553;CLT Flex;4.2;40;77;5;Baixo;Medio;2023
+COL-164;Caio Teixeira Peixoto;F;28;Solteiro(a);Superior Completo;SDR / Pre-Vendas Jr;Comercial e Vendas B2B;Junior;2.2;2663;CLT;3.3;80;86;6;Medio;Medio;2026
+COL-165;Priscila Cavalcanti Silva;F;23;Solteiro(a);Superior Completo;SDR / Pre-Vendas Jr;Comercial e Vendas B2B;Junior;1.4;2673;CLT;3.5;30;65;8;Medio;Alto;2025
+COL-166;Davi Peixoto Vieira;M;24;Solteiro(a);Superior Completo;SDR / Pre-Vendas Jr;Comercial e Vendas B2B;Junior;2.2;3015;CLT;4.3;80;83;5;Baixo;Medio;2023
+COL-167;Theo Pereira Ferreira;M;23;Solteiro(a);Superior Incompleto;Estagiario(a) Comercial;Comercial e Vendas B2B;Estagio;0.6;1258;Estagio;3.3;80;60;3;Alto;Medio;2026
+COL-168;Valentina Cavalcanti Barros;F;20;Solteiro(a);Superior Incompleto;Estagiario(a) Comercial;Comercial e Vendas B2B;Estagio;0.5;1293;Estagio;3.4;30;62;6;Alto;Medio;2026
+COL-169;Flavia Barbosa Freitas;F;29;Uniao Estavel;MBA/Pos-graduacao;Analista de Marketing Digital Pleno;Marketing e Growth;Pleno;2.7;4087;CLT;5;60;67;2;Medio;Medio;2025
+COL-170;Vitor Fonseca Barbosa;M;37;Solteiro(a);MBA/Pos-graduacao;Analista de Marketing Digital Pleno;Marketing e Growth;Pleno;2.5;4142;CLT;4.1;60;76;5;Baixo;Medio;2022
+COL-171;Marcos Nunes Oliveira;F;27;Solteiro(a);MBA/Pos-graduacao;Analista de Marketing Digital Pleno;Marketing e Growth;Pleno;1.7;4912;PJ;5;80;90;0;Baixo;Alto;2026
+COL-172;Priscila Gomes Braga;F;35;Solteiro(a);Superior Incompleto;Analista de Marketing Digital Pleno;Marketing e Growth;Pleno;0.9;4040;CLT;3.6;80;66;2;Medio;Baixo;2026
+COL-173;Mariana Ferreira Freitas;F;30;Solteiro(a);MBA/Pos-graduacao;Analista de Marketing Digital Pleno;Marketing e Growth;Pleno;4.1;4967;CLT;3.6;50;88;2;Medio;Baixo;2026
+COL-174;Thiago Fonseca Correia;M;25;Solteiro(a);Tecnico;Social Media Jr;Marketing e Growth;Junior;0.6;3286;CLT;4.4;40;81;8;Baixo;Medio;2026
+COL-175;Lucas Farias Ribeiro;M;27;Solteiro(a);Superior Incompleto;Social Media Jr;Marketing e Growth;Junior;2.0;3301;CLT;3.6;60;55;1;Medio;Medio;2026
+COL-176;Debora Souza Oliveira;M;29;Solteiro(a);Superior Completo;Social Media Jr;Marketing e Growth;Junior;2.9;3244;CLT;4.3;80;73;6;Baixo;Medio;2024
+COL-177;Lucas Pinto Moreira;F;42;Solteiro(a);MBA/Pos-graduacao;Analista de CRM Sr;Marketing e Growth;Senior;6.6;6123;CLT;4.6;110;97;4;Baixo;Alto;2023
+COL-178;Rafael Sales Cardoso;F;48;Casado(a);MBA/Pos-graduacao;Analista de CRM Sr;Marketing e Growth;Senior;3.7;6425;CLT;4.7;60;87;3;Baixo;Alto;2021
+COL-179;Natalia Almeida Vieira;F;22;Uniao Estavel;Superior Incompleto;Estagiario(a) de Marketing;Marketing e Growth;Estagio;0.1;1375;Estagio;4.1;120;81;5;Baixo;Medio;2026
+COL-180;Caio Mendes Ribeiro;F;21;Casado(a);Superior Incompleto;Estagiario(a) de Marketing;Marketing e Growth;Estagio;0.3;1268;Estagio;4.3;60;92;3;Baixo;Medio;2026
+COL-181;Marcos Correia Pereira;M;28;Solteiro(a);Superior Incompleto;Analista de Sucesso do Cliente Pleno;Operacoes e CX;Pleno;3.3;4506;PJ;3.9;30;63;0;Medio;Medio;2022
+COL-182;Emanuele Cavalcanti Carvalho;F;33;Solteiro(a);MBA/Pos-graduacao;Analista de Sucesso do Cliente Pleno;Operacoes e CX;Pleno;3.6;4948;PJ;5;60;89;5;Baixo;Medio;2022
+COL-183;Camila Sales Costa;F;26;Solteiro(a);Superior Completo;Analista de Sucesso do Cliente Pleno;Operacoes e CX;Pleno;4.9;4339;CLT Flex;3.6;80;70;1;Medio;Baixo;2021
+COL-184;Luiza Azevedo Braga;F;30;Casado(a);Superior Completo;Analista de Sucesso do Cliente Pleno;Operacoes e CX;Pleno;0.8;4415;CLT;3.1;50;57;7;Alto;Alto;2026
+COL-185;Larissa Souza Teixeira;F;22;Solteiro(a);Superior Completo;Assistente Operacional Jr;Operacoes e CX;Junior;1.6;2408;CLT Flex;3.1;40;62;1;Alto;Medio;2024
+COL-186;Emanuele Ribeiro Peixoto;F;27;Casado(a);Superior Completo;Assistente Operacional Jr;Operacoes e CX;Junior;1.9;2256;CLT;3.4;60;84;6;Medio;Baixo;2022
+COL-187;Valentina Costa Barbosa;F;32;Solteiro(a);Superior Completo;Assistente Operacional Jr;Operacoes e CX;Junior;1.2;2967;PJ;4.2;80;77;4;Baixo;Alto;2026
+COL-188;Ana Oliveira Silva;F;26;Solteiro(a);Superior Completo;Assistente Operacional Jr;Operacoes e CX;Junior;2.6;2370;CLT;3.5;30;59;2;Medio;Alto;2025
+COL-189;Juliana Vieira Teixeira;F;22;Solteiro(a);Superior Incompleto;Estagiario(a) de Operacoes;Operacoes e CX;Estagio;0.6;1276;Estagio;5;100;89;1;Baixo;Medio;2026
+COL-190;Leticia Costa Farias;F;34;Casado(a);Superior Completo;Analista Financeiro Pleno;Administrativo-Financeiro;Pleno;0.9;4563;CLT;3.0;20;72;7;Medio;Alto;2026
+COL-191;Pedro Teixeira Rodrigues;M;33;Solteiro(a);Superior Completo;Analista Financeiro Pleno;Administrativo-Financeiro;Pleno;3.0;3816;CLT;4.1;80;71;0;Medio;Baixo;2022
+COL-192;Vinicius Almeida Barbosa;F;37;Uniao Estavel;Superior Completo;Analista Financeiro Pleno;Administrativo-Financeiro;Pleno;2.9;5102;PJ;5;100;99;1;Baixo;Baixo;2026
+COL-193;Karina Sales Almeida;F;35;Casado(a);MBA/Pos-graduacao;Analista de RH Interno Sr;Administrativo-Financeiro;Senior;6.8;7991;CLT Flex;5;40;75;0;Baixo;Medio;2026
+COL-194;Bianca Vieira Mendes;F;48;Casado(a);Superior Completo;Analista de RH Interno Sr;Administrativo-Financeiro;Senior;1.9;7162;CLT;3.8;40;71;9;Medio;Baixo;2024
+COL-195;Vinicius Farias Moreira;F;22;Solteiro(a);Tecnico;Assistente Administrativo Jr;Administrativo-Financeiro;Junior;0.6;3088;CLT;3.3;30;74;0;Medio;Alto;2026
+COL-196;Kleber Campos Souza;M;22;Casado(a);Superior Completo;Assistente Administrativo Jr;Administrativo-Financeiro;Junior;2.1;3146;CLT;3.6;40;78;1;Medio;Baixo;2023
+COL-197;Rafael Araujo Moraes;M;36;Casado(a);Superior Completo;Desenvolvedor(a) Plataforma EAD Sr;TI e Plataforma EAD;Senior;2.5;8949;CLT;4.1;70;89;3;Baixo;Alto;2022
+COL-198;Lucas Rocha Carvalho;F;48;Uniao Estavel;Mestrado;Desenvolvedor(a) Plataforma EAD Sr;TI e Plataforma EAD;Senior;2.0;8200;CLT;3.6;30;94;4;Medio;Medio;2022
+COL-199;Elisa Braga Braga;F;38;Solteiro(a);Superior Completo;Suporte Tecnico EAD Pleno;TI e Plataforma EAD;Pleno;4.7;4687;PJ;3.7;20;69;4;Medio;Medio;2022
+COL-200;Nubia Araujo Peixoto;M;24;Uniao Estavel;Superior Incompleto;Estagiario(a) de TI;TI e Plataforma EAD;Estagio;0.5;1510;Estagio;4.4;50;89;4;Baixo;Medio;2026

@@ -1,0 +1,28 @@
+﻿TALENTAR - PERFIL DEMOGRAFICO E PROFISSIONAL (para graficos)
+Dimensao;Categoria;Qtd;%
+Sexo;Masculino;76;38.0%
+Sexo;Feminino;124;62.0%
+Faixa Etaria;19-25 anos;29;14.5%
+Faixa Etaria;26-32 anos;70;35.0%
+Faixa Etaria;33-40 anos;61;30.5%
+Faixa Etaria;41-50 anos;37;18.5%
+Faixa Etaria;51+ anos;3;1.5%
+Escolaridade;Superior Completo;77;38.5%
+Escolaridade;MBA/Pos-graduacao;72;36.0%
+Escolaridade;Superior Incompleto;30;15.0%
+Escolaridade;Mestrado;14;7.0%
+Escolaridade;Tecnico;7;3.5%
+Contrato;CLT;151;75.5%
+Contrato;PJ;24;12.0%
+Contrato;CLT Flex;15;7.5%
+Contrato;Estagio;10;5.0%
+Risco Turnover;Baixo;110;55.0%
+Risco Turnover;Medio;74;37.0%
+Risco Turnover;Alto;16;8.0%
+Potencial Lideranca;Medio;112;56.0%
+Potencial Lideranca;Baixo;44;22.0%
+Potencial Lideranca;Alto;44;22.0%
+Estado Civil;Solteiro(a);99;49.5%
+Estado Civil;Casado(a);65;32.5%
+Estado Civil;Uniao Estavel;19;9.5%
+Estado Civil;Divorciado(a);17;8.5%

@@ -1,0 +1,42 @@
+﻿TALENTAR - TALENTOS (alto potencial) E ATENCAO (alto risco) - nomes ficticios
+
+=== GRUPO 1: TALENTOS PARA SUCESSAO (Alto potencial + Avaliacao >=4.2) ===
+ID;Cargo;Departamento;Nivel;Avaliacao;Engajamento%;Horas Trein.;Tempo casa
+COL-061;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;5;87;40;1.8
+COL-171;Analista de Marketing Digital Pleno;Marketing e Growth;Pleno;5;90;80;1.7
+COL-144;Analista de Assessment Pleno;Psicologia Organizacional e Avaliacao;Pleno;4.9;85;60;2.1
+COL-036;Coordenador(a) de Operacoes;Operacoes e CX;Coordenacao;4.8;86;110;5.2
+COL-009;Gerente de Facilitacao Corporativa;Facilitacao e Instrutoria Corporativa;Gerencia;4.7;92;60;9.1
+COL-178;Analista de CRM Sr;Marketing e Growth;Senior;4.7;87;60;3.7
+COL-057;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;4.6;68;120;2.3
+COL-143;Psicologo(a) Organizacional Sr;Psicologia Organizacional e Avaliacao;Senior;4.6;82;40;6.5
+COL-177;Analista de CRM Sr;Marketing e Growth;Senior;4.6;97;110;6.6
+COL-075;Roteirista Educacional Pleno;Design Instrucional e Conteudo EAD;Pleno;4.5;87;50;4.5
+COL-134;Assistente de Projetos Jr;Consultoria em Desenvolvimento de Equipes;Junior;4.5;81;80;2.1
+COL-028;Coordenador(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Coordenacao;4.4;70;70;3.8
+COL-029;Coordenador(a) de Consultoria;Consultoria em Desenvolvimento de Equipes;Coordenacao;4.4;82;40;6.9
+COL-104;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;4.4;76;80;4.1
+COL-017;Coordenador(a) de Coaching;Academia de Lideranca e Coaching;Coordenacao;4.3;75;60;5.3
+COL-053;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;4.3;86;40;2.3
+COL-097;Facilitador(a) Corporativo Pleno;Facilitacao e Instrutoria Corporativa;Pleno;4.3;85;40;3.8
+COL-158;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;4.2;69;30;2.4
+COL-187;Assistente Operacional Jr;Operacoes e CX;Junior;4.2;77;80;1.2
+
+=== GRUPO 2: ATENCAO RETENCAO (Risco Alto) ===
+ID;Cargo;Departamento;Nivel;Avaliacao;Engajamento%;Absenteismo dias;Tempo casa
+COL-050;Mentor(a) de Lideres Pleno;Academia de Lideranca e Coaching;Pleno;2.8;46;2;3.2
+COL-011;Gerente Comercial B2B;Comercial e Vendas B2B;Gerencia;2.8;52;9;3.9
+COL-059;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.9;52;10;2.7
+COL-068;Designer Instrucional Sr;Design Instrucional e Conteudo EAD;Senior;3.3;55;10;4.2
+COL-108;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;2.8;55;3;1.6
+COL-056;Facilitador(a) de Lideranca Jr;Academia de Lideranca e Coaching;Junior;2.8;56;3;2.0
+COL-184;Analista de Sucesso do Cliente Pleno;Operacoes e CX;Pleno;3.1;57;7;0.8
+COL-110;Assistente de Treinamento Jr;Facilitacao e Instrutoria Corporativa;Junior;3.4;59;10;1.7
+COL-128;Analista de Diagnostico Organizacional Pl;Consultoria em Desenvolvimento de Equipes;Pleno;2.7;59;4;5.0
+COL-153;Consultor(a) Comercial Sr;Comercial e Vendas B2B;Senior;3.3;59;2;5.7
+COL-162;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;3.2;59;4;2.0
+COL-167;Estagiario(a) Comercial;Comercial e Vendas B2B;Estagio;3.3;60;3;0.6
+COL-168;Estagiario(a) Comercial;Comercial e Vendas B2B;Estagio;3.4;62;6;0.5
+COL-185;Assistente Operacional Jr;Operacoes e CX;Junior;3.1;62;1;1.6
+COL-157;Executivo(a) de Contas Pleno;Comercial e Vendas B2B;Pleno;3.4;63;4;1.8
+COL-086;Revisor(a) Pedagogico Pleno;Design Instrucional e Conteudo EAD;Pleno;2.7;64;4;1.9
