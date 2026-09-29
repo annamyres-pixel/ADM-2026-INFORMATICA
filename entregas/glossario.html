@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olimpo da Administração — Glossário dos 12 Conceitos</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #0b1026 url('') no-repeat;
+    background-image: radial-gradient(ellipse at top, #2b3a67 0%, #0b1026 60%, #060913 100%);
+    color: #1f2937; min-height: 100vh;
+  }
+  .hero {
+    text-align: center; padding: 44px 20px 26px 20px; color: #fde68a;
+    border-bottom: 3px solid #c9a227;
+    background: linear-gradient(180deg, rgba(201,162,39,.18), transparent);
+  }
+  .hero .templo { font-size: 3rem; margin: 0; letter-spacing: 8px; }
+  .hero h1 { margin: 8px 0 4px 0; font-size: 2.4rem; letter-spacing: 2px; color: #fef3c7; text-shadow: 0 2px 10px #000; }
+  .hero h1 span { color: #fbbf24; }
+  .hero p { margin: 6px auto 0 auto; max-width: 760px; color: #e7d8a8; font-style: italic; font-size: 1.05rem; }
+  .hero .pilastras { font-size: 1.4rem; letter-spacing: 12px; color: #c9a227; margin-top: 10px; }
+  .container { max-width: 1150px; margin: -10px auto 30px auto; padding: 0 18px 30px 18px; }
+  . Olimpo-grid, .olimo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 22px 0; }
+  .god-card {
+    background: linear-gradient(180deg, #fffbeb, #fef3c7);
+    border: 2px solid #c9a227; border-radius: 14px; padding: 12px 8px; text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,.4);
+  }
+  .god-card .emoji { font-size: 2.2rem; }
+  .god-card h3 { margin: 6px 0 2px 0; font-size: 1rem; color: #7c2d12; }
+  .god-card small { color: #6b7280; font-family: Arial, sans-serif; font-size: .78rem; }
+  .god-card .area { display: inline-block; margin-top: 6px; font-family: Arial, sans-serif; font-size: .75rem; font-weight: bold; padding: 3px 10px; border-radius: 999px; color: #fff; }
+  .fin { background: #047857; } .mkt { background: #be185d; } .rh { background: #1d4ed8; } .op { background: #b45309; } .pub { background: #4c1d95; }
+  .filters { text-align: center; margin: 16px 0; font-family: Arial, sans-serif; }
+  .filters button {
+    border: 2px solid #c9a227; background: #111a38; color: #fde68a; padding: 8px 14px; margin: 4px;
+    border-radius: 999px; cursor: pointer; font-weight: bold;
+  }
+  .filters button.active, .filters button:hover { background: #c9a227; color: #111a38; }
+  .table-wrap { background: #fffdf5; border: 3px solid #c9a227; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.5); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .94rem; font-family: Arial, Helvetica, sans-serif; min-width: 800px; }
+  thead th { background-color: #141a33; color: #fbbf24; text-align: left; padding: 14px 12px; border: 1px solid #141a33; font-family: Georgia, serif; letter-spacing: .5px; white-space: nowrap; }
+  tbody td { padding: 11px 12px; border: 1px solid #e5d9a8; vertical-align: top; }
+  tbody tr:nth-child(odd) { background-color: #fffdf5; }
+  tbody tr:nth-child(even) { background-color: #fef3c7; }
+  tbody tr:hover { background-color: #fde68a !important; }
+  .deus { font-size: 1.5rem; text-align: center; }
+  .tag { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .78rem; font-weight: bold; color: #fff; white-space: nowrap; }
+  .conceito { font-family: Georgia, serif; color: #431407; }
+  footer { text-align: center; color: #d6c48a; font-size: .85rem; margin: 18px 0 30px 0; font-family: Arial, sans-serif; }
+  @media (max-width: 900px) { .olimo-grid { grid-template-columns: repeat(2, 1fr); } .hero h1 { font-size: 1.7rem; } }
+</style>
+</head>
+<body>
+<div class="hero">
+  <p class="templo">🏛️ Ω 🏛️</p>
+  <h1>OLIMPO DA <span>ADMINISTRAÇÃO</span></h1>
+  <p>Glossário dos 12 Conceitos Sagrados — guardados pelos deuses, aplicados no Brasil</p>
+  <div class="pilastras">Ι Ι Ι Ι Ι Ι Ι Ι Ι</div>
+</div>
+<div class="container">
+  <div class="olimo-grid">
+    <div class="god-card"><div class="emoji">💰</div><h3>PLUTOS</h3><small>deus da riqueza</small><br><span class="area fin">Finanças • 3</span></div>
+    <div class="god-card"><div class="emoji">💘</div><h3>AFRODITE</h3><small>deusa da atração</small><br><span class="area mkt">Marketing • 3</span></div>
+    <div class="god-card"><div class="emoji">🦉</div><h3>ATENA</h3><small>deusa da sabedoria</small><br><span class="area rh">RH • 2</span></div>
+    <div class="god-card"><div class="emoji">🔥</div><h3>HEFESTO</h3><small>deus da forja</small><br><span class="area op">Operações • 2</span></div>
+    <div class="god-card"><div class="emoji">⚡</div><h3>ZEUS</h3><small>deus da lei e ordem</small><br><span class="area pub">Gestão Pública • 2</span></div>
+  </div>
+  <div class="filters">
+    <button class="active" onclick="filtrar('todos',this)">🏛️ Todos</button>
+    <button onclick="filtrar('Finanças',this)">💰 Finanças</button>
+    <button onclick="filtrar('Marketing',this)">💘 Marketing</button>
+    <button onclick="filtrar('Recursos Humanos',this)">🦉 RH</button>
+    <button onclick="filtrar('Operações',this)">🔥 Operações</button>
+    <button onclick="filtrar('Gestão Pública',this)">⚡ Gestão Pública</button>
+  </div>
+  <div class="table-wrap">
+  <table id="tabela">
+  <thead>
+  <tr><th>⚡ #</th><th>Patrono</th><th>Conceito</th><th>Definição</th><th>Subárea</th><th>Exemplo Brasileiro 🇧🇷</th></tr>
+  </thead>
+  <tbody>
+  <tr data-area="Finanças"><td>1</td><td class="deus" title="Plutos">💰</td><td class="conceito"><strong>Fluxo de Caixa</strong></td><td>Registro das entradas e saídas de dinheiro da empresa em um período. Permite avaliar a liquidez e planejar pagamentos e investimentos.</td><td><span class="tag fin">Finanças</span></td><td>Padaria em São Paulo que controla diariamente vendas no Pix e pagamento de fornecedores para evitar ficar sem caixa.</td></tr>
+  <tr data-area="Finanças"><td>2</td><td class="deus" title="Plutos">💰</td><td class="conceito"><strong>Capital de Giro</strong></td><td>Recursos financeiros necessários para manter a operação diária da empresa. Corresponde à diferença entre ativo circulante e passivo circulante.</td><td><span class="tag fin">Finanças</span></td><td>Lojas Renner mantém capital de giro para pagar estoques e salários enquanto aguarda o recebimento das vendas parceladas.</td></tr>
+  <tr data-area="Finanças"><td>3</td><td class="deus" title="Plutos">💰</td><td class="conceito"><strong>Ponto de Equilíbrio</strong></td><td>Nível de vendas em que receitas totais igualam custos totais, sem lucro nem prejuízo. Acima dele a empresa passa a lucrar.</td><td><span class="tag fin">Finanças</span></td><td>Startup Nubank calculou quantos clientes ativos precisava para cobrir custos fixos de tecnologia e operação.</td></tr>
+  <tr data-area="Marketing"><td>4</td><td class="deus" title="Afrodite">💘</td><td class="conceito"><strong>Segmentação de Mercado</strong></td><td>Divisão do mercado em grupos com características e necessidades semelhantes. Permite direcionar produtos e comunicação com mais eficiência.</td><td><span class="tag mkt">Marketing</span></td><td>Natura segmenta linhas como Natura Ekos para consumidores que valorizam sustentabilidade e ingredientes amazônicos.</td></tr>
+  <tr data-area="Marketing"><td>5</td><td class="deus" title="Afrodite">💘</td><td class="conceito"><strong>Mix de Marketing (4Ps)</strong></td><td>Conjunto de decisões sobre Produto, Preço, Praça e Promoção para atender o mercado-alvo. Integra a oferta da empresa de forma coerente.</td><td><span class="tag mkt">Marketing</span></td><td>Havaianas ajusta produto, preço popular, distribuição nacional e campanhas com celebridades brasileiras.</td></tr>
+  <tr data-area="Marketing"><td>6</td><td class="deus" title="Afrodite">💘</td><td class="conceito"><strong>Posicionamento de Marca</strong></td><td>Imagem e valor que a marca ocupa na mente do consumidor em relação aos concorrentes. É construído por diferenciação consistente.</td><td><span class="tag mkt">Marketing</span></td><td>Itaú se posiciona como banco digital e confiável com o slogan “feito para você” e agências modernizadas.</td></tr>
+  <tr data-area="Recursos Humanos"><td>7</td><td class="deus" title="Atena">🦉</td><td class="conceito"><strong>Turnover</strong></td><td>Índice de rotatividade de funcionários, medido por admissões e desligamentos. Turnover alto eleva custos de recrutamento e perda de conhecimento.</td><td><span class="tag rh">Recursos Humanos</span></td><td>Call centers no Brasil monitoram turnover mensal para reduzir saídas com programas de benefícios e plano de carreira.</td></tr>
+  <tr data-area="Recursos Humanos"><td>8</td><td class="deus" title="Atena">🦉</td><td class="conceito"><strong>Avaliação de Desempenho</strong></td><td>Processo sistemático de medir resultados e comportamentos dos colaboradores frente a metas. Subsidia feedback, promoções e treinamentos.</td><td><span class="tag rh">Recursos Humanos</span></td><td>Embraer aplica avaliação anual por competências para identificar talentos e definir bônus por desempenho.</td></tr>
+  <tr data-area="Operações"><td>9</td><td class="deus" title="Hefesto">🔥</td><td class="conceito"><strong>Just in Time</strong></td><td>Sistema de produção que busca reduzir estoques, produzindo apenas o necessário no momento certo. Exige sincronização com fornecedores e demanda.</td><td><span class="tag op">Operações</span></td><td>Fábrica da Toyota em Sorocaba (SP) recebe peças dos fornecedores no ritmo da linha de montagem.</td></tr>
+  <tr data-area="Operações"><td>10</td><td class="deus" title="Hefesto">🔥</td><td class="conceito"><strong>Cadeia de Suprimentos</strong></td><td>Rede integrada de fornecedores, produção, transporte e distribuição até o cliente final. Sua gestão visa custo, prazo e qualidade.</td><td><span class="tag op">Operações</span></td><td>Ambev gerencia fornecedores de cevada, fábricas, centros de distribuição e entregas para bares em todo o país.</td></tr>
+  <tr data-area="Gestão Pública"><td>11</td><td class="deus" title="Zeus">⚡</td><td class="conceito"><strong>Licitação</strong></td><td>Procedimento administrativo obrigatório para contratação de bens e serviços pelo poder público. Garante isonomia, transparência e melhor proposta.</td><td><span class="tag pub">Gestão Pública</span></td><td>Prefeitura de Curitiba faz pregão eletrônico (Lei nº 14.133/2021) para comprar merenda escolar.</td></tr>
+  <tr data-area="Gestão Pública"><td>12</td><td class="deus" title="Zeus">⚡</td><td class="conceito"><strong>Orçamento Público (LOA)</strong></td><td>Lei que estima receitas e fixa despesas do governo para um ano. Orienta a execução de políticas públicas e o controle fiscal.</td><td><span class="tag pub">Gestão Pública</span></td><td>Governo Federal executa a LOA anual para destinar recursos ao SUS e ao Bolsa Família.</td></tr>
+  </tbody>
+  </table>
+  </div>
+</div>
+<footer>🏛️ Elaborado para fins didáticos — Administração no Olimpo • Página autocontida • Sem dependências externas 🏛️</footer>
+<script>
+function filtrar(area, btn){
+  var rows = document.querySelectorAll('#tabela tbody tr');
+  rows.forEach(function(r){
+    r.style.display = (area==='todos' || r.getAttribute('data-area')===area) ? '' : 'none';
+  });
+  document.querySelectorAll('.filters button').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
