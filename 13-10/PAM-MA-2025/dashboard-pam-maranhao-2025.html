@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PAM 2025 • Maranhão • Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{--green:#1B7A3D;--dark:#0E3B22;--gold:#D9A441;--bg:#F4F7F2;--card:#fff;--muted:#5C6E60;--line:#DDE8DF}
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Inter,Arial,sans-serif;background:var(--bg);color:#132A1B}
+nav{position:sticky;top:0;z-index:20;background:rgba(14,59,34,.95);color:#fff;display:flex;gap:14px;align-items:center;padding:12px 20px}
+nav a{color:#CDE8D4;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:8px}
+nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.logo{font-weight:800}.spacer{flex:1}.btn{background:var(--gold);border:0;padding:10px 16px;border-radius:10px;font-weight:800;cursor:pointer}
+.hero{background:linear-gradient(120deg,#0E3B22 10%,#1B7A3D 60%,#3FA65A 100%);color:#fff;padding:44px 22px 60px}
+.hero-inner{max-width:1150px;margin:auto}.eyebrow{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:999px;font-size:12px}
+h1{font-size:38px;margin:12px 0 8px}.sub{color:#D8EDDD;max-width:700px}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:999px;font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;max-width:1150px;margin:-30px auto 10px;padding:0 22px;position:relative;z-index:5}
+.kpi{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 8px 24px rgba(14,59,34,.12);border-top:4px solid var(--green)}
+.kpi small{color:var(--muted);font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.kpi b{font-size:24px;display:block;color:var(--dark)}.kpi span{font-size:12px;color:var(--muted)}
+section{max-width:1150px;margin:18px auto;padding:0 22px}.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(14,59,34,.08);margin-bottom:16px}
+h2{color:var(--dark);margin:4px 0}.p-sub{color:var(--muted);margin:0 0 12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+canvas.chart{max-height:320px}table{width:100%;border-collapse:collapse;font-size:13px}th{background:var(--dark);color:#fff;padding:10px;position:sticky;top:0}td{padding:8px;border-bottom:1px solid var(--line);text-align:right}td:first-child,th:first-child{text-align:left}.tablewrap{max-height:440px;overflow:auto;border:1px solid var(--line);border-radius:12px}
+tr:hover td{background:#EFF6F0}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}select,input{padding:10px;border-radius:10px;border:1.5px solid #BDD4C1}footer{background:var(--dark);color:#9FC3AA;text-align:center;padding:20px;font-size:13px;margin-top:20px}.legend{font-size:12px;color:var(--muted)}.bar{display:flex;align-items:center;gap:8px}.bar>div{height:10px;background:var(--green);border-radius:99px}
+</style>
+</head>
+<body>
+<nav><div class="logo">🌾 PAM 2025 • MARANHÃO</div><a href="#visao">Visão</a><a href="#valor">Valor</a><a href="#producao">Produção</a><a href="#rend">Rendimento</a><a href="#tabela">Tabela</a><div class="spacer"></div><button class="btn" onclick="baixarCSV()">⬇ Baixar CSV</button></nav>
+<header class="hero"><div class="hero-inner">
+<div class="eyebrow">IBGE • PRODUÇÃO AGRÍCOLA MUNICIPAL • API SIDRA TABELA 5457 • n3/21 • ANO 2025</div>
+<h1>Maranhão agrícola: soja + milho = 85% do valor</h1>
+<p class="sub">Dashboard a partir da API do IBGE. Último período disponível <b>p/last = 2025</b> (liberado em 01/10/2026). Valores em Mil Reais, quantidade em toneladas, área em hectares.</p>
+<div class="chips"><div class="chip">💰 R$ 13,9 bi valor total</div><div class="chip">🌱 2,19 mi ha colhidos</div><div class="chip">🫘 Soja 4,42 Mt • 64% valor</div><div class="chip">🌽 Milho 2,71 Mt • 21,4%</div><div class="chip">📈 Milho +13,8% vs 2024</div></div>
+</div></header>
+
+<div class="kpis" id="visao">
+<div class="kpi"><small>Valor total 2025</small><b>R$ 13,94 bi</b><span>13.936.879 mil reais</span></div>
+<div class="kpi"><small>Área colhida</small><b>2,19 mi ha</b><span>2.186.503 ha</span></div>
+<div class="kpi"><small>Soja</small><b>R$ 8,92 bi</b><span>4.423.088 t • 64,0%</span></div>
+<div class="kpi"><small>Milho</small><b>R$ 2,98 bi</b><span>2.712.134 t • 21,4%</span></div>
+<div class="kpi"><small>Cana</small><b>R$ 779 mi</b><span>2.583.724 t • +54% valor vs 24</span></div>
+<div class="kpi"><small>Concentração Top2</small><b>85,4%</b><span>soja+milho do valor</span></div>
+</div>
+
+<section id="valor"><div class="card">
+<h2>💰 Valor da produção por produto — Top 10</h2>
+<p class="p-sub">Mil Reais • 2025 • Maranhão. Filtro interativo abaixo.</p>
+<div class="toolbar"><label>Ordenar: <select id="ordValor" onchange="renderValor()"><option value="valor">por valor</option><option value="qtd">por quantidade</option><option value="area">por área</option></select></label></div>
+<canvas class="chart" id="chValor"></canvas>
+<p class="legend">Fonte: apisidra.ibge.gov.br/values/t/5457/n3/21/v/215/p/2025/c782/all — Total 13.936.879</p>
+</div></section>
+
+<section class="grid2" id="producao">
+<div class="card"><h2>⚖️ Quantidade produzida (t)</h2><p class="p-sub">Top 8 — cana pesa em toneladas mas vale menos por t</p><canvas class="chart" id="chQtd"></canvas></div>
+<div class="card"><h2>🌱 Área colhida (ha)</h2><p class="p-sub">Soja 62,8% + Milho 24,5% = 87,3% da área</p><canvas class="chart" id="chArea"></canvas></div>
+</section>
+
+<section class="grid2">
+<div class="card"><h2>📊 2024 → 2025 variação % quantidade</h2><p class="p-sub">Soja +8,6% • Milho +13,8% • Cana -4,5% • Arroz +1,7%</p><canvas class="chart" id="chYoY"></canvas></div>
+<div class="card" id="rend"><h2>🚜 Rendimento médio (kg/ha)</h2><p class="p-sub">Milho 5.059 supera soja 3.221; feijão 654 ilustra dualidade tecnológica</p><canvas class="chart" id="chRend"></canvas></div>
+</section>
+
+<section id="tabela"><div class="card">
+<h2>📋 Tabela completa MA 2025</h2>
+<p class="p-sub">Busque, clique no cabeçalho para ordenar. Abacaxi* em mil frutos convertido; Total sem soma em qtd/rend.</p>
+<div class="toolbar"><input id="busca" placeholder="🔎 buscar produto... ex: mandioca" oninput="renderTabela()" style="flex:1"/></div>
+<div class="tablewrap"><table><thead><tr><th onclick="ordenar('prod')">Produto ▲▼</th><th onclick="ordenar('valor')">Valor mil R$</th><th onclick="ordenar('pct')">% valor</th><th onclick="ordenar('qtd')">Qtd t</th><th onclick="ordenar('area')">Área ha</th><th onclick="ordenar('rend')">Rend kg/ha</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<p class="legend">API: /t/5457/n3/21/v/214,215,216,8331,112/p/2025/c782/all — “-” sem produção, “...” série encerrada/não se aplica. Dados preliminares do último ano.</p>
+</div>
+<div class="card"><h2>📌 Leitura executiva</h2>
+<ul style="line-height:1.7;font-size:14px">
+<li><b>Modelo MATOPIBA:</b> fronteira de grãos no sul domina valor e área. Sensível a preço de soja/milho e clima.</li>
+<li><b>Cana:</b> caiu -4,5% em volume mas +54% em valor (505→779 mi) — efeito preço.</li>
+<li><b>Arroz (-21,5% valor) e mandioca (-7,1%)</b> mesmo com volume estável — queda de preço ao produtor, alerta para segurança alimentar.</li>
+<li><b>Feijão:</b> 44,8 mil ha para só 29,3 mil t (654 kg/ha) vs soja 3.221 — baixa tecnologia.</li>
+<li><b>Permanentes:</b> só 2,5% do valor (banana, açaí, castanha). Oportunidade diversificação/fruticultura.</li>
+<li><b>Novos produtos PAM 2025</b> (abóbora, pimentão, alface, etc.) ainda zerados no MA — fronteira de coleta.</li>
+</ul>
+</div></section>
+
+<footer>ADM-2026-INFORMÁTICA • PAM-MA-2025 • Dados: IBGE SIDRA Tabela 5457 • Descritor: apisidra.ibge.gov.br/DescritoresTabela/t/5457 • Período 1974 a 2025 • Acesso out/2026</footer>
+
+<script>
+const DADOS=[
+{prod:"Soja (em grão)",valor:8921025,qtd:4423088,area:1373014,rend:3221},
+{prod:"Milho (em grão)",valor:2975809,qtd:2712134,area:536066,rend:5059},
+{prod:"Cana-de-açúcar",valor:778886,qtd:2583724,area:45890,rend:56303},
+{prod:"Arroz (em casca)",valor:305535,qtd:180334,area:73590,rend:2451},
+{prod:"Algodão herbáceo (em caroço)",valor:299591,qtd:135690,area:32996,rend:4112},
+{prod:"Mandioca",valor:230614,qtd:370376,area:47052,rend:7872},
+{prod:"Banana (cacho)",valor:139008,qtd:78718,area:4682,rend:16813},
+{prod:"Feijão (em grão)",valor:121969,qtd:29310,area:44795,rend:654},
+{prod:"Abacaxi*",valor:69234,qtd:38428,area:1744,rend:22037},
+{prod:"Melancia",valor:35735,qtd:25763,area:1240,rend:20777},
+{prod:"Sorgo (em grão)",valor:18847,qtd:32592,area:14773,rend:2206},
+{prod:"Tomate",valor:13712,qtd:3502,area:0,rend:0},
+{prod:"Açaí",valor:8480,qtd:2353,area:621,rend:3789},
+{prod:"Castanha de caju",valor:7623,qtd:2650,area:7683,rend:345},
+{prod:"Coco-da-baía*",valor:4748,qtd:5092,area:1139,rend:4471},
+{prod:"Fava (em grão)",valor:1732,qtd:114,area:435,rend:262},
+{prod:"Mamão",valor:1452,qtd:619,area:0,rend:0},
+{prod:"Limão",valor:663,qtd:340,area:0,rend:0},
+{prod:"Maracujá",valor:580,qtd:171,area:0,rend:0},
+{prod:"Amendoim (em casca)",valor:473,qtd:162,area:0,rend:0},
+{prod:"Manga",valor:420,qtd:433,area:0,rend:0},
+{prod:"Borracha (látex coagulado)",valor:364,qtd:111,area:0,rend:0},
+{prod:"Laranja",valor:124,qtd:185,area:0,rend:0},
+{prod:"Abóbora",valor:68,qtd:41,area:7,rend:5857},
+{prod:"Melão",valor:56,qtd:28,area:0,rend:0},
+{prod:"Cacau (em amêndoa)",valor:50,qtd:1,area:0,rend:0},
+{prod:"Pimenta-do-reino",valor:41,qtd:6,area:0,rend:0},
+{prod:"Batata-doce",valor:36,qtd:9,area:0,rend:0},
+{prod:"Goiaba",valor:4,qtd:1,area:0,rend:0}
+];
+const TOTAL_VAL=13936879;
+let chV,chQ,chA,chY,chR,ordCol='valor',ordAsc=false;
+const fmt=n=>n.toLocaleString('pt-BR');
+DADOS.forEach(d=>d.pct=+(d.valor/TOTAL_VAL*100).toFixed(2));
+
+function renderValor(){
+ const modo=document.getElementById('ordValor').value;
+ const top=[...DADOS].sort((a,b)=>b[modo]-a[modo]).slice(0,10);
+ if(chV)chV.destroy();
+ chV=new Chart(document.getElementById('chValor'),{type:'bar',
+ data:{labels:top.map(d=>d.prod),datasets:[{label:'Mil Reais',data:top.map(d=>d.valor),backgroundColor:'#1B7A3D'}]},
+ options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>'R$ '+(v/1000000).toFixed(1)+' bi'}}}}});
+}
+function renderFixos(){
+ const top=DADOS.slice(0,8);
+ chQ=new Chart(document.getElementById('chQtd'),{type:'bar',data:{labels:top.map(d=>d.prod),datasets:[{label:'toneladas',data:top.map(d=>d.qtd),backgroundColor:['#1B7A3D','#D9A441','#3FA65A','#0E3B22','#7AB8FF','#FF9F43','#22B07D','#5C6E60']}]},options:{plugins:{legend:{display:false}}}});
+ chA=new Chart(document.getElementById('chArea'),{type:'doughnut',data:{labels:top.map(d=>d.prod),datasets:[{data:top.map(d=>d.area),backgroundColor:['#0E3B22','#1B7A3D','#D9A441','#3FA65A','#7AB8FF','#FF9F43','#FF5A5A','#5C6E60']}]},options:{plugins:{legend:{position:'right'}}}});
+ chY=new Chart(document.getElementById('chYoY'),{type:'bar',data:{labels:['Soja','Milho','Cana','Arroz','Algodão','Mandioca'],datasets:[{label:'% 2024→2025 qtd',data:[8.6,13.8,-4.5,1.7,1.4,-2.0],backgroundColor:c=>c.raw>=0?'#1B7A3D':'#C0392B'}]},options:{plugins:{legend:{display:false}}}});
+ const r=[...DADOS].filter(d=>['Soja (em grão)','Milho (em grão)','Algodão herbáceo (em caroço)','Arroz (em casca)','Feijão (em grão)','Mandioca','Sorgo (em grão)'].includes(d.prod));
+ chR=new Chart(document.getElementById('chRend'),{type:'bar',data:{labels:r.map(d=>d.prod.replace(' (em grão)','').replace(' (em casca)','')),datasets:[{label:'kg/ha',data:r.map(d=>d.rend),backgroundColor:'#D9A441'}]},options:{plugins:{legend:{display:false}}}});
+}
+function ordenar(c){if(ordCol===c)ordAsc=!ordAsc;else{ordCol=c;ordAsc=false;}renderTabela();}
+function renderTabela(){
+ const q=document.getElementById('busca').value.toLowerCase();
+ let rows=DADOS.filter(d=>d.prod.toLowerCase().includes(q));
+ rows.sort((a,b)=>ordAsc?a[ordCol]-b[ordCol]:b[ordCol]-a[ordCol]);
+ if(typeof rows[0][ordCol]==='string')rows.sort((a,b)=>ordAsc?a.prod.localeCompare(b.prod):b.prod.localeCompare(a.prod));
+ document.getElementById('tbody').innerHTML=rows.map(d=>`<tr><td>${d.prod}</td><td>${fmt(d.valor)}</td><td>${d.pct}%<div class="bar"><div style="width:${Math.min(d.pct*1.5,100)}%"></div></div></td><td>${fmt(d.qtd)}</td><td>${fmt(d.area)}</td><td>${fmt(d.rend)}</td></tr>`).join('');
+}
+function baixarCSV(){
+ const csv='produto;valor_mil_reais;pct_valor;qtd_t;area_ha;rend_kg_ha\n'+DADOS.map(d=>[d.prod,d.valor,d.pct,d.qtd,d.area,d.rend].join(';')).join('\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='pam2025_maranhao.csv';a.click();
+}
+renderValor();renderFixos();renderTabela();
+</script>
+</body>
+</html>
