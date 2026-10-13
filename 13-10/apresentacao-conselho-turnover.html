@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechNorte — Turnover na Visão do RH | Conselho</title>
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#111c33; --card:#16233f; --card2:#1c2d4f;
+    --line:#2a3d66; --txt:#eaf0ff; --muted:#9fb0d0;
+    --teal:#2dd4bf; --gold:#f5b942; --red:#fb7185; --blue:#60a5fa; --green:#34d399;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(1200px 600px at 80% -10%,#1e3a5f 0%,var(--bg) 55%) fixed, var(--bg);color:var(--txt);font-family:"Segoe UI",Inter,system-ui,Arial,sans-serif;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px 60px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--teal),#0ea5e9);display:grid;place-items:center;font-weight:900;font-size:22px;color:#06202b;box-shadow:0 8px 30px rgba(45,212,191,.35)}
+  .brand small{color:var(--muted);letter-spacing:.18em;font-size:11px;text-transform:uppercase}
+  .brand h1{font-size:22px;line-height:1.1}
+  .badge{background:rgba(245,185,66,.14);border:1px solid var(--gold);color:var(--gold);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.08em}
+  .hero{background:linear-gradient(135deg,#16294d 0%,#0f1f3d 60%,#0e2a33 100%);border:1px solid var(--line);border-radius:20px;padding:30px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;overflow:hidden;position:relative}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(45,212,191,.25),transparent 70%)}
+  .hero h2{font-size:38px;line-height:1.05;margin:10px 0 12px}
+  .hero h2 span{color:var(--teal)}
+  .hero p{color:var(--muted);max-width:52ch}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .pill{font-size:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);padding:7px 12px;border-radius:999px}
+  .hero-card{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .hero-card h3{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}
+  .kpi{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:18px;position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--teal))}
+  .kpi small{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+  .kpi strong{display:block;font-size:32px;margin:6px 0 2px}
+  .kpi span{font-size:13px;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px}
+  .card h3{font-size:15px;margin-bottom:4px}
+  .card p.sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{color:var(--muted);text-align:left;font-weight:600;padding:8px;border-bottom:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  td{padding:8px;border-bottom:1px solid rgba(42,61,102,.6)}
+  tr.hl td{background:rgba(251,113,133,.12);font-weight:700}
+  tr:hover td{background:rgba(45,212,191,.07)}
+  .bar-row{display:grid;grid-template-columns:150px 1fr 58px;align-items:center;gap:10px;margin:9px 0;font-size:13px}
+  .bar{height:12px;background:#0e1a33;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+  .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--blue));animation:grow 1.2s ease}
+  @keyframes grow{from{width:0}}
+  .donut-wrap{display:flex;gap:18px;align-items:center}
+  .legend{font-size:13px;display:grid;gap:8px}
+  .dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:middle}
+  .actions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .act{background:linear-gradient(180deg,#1a2c52,#13233f);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .act .num{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;background:var(--teal);color:#06202b;margin-bottom:10px}
+  .act h4{margin-bottom:8px;font-size:15px}
+  .act p{font-size:13px;color:var(--muted)}
+  .act .meta{margin-top:12px;font-size:12px;display:grid;gap:4px;border-top:1px dashed var(--line);padding-top:10px}
+  .formula{background:#071120;border:1px dashed var(--teal);border-radius:12px;padding:14px;font-family:Consolas,monospace;font-size:13px;color:var(--teal);margin:10px 0}
+  footer{margin-top:18px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .btn{cursor:pointer;border:0;border-radius:10px;padding:10px 16px;font-weight:700;background:var(--teal);color:#06202b}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+  @media(max-width:900px){.hero,.grid2,.actions,.kpis{grid-template-columns:1fr}.hero h2{font-size:30px}}
+  @media print{body{background:#fff;color:#111}.card,.kpi,.hero,.act{break-inside:avoid;border-color:#ccc;background:#fff;color:#111}.hero h2 span{color:#0e7490}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">TN</div>
+      <div><small>TechNorte Soluções • DECC0294 / ADM-2026</small><h1>Turnover na Visão do RH</h1></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <span class="badge">RASCUNHO — REUNIÃO DO CONSELHO</span>
+      <button class="btn ghost" onclick="window.print()">🖨️ Imprimir / PDF</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div>
+      <small style="color:var(--teal);letter-spacing:.2em;font-weight:800">JAN–DEZ 2025 • 12 MESES • n=103 DESLIGAMENTOS</small>
+      <h2>O problema não é contratar.<br><span>É perder rápido demais.</span></h2>
+      <p>62,1% das saídas são <b style="color:#fff">voluntárias</b> e <b style="color:#fff">50,5% acontecem em até 6 meses</b>. Operações e Comercial concentram 63% das perdas. Pico de 8,01% em julho exige ação de retenção agora.</p>
+      <div class="pills">
+        <span class="pill">📊 Base: base_mensal + base_desligamentos.csv</span>
+        <span class="pill">📘 Método: Camilo (2026) Solides</span>
+        <span class="pill">🏢 Manaus-Matriz 53,4% das saídas</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Mensagem para o conselho</h3>
+      <div style="font-size:28px;font-weight:900">5,21% <span style="font-size:14px;color:var(--muted);font-weight:400">turnover médio / mês</span></div>
+      <div class="formula">Turnover = ((Adm + Deslig)/2) / HC médio × 100<br>HC médio = MÉDIA(HC início; HC fim)</div>
+      <p style="font-size:13px;color:var(--muted)">Ex. Jul/25: ((14+13)/2)/168,5×100 = <b style="color:#fff">8,01%</b> — validado na aba Memória de Cálculo.</p>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi" style="--accent:var(--teal)"><small>Taxa atual • Dez/25</small><strong>4,17%</strong><span>5 adm • 9 deslig • HC 168</span></div>
+    <div class="kpi" style="--accent:var(--gold)"><small>Pico • Jul/25</small><strong style="color:var(--gold)">8,01%</strong><span>14 adm • 13 deslig • HC 168,5</span></div>
+    <div class="kpi" style="--accent:var(--red)"><small>Voluntário</small><strong style="color:var(--red)">62,1%</strong><span>64 de 103 — pede retenção</span></div>
+    <div class="kpi" style="--accent:var(--blue)"><small>Saída < 6 meses</small><strong style="color:var(--blue)">50,5%</strong><span>52 de 103 — falha onboarding</span></div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="card">
+        <h3>📈 Evolução mensal — tendência de alta até julho</h3>
+        <p class="sub">Subida Jan→Jul, alívio em Set (4,09%), 2º pico em Out (5,60%). Linha = Turnover Camilo %.</p>
+        <svg viewBox="0 0 640 220" width="100%" height="220" role="img" aria-label="Evolução turnover">
+          <line x1="40" y1="10" x2="40" y2="190" stroke="#2a3d66"/><line x1="40" y1="190" x2="630" y2="190" stroke="#2a3d66"/>
+          <text x="5" y="30" fill="#9fb0d0" font-size="11">8%</text><text x="5" y="105" fill="#9fb0d0" font-size="11">5%</text><text x="5" y="180" fill="#9fb0d0" font-size="11">3%</text>
+          <polyline fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linejoin="round" points="40,175 91,177 142,152 193,153 244,118 295,119 346,62 397,110 448,173 499,129 550,143 601,171"/>
+          <circle cx="346" cy="62" r="7" fill="#f5b942" stroke="#0b1220" stroke-width="2"/><text x="318" y="45" fill="#f5b942" font-size="13" font-weight="bold">8,01% JUL</text>
+          <g fill="#9fb0d0" font-size="10"><text x="32" y="204">Jan</text><text x="83" y="204">Fev</text><text x="134" y="204">Mar</text><text x="185" y="204">Abr</text><text x="236" y="204">Mai</text><text x="287" y="204">Jun</text><text x="338" y="204">Jul</text><text x="389" y="204">Ago</text><text x="440" y="204">Set</text><text x="491" y="204">Out</text><text x="542" y="204">Nov</text><text x="593" y="204">Dez</text></g>
+        </svg>
+        <div style="overflow-x:auto;margin-top:8px">
+        <table>
+          <tr><th>Mês</th><th>Adm</th><th>Deslig</th><th>HC méd</th><th>Turnover</th></tr>
+          <tr><td>Jan</td><td>8</td><td>5</td><td>163,5</td><td>3,98%</td></tr>
+          <tr><td>Fev</td><td>6</td><td>7</td><td>164,5</td><td>3,95%</td></tr>
+          <tr><td>Mar</td><td>10</td><td>6</td><td>166,0</td><td>4,82%</td></tr>
+          <tr><td>Abr</td><td>7</td><td>9</td><td>167,0</td><td>4,79%</td></tr>
+          <tr><td>Mai</td><td>12</td><td>8</td><td>168,0</td><td>5,95%</td></tr>
+          <tr><td>Jun</td><td>9</td><td>11</td><td>169,0</td><td>5,92%</td></tr>
+          <tr class="hl"><td>Jul ⚠️</td><td>14</td><td>13</td><td>168,5</td><td>8,01%</td></tr>
+          <tr><td>Ago</td><td>11</td><td>10</td><td>169,5</td><td>6,19%</td></tr>
+          <tr><td>Set</td><td>8</td><td>6</td><td>171,0</td><td>4,09%</td></tr>
+          <tr><td>Out</td><td>7</td><td>12</td><td>169,5</td><td>5,60%</td></tr>
+          <tr><td>Nov</td><td>10</td><td>7</td><td>168,5</td><td>5,04%</td></tr>
+          <tr><td>Dez</td><td>5</td><td>9</td><td>168,0</td><td>4,17%</td></tr>
+        </table>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎯 Onde dói — ranking por área (n=103)</h3>
+        <p class="sub">Operações + Comercial = 65 de 103 saídas (63,1%).</p>
+        <div class="bar-row"><span>Operações</span><div class="bar"><i style="width:37.9%"></i></div><b>39</b></div>
+        <div class="bar-row"><span>Comercial</span><div class="bar"><i style="width:25.2%;background:linear-gradient(90deg,#f5b942,#fb7185)"></i></div><b>26</b></div>
+        <div class="bar-row"><span>TI/Suporte</span><div class="bar"><i style="width:17.5%"></i></div><b>18</b></div>
+        <div class="bar-row"><span>Adm/Financ</span><div class="bar"><i style="width:11.7%"></i></div><b>12</b></div>
+        <div class="bar-row"><span>Logística</span><div class="bar"><i style="width:7.8%"></i></div><b>8</b></div>
+        <p class="sub" style="margin-top:12px">Gestores com mais perdas: M. Lima 20 • G. Souza 19 • L. Farias 18 • Unidades: Manaus-Matriz 55, Filial Distrito 31, Itacoatiara 17.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>⚖️ Voluntário x Involuntário</h3>
+        <p class="sub">Voluntário alto = liderança, carreira, remuneração.</p>
+        <div class="donut-wrap">
+          <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="50" fill="none" stroke="#2a3d66" stroke-width="18"/><circle cx="65" cy="65" r="50" fill="none" stroke="#fb7185" stroke-width="18" stroke-dasharray="195 314" stroke-linecap="round" transform="rotate(-90 65 65)"/><text x="65" y="70" text-anchor="middle" fill="#fff" font-weight="800" font-size="18">62%</text></svg>
+          <div class="legend"><div><span class="dot" style="background:var(--red)"></span>Voluntário <b>64</b> (62,1%)</div><div><span class="dot" style="background:#2a3d66;border:1px solid #fff"></span>Involuntário <b>39</b> (37,9%)</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>⏳ Tempo de casa — alerta onboarding</h3>
+        <p class="sub">70,9% sai com menos de 1 ano.</p>
+        <div class="bar-row"><span>Até 90d</span><div class="bar"><i style="width:28.2%;background:linear-gradient(90deg,#fb7185,#f5b942)"></i></div><b>29</b></div>
+        <div class="bar-row"><span>3–6 m</span><div class="bar"><i style="width:22.3%"></i></div><b>23</b></div>
+        <div class="bar-row"><span>6–12 m</span><div class="bar"><i style="width:20.4%"></i></div><b>21</b></div>
+        <div class="bar-row"><span>1–2 a</span><div class="bar"><i style="width:16.5%"></i></div><b>17</b></div>
+        <div class="bar-row"><span>+2 anos</span><div class="bar"><i style="width:12.6%"></i></div><b>13</b></div>
+      </div>
+      <div class="card">
+        <h3>🏷️ Top motivos</h3>
+        <p class="sub">Falta de plano de carreira lidera (19).</p>
+        <table><tr><th>Motivo</th><th>Qtd</th></tr>
+        <tr><td>Falta plano carreira</td><td><b>19</b></td></tr>
+        <tr><td>Horário/turno</td><td><b>15</b></td></tr>
+        <tr><td>Liderança/clima</td><td><b>11</b></td></tr>
+        <tr><td>Fim contrato temp.</td><td><b>10</b></td></tr>
+        <tr><td>Enxugamento</td><td><b>9</b></td></tr>
+        <tr><td>Conduta / Remun. / Proposta ext.</td><td><b>8/7/7</b></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:var(--teal)">
+    <h3>✅ Plano de retenção — 3 ações para decisão do conselho</h3>
+    <p class="sub">Responsável • prazo • meta • indicador. Acompanhar trimestralmente.</p>
+    <div class="actions">
+      <div class="act"><div class="num">1</div><h4>Onboarding 30/60/90 + buddy</h4><p>Foco Operações e Comercial. Check-ins, trilha de treinamento e mentor para estancar saída &lt;6 meses.</p><div class="meta"><span>👥 RH + G. Souza / R. Alves</span><span>📅 90 dias até Mar/26</span><span>🎯 &lt;6m de 50,5% → &lt;35%</span></div></div>
+      <div class="act"><div class="num" style="background:var(--gold)">2</div><h4>Salário + carreira cargos críticos</h4><p>Revisar faixa de Vendedor, Técnico e Assist. Operacional. Trilha e ajuste de perfil de seleção.</p><div class="meta"><span>👥 RH + Financeiro</span><span>📅 60 dias</span><span>🎯 Voluntário 62,1% → &lt;50%</span></div></div>
+      <div class="act"><div class="num" style="background:var(--blue)">3</div><h4>Liderança na prática</h4><p>1:1, pesquisa pulso e calibragem entre gestores. Nenhum gestor &gt;2 voluntários/trimestre.</p><div class="meta"><span>👥 Diretoria + RH</span><span>📅 120 dias</span><span>🎯 Turnover mensal &lt;4,5%</span></div></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Fonte método: CAMILO, Sabrina (2026) Solides • Arquivos: base_mensal_turnover.csv + base_desligamentos.csv • Planilha completa com fórmulas visíveis</span>
+    <span><b style="color:var(--gold)">PENDENTE:</b> validar exclusão de temporários/estagiários • confirmar enxugamento Out/25 • aprovar metas</span>
+  </footer>
+</div>
+</body>
+</html>

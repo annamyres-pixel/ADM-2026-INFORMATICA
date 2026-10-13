@@ -1,0 +1,104 @@
+﻿ID;Mes_desligamento;Area;Unidade;Gestor;Cargo;Tempo_de_casa;Tipo;Motivo
+COL-001;Jan/25;Operações;Manaus-Matriz;G. Souza;Analista Operacional;3-6 meses;Voluntário;Horário/turno
+COL-002;Jan/25;Operações;Manaus-Matriz;G. Souza;Supervisor;Até 90 dias;Involuntário;Conduta
+COL-003;Jan/25;Comercial;Manaus-Matriz;R. Alves;Vendedor;3-6 meses;Involuntário;Enxugamento
+COL-004;Jan/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;Até 90 dias;Voluntário;Remuneração/benefícios
+COL-005;Jan/25;Comercial;Manaus-Filial Distrito;R. Alves;Vendedor;Acima 2 anos;Involuntário;Enxugamento
+COL-006;Fev/25;Operações;Itacoatiara;M. Lima;Supervisor;1-2 anos;Voluntário;Falta de plano de carreira
+COL-007;Fev/25;Comercial;Manaus-Matriz;P. Costa;Coordenador;Até 90 dias;Voluntário;Liderança/clima
+COL-008;Fev/25;Operações;Manaus-Matriz;M. Lima;Assistente Operacional;Acima 2 anos;Involuntário;Conduta
+COL-009;Fev/25;Comercial;Manaus-Filial Distrito;P. Costa;Vendedor;Até 90 dias;Voluntário;Remuneração/benefícios
+COL-010;Fev/25;Comercial;Manaus-Matriz;R. Alves;Vendedor;Até 90 dias;Involuntário;Enxugamento
+COL-011;Fev/25;Comercial;Itacoatiara;R. Alves;Consultor;3-6 meses;Voluntário;Proposta externa
+COL-012;Fev/25;TI/Suporte;Manaus-Matriz;L. Farias;Suporte N1;3-6 meses;Voluntário;Remuneração/benefícios
+COL-013;Mar/25;TI/Suporte;Manaus-Filial Distrito;L. Farias;Técnico;1-2 anos;Voluntário;Falta de plano de carreira
+COL-014;Mar/25;Operações;Manaus-Filial Distrito;G. Souza;Supervisor;1-2 anos;Voluntário;Horário/turno
+COL-015;Mar/25;Operações;Itacoatiara;G. Souza;Analista Operacional;Até 90 dias;Voluntário;Proposta externa
+COL-016;Mar/25;Administrativo/Financeiro;Itacoatiara;C. Mendes;Analista Financeiro;Acima 2 anos;Voluntário;Liderança/clima
+COL-017;Mar/25;Operações;Manaus-Matriz;G. Souza;Supervisor;Até 90 dias;Voluntário;Horário/turno
+COL-018;Mar/25;Comercial;Manaus-Matriz;P. Costa;Vendedor;3-6 meses;Voluntário;Proposta externa
+COL-019;Abr/25;Operações;Manaus-Matriz;M. Lima;Supervisor;3-6 meses;Involuntário;Fim de contrato temporário
+COL-020;Abr/25;Operações;Manaus-Filial Distrito;M. Lima;Assistente Operacional;1-2 anos;Voluntário;Remuneração/benefícios
+COL-021;Abr/25;Operações;Manaus-Filial Distrito;M. Lima;Assistente Operacional;Até 90 dias;Voluntário;Remuneração/benefícios
+COL-022;Abr/25;Administrativo/Financeiro;Manaus-Matriz;C. Mendes;Auxiliar Adm;3-6 meses;Involuntário;Fim de contrato temporário
+COL-023;Abr/25;Operações;Manaus-Matriz;G. Souza;Supervisor;6-12 meses;Voluntário;Falta de plano de carreira
+COL-024;Abr/25;Comercial;Manaus-Filial Distrito;R. Alves;Vendedor;1-2 anos;Voluntário;Horário/turno
+COL-025;Abr/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;3-6 meses;Voluntário;Proposta externa
+COL-026;Abr/25;Comercial;Itacoatiara;P. Costa;Consultor;Até 90 dias;Involuntário;Performance
+COL-027;Abr/25;Operações;Manaus-Filial Distrito;G. Souza;Analista Operacional;6-12 meses;Involuntário;Performance
+COL-028;Mai/25;Operações;Manaus-Filial Distrito;M. Lima;Assistente Operacional;1-2 anos;Voluntário;Horário/turno
+COL-029;Mai/25;Comercial;Itacoatiara;R. Alves;Coordenador;1-2 anos;Voluntário;Falta de plano de carreira
+COL-030;Mai/25;Comercial;Itacoatiara;R. Alves;Vendedor;6-12 meses;Voluntário;Liderança/clima
+COL-031;Mai/25;Operações;Manaus-Filial Distrito;M. Lima;Assistente Operacional;3-6 meses;Involuntário;Performance
+COL-032;Mai/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;Até 90 dias;Voluntário;Falta de plano de carreira
+COL-033;Mai/25;Administrativo/Financeiro;Itacoatiara;C. Mendes;Analista Financeiro;1-2 anos;Involuntário;Performance
+COL-034;Mai/25;Logística;Manaus-Matriz;J. Rocha;Auxiliar Logística;6-12 meses;Voluntário;Liderança/clima
+COL-035;Mai/25;Administrativo/Financeiro;Manaus-Filial Distrito;C. Mendes;Auxiliar Adm;3-6 meses;Voluntário;Liderança/clima
+COL-036;Jun/25;Administrativo/Financeiro;Itacoatiara;C. Mendes;Analista Financeiro;1-2 anos;Involuntário;Conduta
+COL-037;Jun/25;TI/Suporte;Manaus-Filial Distrito;L. Farias;Analista de Sistemas;3-6 meses;Voluntário;Carga/ritmo
+COL-038;Jun/25;Comercial;Manaus-Matriz;R. Alves;Consultor;1-2 anos;Involuntário;Enxugamento
+COL-039;Jun/25;Operações;Manaus-Matriz;M. Lima;Assistente Operacional;3-6 meses;Involuntário;Fim de contrato temporário
+COL-040;Jun/25;Operações;Manaus-Filial Distrito;M. Lima;Analista Operacional;6-12 meses;Voluntário;Proposta externa
+COL-041;Jun/25;Operações;Manaus-Matriz;G. Souza;Analista Operacional;Até 90 dias;Involuntário;Fim de contrato temporário
+COL-042;Jun/25;Operações;Manaus-Matriz;M. Lima;Assistente Operacional;Até 90 dias;Voluntário;Proposta externa
+COL-043;Jun/25;Comercial;Manaus-Matriz;R. Alves;Vendedor;Acima 2 anos;Voluntário;Falta de plano de carreira
+COL-044;Jun/25;Comercial;Manaus-Filial Distrito;P. Costa;Coordenador;1-2 anos;Voluntário;Remuneração/benefícios
+COL-045;Jun/25;TI/Suporte;Manaus-Matriz;L. Farias;Suporte N1;1-2 anos;Voluntário;Horário/turno
+COL-046;Jun/25;Logística;Manaus-Matriz;J. Rocha;Motorista;3-6 meses;Voluntário;Horário/turno
+COL-047;Jul/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;3-6 meses;Voluntário;Carga/ritmo
+COL-048;Jul/25;Logística;Manaus-Filial Distrito;J. Rocha;Conferente;Acima 2 anos;Involuntário;Conduta
+COL-049;Jul/25;TI/Suporte;Manaus-Matriz;L. Farias;Analista de Sistemas;Acima 2 anos;Voluntário;Carga/ritmo
+COL-050;Jul/25;Administrativo/Financeiro;Manaus-Matriz;C. Mendes;Analista Financeiro;6-12 meses;Voluntário;Liderança/clima
+COL-051;Jul/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;Até 90 dias;Voluntário;Falta de plano de carreira
+COL-052;Jul/25;Operações;Manaus-Matriz;G. Souza;Assistente Operacional;6-12 meses;Voluntário;Horário/turno
+COL-053;Jul/25;Comercial;Manaus-Filial Distrito;R. Alves;Consultor;Até 90 dias;Involuntário;Enxugamento
+COL-054;Jul/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;6-12 meses;Voluntário;Liderança/clima
+COL-055;Jul/25;Operações;Manaus-Matriz;G. Souza;Assistente Operacional;Até 90 dias;Voluntário;Liderança/clima
+COL-056;Jul/25;Operações;Manaus-Matriz;G. Souza;Supervisor;Acima 2 anos;Voluntário;Falta de plano de carreira
+COL-057;Jul/25;Operações;Manaus-Filial Distrito;G. Souza;Supervisor;3-6 meses;Voluntário;Horário/turno
+COL-058;Jul/25;Logística;Manaus-Matriz;J. Rocha;Motorista;Acima 2 anos;Voluntário;Falta de plano de carreira
+COL-059;Jul/25;Administrativo/Financeiro;Manaus-Filial Distrito;C. Mendes;Auxiliar Adm;Até 90 dias;Voluntário;Horário/turno
+COL-060;Ago/25;Operações;Manaus-Matriz;M. Lima;Assistente Operacional;3-6 meses;Involuntário;Reestruturação
+COL-061;Ago/25;Operações;Manaus-Matriz;M. Lima;Assistente Operacional;1-2 anos;Voluntário;Liderança/clima
+COL-062;Ago/25;Comercial;Itacoatiara;P. Costa;Coordenador;1-2 anos;Voluntário;Falta de plano de carreira
+COL-063;Ago/25;TI/Suporte;Manaus-Filial Distrito;L. Farias;Técnico;Até 90 dias;Voluntário;Falta de plano de carreira
+COL-064;Ago/25;Operações;Manaus-Filial Distrito;G. Souza;Analista Operacional;6-12 meses;Involuntário;Enxugamento
+COL-065;Ago/25;Logística;Manaus-Filial Distrito;J. Rocha;Motorista;3-6 meses;Involuntário;Conduta
+COL-066;Ago/25;Operações;Manaus-Filial Distrito;M. Lima;Supervisor;6-12 meses;Involuntário;Fim de contrato temporário
+COL-067;Ago/25;Operações;Manaus-Filial Distrito;G. Souza;Analista Operacional;6-12 meses;Involuntário;Fim de contrato temporário
+COL-068;Ago/25;Comercial;Manaus-Matriz;P. Costa;Consultor;Até 90 dias;Voluntário;Liderança/clima
+COL-069;Ago/25;Comercial;Manaus-Matriz;R. Alves;Vendedor;Até 90 dias;Involuntário;Enxugamento
+COL-070;Set/25;Comercial;Manaus-Filial Distrito;R. Alves;Coordenador;6-12 meses;Voluntário;Falta de plano de carreira
+COL-071;Set/25;Operações;Manaus-Matriz;M. Lima;Analista Operacional;6-12 meses;Involuntário;Performance
+COL-072;Set/25;Administrativo/Financeiro;Manaus-Matriz;C. Mendes;Analista Financeiro;Acima 2 anos;Voluntário;Falta de plano de carreira
+COL-073;Set/25;Operações;Itacoatiara;G. Souza;Analista Operacional;6-12 meses;Voluntário;Falta de plano de carreira
+COL-074;Set/25;Operações;Manaus-Matriz;M. Lima;Analista Operacional;Até 90 dias;Involuntário;Enxugamento
+COL-075;Set/25;Operações;Itacoatiara;M. Lima;Analista Operacional;6-12 meses;Voluntário;Carga/ritmo
+COL-076;Out/25;Operações;Manaus-Matriz;G. Souza;Supervisor;Até 90 dias;Involuntário;Conduta
+COL-077;Out/25;Operações;Manaus-Matriz;M. Lima;Analista Operacional;6-12 meses;Voluntário;Carga/ritmo
+COL-078;Out/25;Logística;Manaus-Filial Distrito;J. Rocha;Conferente;3-6 meses;Involuntário;Fim de contrato temporário
+COL-079;Out/25;TI/Suporte;Itacoatiara;L. Farias;Suporte N1;3-6 meses;Voluntário;Falta de plano de carreira
+COL-080;Out/25;Administrativo/Financeiro;Manaus-Filial Distrito;C. Mendes;Auxiliar Adm;6-12 meses;Involuntário;Enxugamento
+COL-081;Out/25;Operações;Manaus-Matriz;G. Souza;Analista Operacional;1-2 anos;Involuntário;Reestruturação
+COL-082;Out/25;Comercial;Manaus-Matriz;R. Alves;Consultor;3-6 meses;Involuntário;Conduta
+COL-083;Out/25;Comercial;Manaus-Filial Distrito;P. Costa;Consultor;Até 90 dias;Involuntário;Fim de contrato temporário
+COL-084;Out/25;Administrativo/Financeiro;Manaus-Matriz;C. Mendes;Analista Financeiro;Acima 2 anos;Voluntário;Falta de plano de carreira
+COL-085;Out/25;Comercial;Itacoatiara;R. Alves;Coordenador;Acima 2 anos;Voluntário;Horário/turno
+COL-086;Out/25;TI/Suporte;Manaus-Filial Distrito;L. Farias;Suporte N1;Até 90 dias;Involuntário;Fim de contrato temporário
+COL-087;Out/25;Logística;Manaus-Matriz;J. Rocha;Auxiliar Logística;1-2 anos;Involuntário;Performance
+COL-088;Nov/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;Até 90 dias;Voluntário;Remuneração/benefícios
+COL-089;Nov/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;Até 90 dias;Voluntário;Falta de plano de carreira
+COL-090;Nov/25;Operações;Manaus-Filial Distrito;M. Lima;Analista Operacional;Acima 2 anos;Involuntário;Reestruturação
+COL-091;Nov/25;Operações;Manaus-Filial Distrito;G. Souza;Supervisor;Acima 2 anos;Voluntário;Liderança/clima
+COL-092;Nov/25;Operações;Manaus-Matriz;G. Souza;Analista Operacional;3-6 meses;Involuntário;Reestruturação
+COL-093;Nov/25;Operações;Manaus-Matriz;M. Lima;Supervisor;6-12 meses;Involuntário;Fim de contrato temporário
+COL-094;Nov/25;Comercial;Manaus-Matriz;R. Alves;Vendedor;1-2 anos;Voluntário;Horário/turno
+COL-095;Dez/25;TI/Suporte;Itacoatiara;L. Farias;Suporte N1;Até 90 dias;Involuntário;Reestruturação
+COL-096;Dez/25;Comercial;Manaus-Matriz;R. Alves;Vendedor;3-6 meses;Voluntário;Proposta externa
+COL-097;Dez/25;Comercial;Manaus-Matriz;P. Costa;Coordenador;Até 90 dias;Voluntário;Falta de plano de carreira
+COL-098;Dez/25;Administrativo/Financeiro;Manaus-Filial Distrito;C. Mendes;Analista Financeiro;Até 90 dias;Voluntário;Horário/turno
+COL-099;Dez/25;Logística;Itacoatiara;J. Rocha;Auxiliar Logística;3-6 meses;Voluntário;Falta de plano de carreira
+COL-100;Dez/25;Comercial;Manaus-Matriz;R. Alves;Coordenador;Até 90 dias;Involuntário;Conduta
+COL-101;Dez/25;Administrativo/Financeiro;Manaus-Matriz;C. Mendes;Analista Financeiro;6-12 meses;Voluntário;Horário/turno
+COL-102;Dez/25;TI/Suporte;Manaus-Matriz;L. Farias;Técnico;6-12 meses;Voluntário;Horário/turno
+COL-103;Dez/25;Operações;Itacoatiara;M. Lima;Assistente Operacional;6-12 meses;Involuntário;Reestruturação
