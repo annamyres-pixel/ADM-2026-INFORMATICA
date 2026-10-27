@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eleições 2026 · Maranhão — atlas dos resultados</title>
+<meta name="description" content="Mapa coroplético e análise dos resultados das eleições de 2026 no Maranhão: governador, senadores, deputados federais e estaduais, presidente, brancos, nulos e abstenção.">
+<style>
+  :root{
+    --paper:#f4efe4;
+    --paper-2:#ece5d6;
+    --card:#fffdf8;
+    --ink:#14211b;
+    --muted:#5f6d60;
+    --line:#ddd3c1;
+    --green:#0f5132;
+    --green-2:#1f7a4d;
+    --gold:#b8892f;
+    --terra:#b3402f;
+    --blue:#2b4c7e;
+    --shadow:0 18px 44px rgba(20,33,27,.09);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.012em}
+  a{color:var(--green);text-decoration:none}
+  a:hover{text-decoration:underline}
+  p{margin:0 0 1em}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--green)}
+  .muted{color:var(--muted)}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* topo */
+  .top{position:sticky;top:0;z-index:60;background:rgba(244,239,228,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .top-in{max-width:1280px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:14px;letter-spacing:.01em}
+  .brand .mark{width:34px;height:34px;border-radius:9px;background:var(--green);color:#f4efe4;display:grid;place-items:center;font-family:Georgia,serif;font-size:13px;letter-spacing:.04em}
+  .brand small{display:block;font-weight:400;color:var(--muted);font-size:11px;letter-spacing:.04em}
+  nav{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+  nav a{font-size:12.5px;color:var(--ink);padding:7px 10px;border-radius:99px;font-weight:500}
+  nav a:hover{background:rgba(15,81,50,.08);text-decoration:none}
+  @media(max-width:980px){nav{display:none}}
+
+  /* capa */
+  .hero{display:grid;grid-template-columns:1.22fr .78fr;gap:44px;align-items:end;padding:58px 0 34px}
+  .hero h1{font-size:clamp(38px,4.9vw,62px);line-height:1.02;margin:14px 0 18px}
+  .hero h1 em{font-style:italic;color:var(--green)}
+  .hero .lead{font-size:18px;color:var(--muted);max-width:60ch;margin-bottom:0}
+  .hero-card{background:linear-gradient(155deg,#123a2a,#0f5132 55%,#14603c);color:#f6f1e5;border-radius:24px;padding:26px 26px 22px;box-shadow:0 24px 60px rgba(15,81,50,.24);position:relative;overflow:hidden}
+  .hero-card:after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(184,137,47,.35),transparent 65%)}
+  .hero-card .tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#d9c79a;font-weight:700}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px;margin-top:16px;position:relative;z-index:1}
+  .hero-grid b{display:block;font-family:Georgia,serif;font-size:25px;line-height:1.1;font-weight:600}
+  .hero-grid span{display:block;font-size:11.5px;color:#c9d8cd;margin-top:2px}
+  @media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:36px;gap:28px}}
+
+  .results-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:8px 0 4px}
+  .rs{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .rs small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rs b{font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rs span{font-size:11.5px;color:var(--muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media(max-width:1080px){.results-strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:700px){.results-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.rs b{font-size:13px}.off .lbl{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.2;min-height:23px}}
+
+  /* seções */
+  .sec{padding:54px 0 8px;scroll-margin-top:70px}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;margin-bottom:22px}
+  .sec-head h2{font-size:clamp(27px,3.1vw,38px);margin:6px 0 0;line-height:1.08}
+  .sec-head .sub{max-width:52ch;color:var(--muted);font-size:14.5px;margin:0}
+  @media(max-width:820px){.sec-head{flex-direction:column;align-items:flex-start;gap:8px}}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+  /* mapa */
+  .map-card{overflow:hidden}
+  .map-grid{display:grid;grid-template-columns:352px minmax(0,1fr)}
+  .map-panel{padding:22px 22px 26px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:16px;min-height:680px}
+  .seg{display:flex;flex-wrap:wrap;gap:6px}
+  .seg button{border:1px solid var(--line);background:#fffdf8;color:var(--ink);font-size:12px;padding:7px 11px;border-radius:99px;cursor:pointer;font-weight:600;transition:.16s}
+  .seg button:hover{border-color:var(--green-2);background:#f2f7f0}
+  .seg button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#f6f1e5}
+  .seg.small button{font-size:11px;padding:5px 9px;font-weight:600}
+  .map-title{font-size:26px;line-height:1.1;margin:2px 0 0}
+  .map-desc{font-size:13px;color:var(--muted);margin:0}
+  .legend{display:flex;flex-direction:column;gap:7px}
+  #legenda{display:flex;flex-direction:column;gap:6px;max-height:212px;overflow:auto;padding-right:4px}
+  #ranking{display:flex;flex-direction:column;gap:7px;margin-top:2px}
+  .lg{display:grid;grid-template-columns:12px 1fr auto;gap:9px;align-items:center;font-size:12.5px}
+  .lg i{width:12px;height:12px;border-radius:3px;display:block}
+  .lg b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lg span{color:var(--muted);font-variant-numeric:tabular-nums}
+  .ramp{height:12px;border-radius:99px;border:1px solid rgba(0,0,0,.07)}
+  .ramp-labels{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin-top:4px}
+  .rank{display:flex;flex-direction:column;gap:7px;margin-top:2px}
+  .rk{display:grid;grid-template-columns:18px 1fr auto;gap:8px;align-items:center;font-size:12.5px}
+  .rk em{font-style:normal;color:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums}
+  .rk .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rk .vl{font-variant-numeric:tabular-nums;font-weight:600}
+  .rk .mini{grid-column:2/4;height:4px;background:#ece5d6;border-radius:99px;overflow:hidden;margin-top:-4px}
+  .rk .mini i{display:block;height:100%;background:var(--green-2)}
+  .panel-foot{margin-top:auto;font-size:11px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;line-height:1.45}
+  .map-canvas{position:relative;background:radial-gradient(120% 90% at 30% 10%,#f1eadc 0%,#e9e1d0 60%,#e3dac7 100%);height:810px;display:flex;align-items:center;justify-content:center;padding:10px;overflow:hidden}
+  #mapaSvg{width:100%;height:100%;display:block;touch-action:none}
+  #mapaSvg path{stroke:#fffdf8;stroke-width:.9;vector-effect:non-scaling-stroke;cursor:pointer;transition:filter .12s}
+  #mapaSvg path:hover{filter:brightness(1.08) saturate(1.05);stroke:#14211b;stroke-width:1.5}
+  #mapaSvg path.sel{stroke:#14211b;stroke-width:2.2}
+  .zoom{position:absolute;right:14px;top:14px;display:flex;flex-direction:column;gap:6px}
+  .zoom button{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:rgba(255,253,248,.94);font-size:17px;cursor:pointer;color:var(--ink);box-shadow:0 4px 12px rgba(0,0,0,.07)}
+  .zoom button:hover{background:#fff}
+  .tooltip{position:fixed;z-index:80;pointer-events:none;background:rgba(20,33,27,.96);color:#f6f1e5;padding:9px 12px;border-radius:9px;font-size:12px;max-width:270px;box-shadow:0 8px 24px rgba(0,0,0,.22);opacity:0;transform:translateY(4px);transition:opacity .1s}
+  .tooltip.on{opacity:1;transform:none}
+  .tooltip b{font-size:12.5px}
+  .tooltip .tt-sub{color:#c9d8cd;font-size:11px;margin-top:2px}
+  @media(max-width:980px){
+    .map-grid{display:flex;flex-direction:column}
+    .map-panel{display:contents}
+    .map-panel>div{padding-left:20px;padding-right:20px;margin-bottom:14px}
+    .map-panel>div:first-child{padding-top:20px}
+    #painelTopo{order:3;padding-top:4px}
+    .map-canvas{order:4;height:auto;min-height:0;overflow:visible;margin:0 0 4px}
+    #mapaSvg{height:auto}
+    #legenda{order:5;padding-top:6px}
+    #ranking{order:6;padding-top:2px}
+    .map-panel>.panel-foot{order:7;padding-bottom:20px;margin-top:4px}
+  }
+
+  /* detalhe do município */
+  .detail h3{margin:0 0 2px;font-size:24px}
+  .detail .sub{font-size:12px;color:var(--muted);margin-bottom:10px}
+  .detail .close{align-self:flex-start;font-size:11px;background:none;border:0;color:var(--green);cursor:pointer;padding:0;font-weight:700;letter-spacing:.04em}
+  .dstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
+  .dstat{background:#f7f2e7;border-radius:9px;padding:8px 9px}
+  .dstat b{display:block;font-size:15px}
+  .dstat span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .doff{border-top:1px solid var(--line);padding:8px 0;font-size:12px}
+  .doff .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .doff .nm{font-weight:600}
+  .doff .pt{font-size:11px;color:var(--muted)}
+
+  /* eleitos */
+  .hero-cands{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-bottom:20px}
+  .hero-cands>*{min-width:0}
+  .cand{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .cand:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+  .cand .role{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .cand .mono{width:44px;height:44px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,#fffdf8);color:var(--c);display:grid;place-items:center;font-family:Georgia,serif;font-size:18px;font-weight:700;margin:12px 0 8px}
+  .cand h3{margin:0 0 2px;font-size:22px;line-height:1.1}
+  .cand .party{font-size:12px;color:var(--muted);margin-bottom:12px}
+  .cand .big{font-family:Georgia,serif;font-size:30px;line-height:1}
+  .cand .big span{font-size:13px;color:var(--muted);font-family:"Segoe UI",sans-serif}
+  .cand .bar{margin:9px 0 8px}
+  .cand .meta{font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+  @media(max-width:900px){.hero-cands{grid-template-columns:minmax(0,1fr)}}
+
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 14px}
+  .tabs button{border:1px solid var(--line);background:#fffdf8;font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:99px;cursor:pointer}
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:#f6f1e5;border-color:var(--ink)}
+  .toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:10px}
+  .toolbar input{border:1px solid var(--line);background:#fffdf8;border-radius:10px;padding:9px 12px;font-size:13px;min-width:220px;outline:none}
+  .toolbar input:focus{border-color:var(--green-2);box-shadow:0 0 0 3px rgba(31,122,77,.14)}
+  .toolbar .hint{font-size:11.5px;color:var(--muted)}
+  .table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line);max-height:640px}
+  table.tbl{width:100%;border-collapse:collapse;font-size:13px;background:var(--card)}
+  table.tbl th{position:sticky;top:0;background:#f7f2e7;text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;z-index:2}
+  table.tbl th.no{cursor:default}
+  table.tbl td{padding:9px 12px;border-bottom:1px solid #ece5d6;vertical-align:middle}
+  table.tbl tr:last-child td{border-bottom:0}
+  table.tbl tbody tr:hover{background:#fbf7ee}
+  table.tbl td.n,table.tbl th.n{text-align:right;font-variant-numeric:tabular-nums}
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;letter-spacing:.03em;padding:3px 7px;border-radius:99px;background:color-mix(in srgb,var(--c) 13%,#fff);color:var(--c);white-space:nowrap}
+  .chip:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c)}
+  .situ{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--muted);background:#f1ead9;border-radius:99px;padding:3px 7px;white-space:nowrap}
+  .vbar{height:6px;background:#ece5d6;border-radius:99px;overflow:hidden;min-width:54px}
+  .vbar i{display:block;height:100%;background:var(--green-2)}
+  .cand-table td.name{font-weight:600}
+  .cand-table td.name small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+  @media(max-width:760px){
+    #tblDep{display:block;width:100%}
+    #tblDep thead{display:none}
+    #tblDep tbody{display:block}
+    #tblDep tr{display:grid;grid-template-columns:24px minmax(0,1fr) auto;column-gap:10px;padding:10px 4px;border-bottom:1px solid #ece5d6}
+    #tblDep tr:last-child{border-bottom:0}
+    #tblDep td{border:0;padding:2px 0;display:block}
+    #tblDep td:nth-child(1){grid-row:1 / span 2;color:var(--muted);font-size:11px}
+    #tblDep td:nth-child(2){grid-column:2;grid-row:1;font-weight:600;line-height:1.25;min-width:0}
+    #tblDep td:nth-child(2) small{font-size:10px;line-height:1.2;margin-top:1px}
+    #tblDep td:nth-child(3){grid-column:3;grid-row:1;text-align:right}
+    #tblDep td:nth-child(4){grid-column:2;grid-row:2;font-weight:700;font-size:13px}
+    #tblDep td:nth-child(4):before{content:"votos ";font-weight:400;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+    #tblDep td:nth-child(5){grid-column:3;grid-row:2;text-align:right;font-size:12px}
+    #tblDep td:nth-child(5) .vbar{display:none}
+    #tblDep td:nth-child(6),#tblDep td:nth-child(7){display:none}
+  }
+
+  /* partidos */
+  .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+  @media(max-width:980px){.two{grid-template-columns:minmax(0,1fr)}}
+  .two>*{min-width:0}
+  .panel{padding:20px}
+  .panel h3{margin:0 0 2px;font-size:20px}
+  .panel .sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .seat-row{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:center;margin-bottom:8px}
+  .seat-row .sig{font-size:10px;font-weight:800;letter-spacing:.02em;color:var(--c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .seat-row .track{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
+  .seat-row .track i{display:block;height:14px;border-radius:4px;background:var(--c);min-width:2px}
+  .seat-row .track b{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .vbars{display:flex;flex-direction:column;gap:8px}
+  .vb{display:grid;grid-template-columns:84px 1fr 96px;gap:9px;align-items:center;font-size:12px}
+  .vb .t{height:10px;background:#ece5d6;border-radius:99px;overflow:hidden}
+  .vb .t i{display:block;height:100%;background:var(--c)}
+  .vb .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted);font-size:10.5px;line-height:1.25;white-space:nowrap}
+
+  /* brancos */
+  .office-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:18px}
+  @media(max-width:1100px){.office-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:700px){.office-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .off{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .off .lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media(max-width:700px){.off .lbl{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.2;min-height:24px}}
+  .off .pct{font-family:Georgia,serif;font-size:27px;line-height:1.1;margin:6px 0 2px}
+  .off .abs{font-size:11px;color:var(--muted)}
+  .off .stack{display:flex;height:7px;border-radius:99px;overflow:hidden;margin-top:9px;background:#ece5d6}
+  .off .stack i{display:block;height:100%}
+  .bn-story{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  @media(max-width:980px){.bn-story{grid-template-columns:1fr}}
+  .hist{width:100%;height:auto}
+  .hist text{font-family:"Segoe UI",sans-serif}
+  .list{display:flex;flex-direction:column;gap:2px}
+  .li{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px}
+  .li:last-child{border-bottom:0}
+  .li b{font-weight:600}
+  .li span{font-variant-numeric:tabular-nums;color:var(--muted)}
+  .li .mini{grid-column:1/3;height:4px;background:#ece5d6;border-radius:99px;overflow:hidden;margin-top:-4px}
+  .li .mini i{display:block;height:100%;background:var(--terra)}
+
+  /* regiões */
+  .meso-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:18px}
+  @media(max-width:1100px){.meso-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:700px){.meso-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .meso{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .meso .nm{font-size:12px;font-weight:800;letter-spacing:.02em;color:var(--meso)}
+  .meso .big{font-family:Georgia,serif;font-size:24px;line-height:1.1;margin:5px 0 2px}
+  .meso .sm{font-size:11px;color:var(--muted)}
+  .meso .win{margin-top:9px;font-size:11px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .reg-map{display:flex;align-items:center;justify-content:center;background:#f7f2e7;border-radius:14px;padding:8px}
+  .reg-map svg{width:100%;max-width:310px;height:auto}
+
+  /* propostas */
+  .notice{background:#f7f2e7;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:14px 16px;font-size:12.5px;color:#4c594f;margin-bottom:18px}
+  .matrix-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  table.matrix{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px}
+  table.matrix th,table.matrix td{padding:11px 13px;border-bottom:1px solid #ece5d6;vertical-align:top;text-align:left}
+  table.matrix thead th{background:#f7f2e7;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);position:sticky;top:0}
+  table.matrix thead th.c1{min-width:120px}
+  table.matrix td.theme{font-family:Georgia,serif;font-size:14px;font-weight:600;color:var(--ink);background:#fbf7ee;white-space:nowrap}
+  table.matrix td .who{font-size:10.5px;color:var(--muted);display:block;margin-bottom:2px}
+  table.matrix tr:last-child td{border-bottom:0}
+  @media(max-width:760px){
+    #tblMeso{min-width:0}
+    #tblMeso th:nth-child(2),#tblMeso td:nth-child(2),
+    #tblMeso th:nth-child(4),#tblMeso td:nth-child(4){display:none}
+    #tblMeso th,#tblMeso td{padding:9px 6px;font-size:11.5px}
+    #tblMeso td:first-child{font-size:11.5px;line-height:1.2}
+    .matrix-wrap{overflow:visible;border:0;background:transparent;border-radius:0}
+    table.matrix{display:block;min-width:0;width:100%;font-size:12.5px}
+    table.matrix thead{display:none}
+    table.matrix tbody{display:block}
+    table.matrix tr{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+    table.matrix td{display:block;border:0;padding:10px 14px;border-bottom:1px dashed #ece5d6}
+    table.matrix tr td:last-child{border-bottom:0}
+    table.matrix td.theme{background:#fbf7ee;border-bottom:1px solid var(--line);padding:11px 14px;font-size:16px;white-space:normal}
+    table.matrix td:nth-child(2):before{content:"Eduardo Braide · PSD";display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:3px}
+    table.matrix td:nth-child(3):before{content:"Fufuca · PP";display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:3px}
+    table.matrix td:nth-child(4):before{content:"Lahesio Bonfim · NOVO";display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:3px}
+  }
+  .prog-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:18px}
+  @media(max-width:980px){.prog-grid{grid-template-columns:1fr}}
+  details.axis{border:1px solid var(--line);border-radius:11px;background:var(--card);margin-bottom:8px;overflow:hidden}
+  details.axis summary{cursor:pointer;padding:11px 14px;font-size:13px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
+  details.axis summary::-webkit-details-marker{display:none}
+  details.axis summary:after{content:"+";font-size:17px;color:var(--green);font-weight:400}
+  details.axis[open] summary:after{content:"–"}
+  details.axis .body{padding:0 14px 12px;font-size:12.5px;color:#3f4d44}
+  details.axis ol{margin:0;padding-left:18px}
+  details.axis li{margin-bottom:6px}
+  .sen-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--card);margin-bottom:10px}
+  .sen-card h4{margin:0 0 2px;font-size:17px}
+  .sen-card .role{font-size:11px;color:var(--muted);margin-bottom:9px}
+  .sen-card ul{margin:0;padding-left:17px;font-size:12.5px}
+  .sen-card li{margin-bottom:5px}
+  .src{font-size:11px;color:var(--muted);margin-top:8px}
+  .src a{text-decoration:underline}
+
+  /* método */
+  .method{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}
+  .method h3{font-size:19px;margin:0 0 8px}
+  .method ul{padding-left:18px;font-size:13px;color:#3f4d44}
+  .method li{margin-bottom:8px}
+  .srcs{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:12.5px}
+  .srcs a{display:block;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .srcs a:last-child{border-bottom:0}
+  @media(max-width:900px){.method{grid-template-columns:1fr}}
+
+  footer{margin-top:54px;background:#123a2a;color:#dbe6dd;padding:34px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+  footer b{color:#fff;font-family:Georgia,serif;font-size:18px;font-weight:600}
+  footer small{font-size:11.5px;color:#a9c0b1;display:block;margin-top:4px}
+  .foot-links{display:flex;gap:16px;flex-wrap:wrap;font-size:12px}
+  .foot-links a{color:#e8d8ac}
+
+  .toTop{position:fixed;right:18px;bottom:18px;z-index:70;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fffdf8;box-shadow:0 10px 30px rgba(0,0,0,.12);cursor:pointer;font-size:16px;display:grid;place-items:center}
+
+  @media print{
+    .top,.zoom,.toTop,.tooltip{display:none}
+    body{background:#fff}
+    .card,.cand,.off,.meso{box-shadow:none}
+    .sec{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <div class="mark">MA</div>
+      <div>Eleições 2026 · Maranhão<small>Atlas dos resultados do 1º turno</small></div>
+    </div>
+    <nav>
+      <a href="#mapa">Mapa</a>
+      <a href="#eleitos">Eleitos</a>
+      <a href="#partidos">Partidos</a>
+      <a href="#brancos">Brancos &amp; nulos</a>
+      <a href="#regioes">Regiões</a>
+      <a href="#propostas">Propostas</a>
+      <a href="#metodo">Método</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- CAPA -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Tribunal Superior Eleitoral · 04 de outubro de 2026</div>
+      <h1>O mapa do voto<br>no <em>Maranhão</em></h1>
+      <p class="lead">Quem venceu em cada um dos 217 municípios, quantos votos separaram os candidatos e onde o eleitorado escolheu votar em branco, anular ou não comparecer. Uma leitura visual dos cinco cargos em disputa.</p>
+    </div>
+    <aside class="hero-card">
+      <div class="tag">O eleitorado maranhense</div>
+      <div class="hero-grid">
+        <div><b class="num">5.180.851</b><span>eleitores aptos</span></div>
+        <div><b class="num">80,3%</b><span>comparecimento</span></div>
+        <div><b class="num">19,7%</b><span>abstenção</span></div>
+        <div><b class="num">217</b><span>municípios</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="results-strip" id="strip"></div>
+
+  <!-- MAPA -->
+  <section class="sec" id="mapa">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Mapa coroplético</div>
+        <h2>O território de cada vitória</h2>
+      </div>
+      <p class="sub">Escolha o cargo e a camada. Passe o mouse para ver o município; clique para abrir a ficha completa com os cinco cargos.</p>
+    </div>
+
+    <div class="card map-card">
+      <div class="map-grid">
+        <div class="map-panel">
+          <div>
+            <div class="eyebrow" style="margin-bottom:6px">Cargo</div>
+            <div class="seg" id="segCargo"></div>
+          </div>
+          <div>
+            <div class="eyebrow" style="margin-bottom:6px">Camada</div>
+            <div class="seg small" id="segMetrica"></div>
+          </div>
+          <div id="painelTopo"></div>
+          <div id="legenda"></div>
+          <div id="ranking"></div>
+          <div class="panel-foot" id="painelFoot"></div>
+        </div>
+        <div class="map-canvas">
+          <svg id="mapaSvg" viewBox="0 0 1000 1326" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mapa coroplético dos municípios do Maranhão">
+            <g id="mapaG"></g>
+          </svg>
+          <div class="zoom">
+            <button type="button" id="zmais" aria-label="Aproximar">+</button>
+            <button type="button" id="zmenos" aria-label="Afastar">−</button>
+            <button type="button" id="zreset" aria-label="Restaurar zoom" style="font-size:12px">1:1</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="muted" style="font-size:11.5px;margin:10px 2px 0">Cores por partido ou por intensidade. A escala de intensidade usa quintis dos 217 municípios. Votos de candidaturas sub judice não entram no cálculo de percentuais oficiais; ver método.</p>
+  </section>
+
+  <!-- ELEITOS -->
+  <section class="sec" id="eleitos">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Quem foi eleito</div>
+        <h2>Os nomes do topo</h2>
+      </div>
+      <p class="sub">Governador e senadores eleitos no primeiro turno, e as bancadas federal e estadual. Clique nos cabeçalhos para ordenar.</p>
+    </div>
+    <div class="hero-cands" id="cardsEleitos"></div>
+
+    <div class="card panel">
+      <div class="tabs" id="tabsDep"></div>
+      <div class="toolbar">
+        <input id="buscaDep" type="search" placeholder="Buscar candidato ou partido…" aria-label="Buscar candidato ou partido">
+        <span class="hint" id="hintDep"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="tbl cand-table" id="tblDep">
+          <thead>
+            <tr>
+              <th class="no" style="width:38px">#</th>
+              <th data-sort="nome">Candidato</th>
+              <th data-sort="partido">Partido</th>
+              <th data-sort="votos" class="n">Votos</th>
+              <th data-sort="pct" class="n">% válidos</th>
+              <th data-sort="situacao">Situação</th>
+              <th class="no">Reduto</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="panel-foot">Bancadas: 18 deputados federais e 42 deputados estaduais. “QP” = eleito por quociente partidário; “Média” = eleito por média. Percentual sobre os votos válidos do cargo.</div>
+    </div>
+  </section>
+
+  <!-- PARTIDOS -->
+  <section class="sec" id="partidos">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Força partidária</div>
+        <h2>Quantos votos, quantas cadeiras</h2>
+      </div>
+      <p class="sub">O voto proporcional premia concentração: o MDB fez a maior bancada estadual com 17 das 42 cadeiras; no Senado, PP e NOVO dividiram as duas vagas.</p>
+    </div>
+    <div class="two" style="margin-bottom:18px">
+      <div class="card panel">
+        <h3>Cadeiras na Câmara Federal</h3>
+        <div class="sub">18 cadeiras em disputa · MA</div>
+        <div id="seatsFed"></div>
+      </div>
+      <div class="card panel">
+        <h3>Cadeiras na Assembleia Legislativa</h3>
+        <div class="sub">42 cadeiras em disputa · MA</div>
+        <div id="seatsEst"></div>
+      </div>
+    </div>
+    <div class="card panel">
+      <h3>Votação por partido</h3>
+      <div class="sub">Votos válidos (nominais + legenda) por cargo. Selecione o cargo.</div>
+      <div class="tabs" id="tabsPart"></div>
+      <div class="vbars" id="votosPart"></div>
+    </div>
+  </section>
+
+  <!-- BRANCOS E NULOS -->
+  <section class="sec" id="brancos">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Brancos, nulos e abstenção</div>
+        <h2>O voto que não vira mandato</h2>
+      </div>
+      <p class="sub">No Senado, cada eleitor vota duas vezes — por isso o cargo concentra o maior volume de brancos e nulos. Nos municípios, a taxa varia de 3,7% a 15,2% no governo.</p>
+    </div>
+    <div class="office-grid" id="officeBN"></div>
+    <div class="bn-story">
+      <div class="card panel">
+        <h3>Onde o voto é mais desperdiçado</h3>
+        <div class="sub">% de brancos + nulos sobre os votos válidos apurados · governador</div>
+        <div class="list" id="topBN"></div>
+      </div>
+      <div class="card panel">
+        <h3>Distribuição entre os 217 municípios</h3>
+        <div class="sub">Cada barra é um intervalo de taxa de brancos + nulos (governador).</div>
+        <svg class="hist" id="histBN" viewBox="0 0 520 260" role="img" aria-label="Histograma da taxa de brancos e nulos por município"></svg>
+        <div class="muted" id="histInfo" style="font-size:11.5px;margin-top:6px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIÕES -->
+  <section class="sec" id="regioes">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Cinco mesorregiões</div>
+        <h2>Braide venceu 130; Orleans, 87</h2>
+      </div>
+      <p class="sub">O MDB concentrou as vitórias de Orleans Brandão no Leste e no Centro. O PSD de Eduardo Braide dominou o Norte, o Oeste e o Sul — e venceu a disputa por votos em todas as cinco mesorregiões.</p>
+    </div>
+    <div class="meso-grid" id="mesoCards"></div>
+    <div class="two">
+      <div class="card panel">
+        <h3>Mapa das mesorregiões</h3>
+        <div class="sub">Agrupamento IBGE dos 217 municípios.</div>
+        <div class="reg-map"><svg id="mapaMeso" viewBox="0 0 1000 1326" role="img" aria-label="Mapa das mesorregiões do Maranhão"></svg></div>
+        <div class="muted" style="font-size:11px;margin-top:8px;text-align:center">Cada mesorregião agrupa os municípios vizinhos definidos pelo IBGE.</div>
+      </div>
+      <div class="card panel">
+        <h3>Votos válidos por região e cargo</h3>
+        <div class="sub">Participação de cada mesorregião no total estadual.</div>
+        <div class="table-wrap" style="max-height:none;border:0">
+          <table class="tbl" id="tblMeso">
+            <thead><tr><th>Mesorregião</th><th class="n">Aptos</th><th class="n">Comparec.</th><th class="n">Brancos+nulos</th><th>Governador</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="panel-foot">Orleans Brandão (MDB) venceu em 27 dos 44 municípios do Leste e em 24 dos 42 do Centro, mas Braide somou mais votos nas duas regiões. No total, Braide ganhou 130 municípios e Orleans, 87.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPOSTAS -->
+  <section class="sec" id="propostas">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">O que prometem os eleitos</div>
+        <h2>Propostas, com fonte</h2>
+      </div>
+      <p class="sub">O plano de governo de Eduardo Braide tem 55 propostas registradas no TSE. Para o Senado não há plano de governo obrigatório; as prioridades de Fufuca e Lahesio vêm da Agência Senado.</p>
+    </div>
+
+    <div class="notice">
+      <b>Como ler esta seção.</b> Planos de governo são obrigatórios para cargos majoritários (governador, senador e presidente), mas só o governador eleito registrou um documento estruturado no DivulgaCand. Para os senadores, comparamos as pautas declaradas após a eleição. Deputados não apresentam plano de governo: a comparação de propostas individuais não é padronizada pelo TSE.
+    </div>
+
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th class="c1">Tema</th>
+            <th>Eduardo Braide <span style="font-weight:400">· PSD · governador</span></th>
+            <th>Fufuca <span style="font-weight:400">· PP · senador</span></th>
+            <th>Lahesio Bonfim <span style="font-weight:400">· NOVO · senador</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="theme">Saúde</td>
+            <td><span class="who">Plano de governo</span>Hospital Novo (hospitais regionais), Espaços TEA, rede de oncologia com o Hospital Aldenora Bello, gratificação de ACS/ACE e medicamentos especializados.</td>
+            <td><span class="who">Pauta declarada</span>Saúde pública como prioridade do mandato.</td>
+            <td><span class="who">Pauta declarada</span>Saúde entre as prioridades, ao lado de educação e infraestrutura.</td></tr>
+          <tr><td class="theme">Educação</td>
+            <td><span class="who">Plano de governo</span>Escola Nova (obras e climatização), creches em tempo integral, política permanente de alfabetização, expansão do IEMA, UEMA/UEMASUL e educação inclusa.</td>
+            <td><span class="who">Pauta declarada</span>Educação e combate ao bullying.</td>
+            <td><span class="who">Pauta declarada</span>Educação como prioridade, com foco em eficiência do gasto.</td></tr>
+          <tr><td class="theme">Segurança</td>
+            <td><span class="who">Plano de governo</span>Muralha Digital com reconhecimento facial, ampliação de efetivo e viaturas, guardas municipais integradas e rede de proteção à mulher.</td>
+            <td><span class="who">Pauta declarada</span>Não detalhada na agenda divulgada.</td>
+            <td><span class="who">Pauta declarada</span>Não detalhada na agenda divulgada.</td></tr>
+          <tr><td class="theme">Economia e emprego</td>
+            <td><span class="who">Plano de governo</span>Redução do ICMS, crédito a produtores e pequenos negócios, industrialização do agro, cadeia do babaçu e atração de investimentos.</td>
+            <td><span class="who">Pauta declarada</span>Municipalismo e fortalecimento dos municípios.</td>
+            <td><span class="who">Pauta declarada</span>Responsabilidade fiscal, simplificação do Estado, agronegócio, turismo e agricultura familiar.</td></tr>
+          <tr><td class="theme">Infraestrutura</td>
+            <td><span class="who">Plano de governo</span>Estrada Nova, Asfalto Novo, anéis rodoviários, conclusão de obras paradas, pontes, saneamento e água tratada.</td>
+            <td><span class="who">Pauta declarada</span>Não detalhada na agenda divulgada.</td>
+            <td><span class="who">Pauta declarada</span>Infraestrutura e turismo como eixos de desenvolvimento.</td></tr>
+          <tr><td class="theme">Gestão pública</td>
+            <td><span class="who">Plano de governo</span>Gestão por metas, concursos públicos, reajuste anual do funcionalismo, transparência e controle dos recursos.</td>
+            <td><span class="who">Pauta declarada</span>Cidadania e municipalismo.</td>
+            <td><span class="who">Pauta declarada</span>Eficiência administrativa, simplificação, transparência e combate à corrupção.</td></tr>
+          <tr><td class="theme">Meio ambiente</td>
+            <td><span class="who">Plano de governo</span>Plano Estadual de Mudanças Climáticas, licenciamento mais simples, Agência de Proteção Animal e cooperativas de reciclagem.</td>
+            <td><span class="who">Pauta declarada</span>Não detalhada na agenda divulgada.</td>
+            <td><span class="who">Pauta declarada</span>Não detalhada na agenda divulgada.</td></tr>
+          <tr><td class="theme">Social e pobreza</td>
+            <td><span class="who">Plano de governo</span>Força Estadual de Combate à Pobreza, 13º do Maranhão Livre da Fome, restaurantes populares, CREAS regionais e ações afirmativas.</td>
+            <td><span class="who">Pauta declarada</span>Cidadania e combate ao bullying.</td>
+            <td><span class="who">Pauta declarada</span>Não detalhada na agenda divulgada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prog-grid">
+      <div>
+        <h3 style="font-size:20px;margin:0 0 4px">As 55 propostas de Braide</h3>
+        <div class="muted" style="font-size:12px;margin-bottom:12px">Plano de governo 2027–2030 registrado no TSE, organizado em 10 eixos.</div>
+
+        <details class="axis" open><summary>Combate à pobreza e desigualdades <span class="muted" style="font-weight:400">5 propostas</span></summary>
+          <div class="body"><ol>
+            <li>Criar a Força Estadual de Combate à Pobreza, articulando estado, municípios, terceiro setor e iniciativa privada.</li>
+            <li>Instituir o 13º pagamento do benefício Maranhão Livre da Fome.</li>
+            <li>Ampliar restaurantes populares e a compra de alimentos da agricultura familiar.</li>
+            <li>Implantar CREAS regionais para proteção social especial.</li>
+            <li>Ampliar ações afirmativas e enfrentar discriminação e violência.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Saúde <span class="muted" style="font-weight:400">5 propostas</span></summary>
+          <div class="body"><ol>
+            <li>Programa Hospital Novo: novos hospitais regionais e macrorregionais.</li>
+            <li>Espaços TEA regionais para pessoas autistas e neurodivergentes.</li>
+            <li>Hospitais e centros regionais de prevenção e tratamento do câncer com o Hospital Aldenora Bello.</li>
+            <li>Gratificação para agentes comunitários de saúde e de endemias.</li>
+            <li>Ampliar o acesso a medicamentos especializados.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Educação <span class="muted" style="font-weight:400">11 propostas</span></summary>
+          <div class="body"><ol start="11">
+            <li>Escola Nova: novas escolas, quadras e climatização.</li>
+            <li>Creches de tempo integral, priorizando regiões vulneráveis.</li>
+            <li>Política Estadual Permanente de Alfabetização.</li>
+            <li>Melhorar a aprendizagem e elevar o IDEB.</li>
+            <li>Valorizar e formar os profissionais do magistério.</li>
+            <li>Ampliar a educação em tempo integral.</li>
+            <li>Expandir o IEMA com cursos técnicos ligados às vocações regionais.</li>
+            <li>Educação indígena, quilombola e do campo.</li>
+            <li>Inclusão de estudantes com deficiência.</li>
+            <li>Modernizar UEMA e UEMASUL.</li>
+            <li>Conselhos escolares de prevenção ao uso de drogas.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Desenvolvimento econômico, emprego e renda <span class="muted" style="font-weight:400">6 propostas</span></summary>
+          <div class="body"><ol start="22">
+            <li>Reestruturar a AGERP e ampliar a assistência técnica rural.</li>
+            <li>Crédito para produtores, empreendedores e pequenos negócios.</li>
+            <li>Industrializar e agregar valor à produção agropecuária.</li>
+            <li>Fortalecer a cadeia do babaçu e as quebradeiras de coco.</li>
+            <li>Atrair empresas e novos investimentos.</li>
+            <li>Criar o OportuCidades para vocações locais.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Infraestrutura, saneamento e sustentabilidade <span class="muted" style="font-weight:400">10 propostas</span></summary>
+          <div class="body"><ol start="28">
+            <li>Programa de Apoio às Prefeituras (PAP).</li>
+            <li>Estrada Nova: reconstruir e construir rodovias estaduais.</li>
+            <li>Atuar pela recuperação de rodovias federais.</li>
+            <li>Asfalto Novo para pavimentação municipal.</li>
+            <li>Trânsito Livre em parceria com os municípios.</li>
+            <li>Anéis rodoviários para tirar cargas pesadas das cidades.</li>
+            <li>Retomar e concluir obras paradas.</li>
+            <li>Ampliar e modernizar pontes.</li>
+            <li>Implantar e modernizar espaços esportivos.</li>
+            <li>Ampliar água tratada e esgotamento sanitário.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Segurança e proteção <span class="muted" style="font-weight:400">4 propostas</span></summary>
+          <div class="body"><ol start="38">
+            <li>Muralha Digital com câmeras de reconhecimento facial.</li>
+            <li>Ampliar efetivo, viaturas e equipamentos.</li>
+            <li>Fortalecer guardas municipais.</li>
+            <li>Casas da Mulher Maranhense e Patrulha Maria da Penha.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Gestão eficiente e combate à corrupção <span class="muted" style="font-weight:400">5 propostas</span></summary>
+          <div class="body"><ol start="42">
+            <li>Reduzir o ICMS estadual.</li>
+            <li>Gestão técnica com metas por secretaria.</li>
+            <li>Realizar concursos públicos.</li>
+            <li>Reajuste anual do funcionalismo.</li>
+            <li>Transparência e controle dos recursos públicos.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Turismo, cultura e patrimônio <span class="muted" style="font-weight:400">3 propostas</span></summary>
+          <div class="body"><ol start="47">
+            <li>Estruturar novos destinos turísticos.</li>
+            <li>Recuperar patrimônio histórico e cultural.</li>
+            <li>Apoiar manifestações culturais e a economia criativa.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Meio ambiente e clima <span class="muted" style="font-weight:400">4 propostas</span></summary>
+          <div class="body"><ol start="50">
+            <li>Atualizar o Plano Estadual de Mudanças Climáticas.</li>
+            <li>Criar a Agência Estadual de Proteção Animal.</li>
+            <li>Simplificar o licenciamento ambiental.</li>
+            <li>Fortalecer cooperativas de reciclagem.</li>
+          </ol></div></details>
+
+        <details class="axis"><summary>Regularização fundiária e habitação <span class="muted" style="font-weight:400">2 propostas</span></summary>
+          <div class="body"><ol start="54">
+            <li>Ampliar a regularização fundiária.</li>
+            <li>Ampliar o acesso à moradia digna.</li>
+          </ol></div></details>
+
+        <div class="src">Fonte: <a href="https://divulgacandcontas.tse.jus.br/divulga/#/candidato/2026/6259/100002545679" target="_blank" rel="noopener">Plano de Governo 2027–2030 (DivulgaCand/TSE)</a>.</div>
+      </div>
+
+      <div>
+        <h3 style="font-size:20px;margin:0 0 4px">As prioridades dos senadores</h3>
+        <div class="muted" style="font-size:12px;margin-bottom:12px">Pautas declaradas após a eleição, segundo a Agência Senado.</div>
+
+        <div class="sen-card">
+          <h4>Fufuca (PP)</h4>
+          <div class="role">Senador eleito · 1.530.187 votos · 21,4%</div>
+          <ul>
+            <li>Saúde pública como eixo central do mandato.</li>
+            <li>Municipalismo e fortalecimento dos municípios.</li>
+            <li>Educação, cidadania e combate ao bullying.</li>
+            <li>Perfil: médico, ex-ministro do Esporte (2023–2026) e três mandatos de deputado federal.</li>
+          </ul>
+        </div>
+
+        <div class="sen-card">
+          <h4>Lahesio Bonfim (NOVO)</h4>
+          <div class="role">Senador eleito · 1.471.859 votos · 20,6%</div>
+          <ul>
+            <li>Eficiência administrativa, responsabilidade fiscal e simplificação do Estado.</li>
+            <li>Transparência e combate à corrupção.</li>
+            <li>Saúde, educação e infraestrutura.</li>
+            <li>Turismo, agronegócio e agricultura familiar.</li>
+            <li>Perfil: médico, servidor do IFMA, ex-prefeito de São Pedro dos Crentes.</li>
+          </ul>
+        </div>
+
+        <div class="sen-card">
+          <h4>Eduardo Braide (PSD)</h4>
+          <div class="role">Governador eleito · 2.104.122 votos · 54,0%</div>
+          <ul>
+            <li>Combate à pobreza com a Força Estadual e o 13º do Maranhão Livre da Fome.</li>
+            <li>Saúde regionalizada e educação em tempo integral.</li>
+            <li>Redução do ICMS, concursos e gestão por metas.</li>
+            <li>Segurança com reconhecimento facial e proteção à mulher.</li>
+          </ul>
+        </div>
+
+        <div class="src">Fontes: <a href="https://www12.senado.leg.br/noticias/materias/2026/10/04/fufuca-e-lahesio-bonfim-sao-os-novos-senadores-pelo-maranhao" target="_blank" rel="noopener">Agência Senado</a> e DivulgaCand/TSE.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="sec" id="metodo">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Transparência</div>
+        <h2>Como este painel foi feito</h2>
+      </div>
+      <p class="sub">Dados abertos do TSE, malha municipal do IBGE e tratamento próprio. Todo o cálculo é reproduzível a partir dos arquivos brutos.</p>
+    </div>
+    <div class="method">
+      <div>
+        <h3>Fonte e recorte</h3>
+        <ul>
+          <li><b>Votação:</b> arquivos oficiais do TSE <i>votacao_secao_2026_MA</i> (1.799.355 linhas), <i>detalhe_votacao_munzona_2026</i> e <i>votacao_partido_munzona_2026</i>. Para presidente, o recorte do MA foi extraído da base nacional.</li>
+          <li><b>Candidaturas:</b> <i>consulta_cand_2026</i> (registro, partido, situação e perfil).</li>
+          <li><b>Malha:</b> API de malhas do IBGE, qualidade intermediária, 217 municípios.</li>
+          <li><b>Data de referência:</b> 1º turno de 04/10/2026. O Maranhão não teve 2º turno para governador — o cargo foi decidido no primeiro turno.</li>
+        </ul>
+
+        <h3 style="margin-top:22px">Cálculos e convenções</h3>
+        <ul>
+          <li><b>% de votos:</b> votos do candidato ou partido sobre os votos válidos apurados do cargo (nominais + legenda). É o critério que o TSE usa para exibir “54,02%” para Braide.</li>
+          <li><b>Candidaturas sub judice:</b> 48.924 votos para governador (Roberto Rocha) e 23.995 para senador (Simplício Araújo) aparecem na votação, mas não entram nos votos válidos oficiais. Por isso a soma dos candidatos pode superar o total válido do cargo.</li>
+          <li><b>Brancos e nulos:</b> contados como % dos votos válidos apurados. No Senado, cada eleitor vota duas vezes, o que explica a taxa mais alta.</li>
+          <li><b>Abstenção:</b> eleitores aptos menos comparecimento.</li>
+          <li><b>Vencedor por município:</b> candidato mais votado (cargos majoritários) ou partido com mais votos válidos (proporcionais). Empates não ocorreram.</li>
+        </ul>
+        <p class="muted" style="font-size:11.5px">Observação: a base nacional de presidente tem 5.183.115 eleitores aptos no MA contra 5.180.851 nas bases estaduais — diferença de 2.264 (0,04%), provavelmente seções agregadas. Os percentuais do cargo usam a própria base.</p>
+      </div>
+      <div class="srcs">
+        <div class="eyebrow" style="margin-bottom:8px">Arquivos e links</div>
+        <a href="https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_MA.zip" target="_blank" rel="noopener">TSE · votação por seção — MA (ZIP)</a>
+        <a href="https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_2026.zip" target="_blank" rel="noopener">TSE · detalhe por município/zona (ZIP)</a>
+        <a href="https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip" target="_blank" rel="noopener">TSE · registro de candidaturas (ZIP)</a>
+        <a href="https://servicodados.ibge.gov.br/api/v3/malhas/estados/21?formato=application/vnd.geo+json" target="_blank" rel="noopener">IBGE · malha municipal do MA (GeoJSON)</a>
+        <a href="https://divulgacandcontas.tse.jus.br/divulga/" target="_blank" rel="noopener">TSE · DivulgaCandContas</a>
+        <a href="dados/painel_min.json" download>Base tratada do painel (JSON)</a>
+        <a href="eleitos_ma_2026.csv" download>Eleitos do MA em 2026 (CSV)</a>
+        <div style="margin-top:12px;color:var(--muted);font-size:11.5px">Painel gerado em 27/10/2026. Dados sujeitos a retificação pelo TSE.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>Eleições 2026 · Maranhão</b>
+      <small>Atlas visual dos resultados oficiais do 1º turno · TSE + IBGE</small>
+      <small>Feito para leitura pública dos dados. Nenhuma filiação partidária.</small>
+    </div>
+    <div class="foot-links">
+      <a href="#mapa">Mapa</a><a href="#eleitos">Eleitos</a><a href="#partidos">Partidos</a><a href="#propostas">Propostas</a>
+    </div>
+  </div>
+</footer>
+
+<button class="toTop" id="toTop" aria-label="Voltar ao topo">↑</button>
+
+<script id="dados" type="application/json">__DADOS__</script>
+<script>
+(function(){
+  "use strict";
+  const D = JSON.parse(document.getElementById('dados').textContent);
+  const MUN = D.municipios;
+  const BYCOD = Object.fromEntries(MUN.map(m => [m.cod, m]));
+  const NOMES = { presidente:'Presidente', governador:'Governador', senador:'Senador', deputado_federal:'Dep. Federal', deputado_estadual:'Dep. Estadual' };
+  const NOMES_LONGO = { presidente:'Presidente da República', governador:'Governador', senador:'Senado Federal', deputado_federal:'Deputado Federal', deputado_estadual:'Deputado Estadual' };
+
+  const PARTY = {
+    PSD:'#d97a1f', MDB:'#1f7a4d', PL:'#1f4e9c', PT:'#b5121b', 'UNIÃO':'#2b3a67', PP:'#0f6e8c',
+    REPUBLICANOS:'#2e7d32', PDT:'#b23a48', PSB:'#c99a12', NOVO:'#e8541e', AVANTE:'#c2185b',
+    PRD:'#6a4c93', PSDB:'#3c6e9f', PCDOB:'#8e1b1b', PODE:'#4b8b3b', PSOL:'#7b2d8b',
+    'MISSÃO':'#6b7280', DC:'#0e7490', PSTU:'#7f1d1d', PCB:'#991b1b', PCO:'#a21caf', UP:'#9d174d',
+    REDE:'#059669', MOBILIZA:'#475569', SOLIDARIEDADE:'#d97706', CIDADANIA:'#0ea5e9', PRTB:'#64748b',
+    DEMOCRATA:'#1e40af', 'PCDOB':'#8e1b1b'
+  };
+  const FALLBACK = ['#0f6e8c','#6a4c93','#b8892f','#2e7d32','#b3402f','#3c6e9f','#7b2d8b','#0e7490'];
+  const corPartido = s => PARTY[s] || FALLBACK[Math.abs(String(s).split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % FALLBACK.length];
+  const corCand = c => corPartido(c.partido);
+
+  const fmt = new Intl.NumberFormat('pt-BR');
+  const fnum = n => fmt.format(Math.round(n));
+  const fpct = (n, d=1) => n.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}) + '%';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const initials = s => s.replace(/[^A-Za-zÀ-ÿ ]/g,'').trim().split(/\s+/).filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+
+  const T = D.meta.totais;
+  const CANDS = D.candidatos;
+  const bySq = Object.fromEntries(CANDS.map(c => [c.sq, c]));
+
+  /* ---------- tira de resultados ---------- */
+  (function strip(){
+    const pres = CANDS.filter(c=>c.cargo==='presidente' && c.votos>0).sort((a,b)=>b.votos-a.votos);
+    const gov = CANDS.filter(c=>c.cargo==='governador').sort((a,b)=>b.votos-a.votos)[0];
+    const sen = CANDS.filter(c=>c.cargo==='senador' && c.eleito).sort((a,b)=>b.votos-a.votos);
+    const fed = D.partidos.deputado_federal.filter(p=>p.cadeiras>0).sort((a,b)=>b.cadeiras-a.cadeiras)[0];
+    const est = D.partidos.deputado_estadual.filter(p=>p.cadeiras>0).sort((a,b)=>b.cadeiras-a.cadeiras)[0];
+    const items = [
+      ['Presidente', esc(pres[0].urna), fpct(pres[0].pct) + ' no MA'],
+      ['Governador', esc(gov.urna), fpct(gov.pct) + ' · 1º turno'],
+      ['Senado', sen.map(s=>esc(s.urna.split(' ')[0])).join(' · '), sen.map(s=>fpct(s.pct)).join(' · ')],
+      ['Câmara Federal', fed.sigla + ' · ' + fed.cadeiras + ' cadeiras', fpct(100*fed.votos/T.deputado_federal.concorrentes) + ' dos votos'],
+      ['Assembleia', est.sigla + ' · ' + est.cadeiras + ' cadeiras', fpct(100*est.votos/T.deputado_estadual.concorrentes) + ' dos votos']
+    ];
+    document.getElementById('strip').innerHTML = items.map(([a,b,c]) =>
+      `<div class="rs"><small>${a}</small><b>${b}</b><span>${c}</span></div>`).join('');
+  })();
+
+  /* ---------- mapa ---------- */
+  const svg = document.getElementById('mapaSvg');
+  const g = document.getElementById('mapaG');
+  const paths = {};
+  for (const m of MUN) {
+    const geo = D.malha.paths[m.cod];
+    if (!geo) continue;
+    const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d', geo.d);
+    p.dataset.cod = m.cod;
+    p.setAttribute('fill', '#ded4c1');
+    g.appendChild(p);
+    paths[m.cod] = p;
+  }
+
+  const state = { cargo:'governador', metrica:'vencedor', sel:null };
+
+  function winnerInfo(m, cargo){
+    const oc = m.porCargo[cargo];
+    if (!oc) return null;
+    if (cargo === 'deputado_federal' || cargo === 'deputado_estadual') {
+      let best=null, bestV=0, soma=0;
+      for (const [p,v] of Object.entries(oc.partidos)) { soma += v; if (v>bestV) { best=p; bestV=v; } }
+      if (!best) return null;
+      return { tipo:'partido', key:best, nome:best, partido:best, votos:bestV, pct:100*bestV/oc.concorrentes, soma };
+    }
+    const cs = oc.candidatos || {};
+    let best=null, bestV=0;
+    for (const [sq,v] of Object.entries(cs)) if (v>bestV) { best=sq; bestV=v; }
+    if (!best) return null;
+    const c = bySq[best];
+    return { tipo:'cand', key:best, nome:c?c.urna:best, partido:c?c.partido:'', votos:bestV, pct:100*bestV/oc.concorrentes, cand:c };
+  }
+
+  function metricsFor(cargo){
+    const base = ['vencedor','votosvencedor','brancos','nulos','bn','abstencao'];
+    return base;
+  }
+  const METRICA_LABEL = {
+    vencedor:'Vencedor', votosvencedor:'% do vencedor', brancos:'Brancos', nulos:'Nulos', bn:'Brancos + nulos', abstencao:'Abstenção'
+  };
+
+  const RAMP_SHARE = ['#e6f0e8','#bcd9c6','#86ba9f','#4e9475','#226e50','#0b4832'];
+  const RAMP_RATE  = ['#f6ead3','#ecd0a6','#dfae74','#cc8a4c','#b06632','#8a3d23'];
+
+  function quantiles(vals, n){
+    const s = [...vals].sort((a,b)=>a-b);
+    const out = [];
+    for (let i=1;i<n;i++) out.push(s[Math.floor(i*(s.length-1)/n)]);
+    return out;
+  }
+  function binColor(v, breaks, ramp){
+    let i = 0; while (i < breaks.length && v > breaks[i]) i++;
+    return ramp[Math.min(i, ramp.length-1)];
+  }
+
+  function computeLayer(){
+    const cargo = state.cargo, metrica = state.metrica;
+    const info = { cargo, metrica, tipo:'seq', valores:{}, municipios:[] };
+
+    if (metrica === 'vencedor') {
+      info.tipo = 'cat';
+      const grupos = new Map();
+      for (const m of MUN) {
+        const oc = m.porCargo[cargo];
+        if (!oc) continue;
+        const w = winnerInfo(m, cargo);
+        if (!w) continue;
+        const cor = w.tipo === 'partido' ? corPartido(w.partido) : corCand(w.cand);
+        const label = w.tipo === 'partido' ? w.partido : w.nome;
+        info.valores[m.cod] = { cor, valor: w.pct, rotulo: label, w };
+        info.municipios.push({ cod:m.cod, nome:m.nome, valor:w.pct, cor, label, w });
+        const gr = grupos.get(w.key) || { key:w.key, label, partido:w.partido, cor, n:0, votos:0 };
+        gr.n++; gr.votos += w.votos;
+        grupos.set(w.key, gr);
+      }
+      info.grupos = [...grupos.values()].sort((a,b)=>b.n-a.n);
+      info.min = 0; info.max = 100;
+    } else {
+      for (const m of MUN) {
+        const oc = m.porCargo[cargo];
+        if (!oc) continue;
+        let v;
+        if (metrica === 'votosvencedor') {
+          const w = winnerInfo(m, cargo);
+          v = w ? w.pct : 0;
+        } else if (metrica === 'brancos') v = 100*oc.brancos/oc.concorrentes;
+        else if (metrica === 'nulos') v = 100*oc.nulos/oc.concorrentes;
+        else if (metrica === 'bn') v = 100*(oc.brancos+oc.nulos)/oc.concorrentes;
+        else v = 100*oc.abst/oc.aptos;
+        info.valores[m.cod] = { valor:v };
+        info.municipios.push({ cod:m.cod, nome:m.nome, valor:v });
+      }
+      const vals = info.municipios.map(x=>x.valor);
+      info.min = Math.min(...vals); info.max = Math.max(...vals);
+      info.breaks = quantiles(vals, 6);
+      info.ramp = metrica === 'votosvencedor' ? RAMP_SHARE : RAMP_RATE;
+      info.total = metrica === 'abstencao'
+        ? 100*(T[cargo].abst/T[cargo].aptos)
+        : metrica === 'brancos' ? 100*T[cargo].brancos/T[cargo].concorrentes
+        : metrica === 'nulos' ? 100*T[cargo].nulos/T[cargo].concorrentes
+        : metrica === 'bn' ? 100*(T[cargo].brancos+T[cargo].nulos)/T[cargo].concorrentes
+        : metrica === 'votosvencedor' ? vals.reduce((a,b)=>a+b,0)/vals.length
+        : null;
+      for (const m of info.municipios) {
+        m.cor = binColor(m.valor, info.breaks, info.ramp);
+        info.valores[m.cod].cor = m.cor;
+      }
+    }
+    return info;
+  }
+
+  let camada = computeLayer();
+
+  function renderMapa(){
+    camada = computeLayer();
+    for (const m of MUN) {
+      const p = paths[m.cod];
+      if (!p) continue;
+      const v = camada.valores[m.cod];
+      p.setAttribute('fill', v ? v.cor : '#ded4c1');
+      p.classList.toggle('sel', state.sel === m.cod);
+    }
+    const painel = document.getElementById('painelTopo');
+    const desc = {
+      vencedor: state.cargo.startsWith('deputado') ? 'Partido com mais votos válidos em cada município.' : 'Candidato mais votado em cada município.',
+      votosvencedor: 'Percentual do vencedor do município sobre os votos válidos do cargo.',
+      brancos: 'Votos brancos sobre os votos válidos apurados do cargo.',
+      nulos: 'Votos nulos sobre os votos válidos apurados do cargo.',
+      bn: 'Brancos e nulos somados, sobre os votos válidos apurados.',
+      abstencao: 'Eleitores aptos que não compareceram.'
+    }[state.metrica];
+    painel.innerHTML = `<h3 class="map-title">${NOMES_LONGO[state.cargo]}</h3>
+      <p class="map-desc">${METRICA_LABEL[state.metrica]} · ${desc}</p>`;
+
+    const leg = document.getElementById('legenda');
+    if (camada.tipo === 'cat') {
+      leg.innerHTML = '<div class="eyebrow" style="margin-bottom:2px">Legenda</div>' +
+        camada.grupos.map(g =>
+          `<div class="lg"><i style="background:${g.cor}"></i><b>${esc(g.label)}</b><span>${g.n} mun.</span></div>`).join('');
+    } else {
+      const b = camada.breaks;
+      const min = camada.min, max = camada.max;
+      leg.innerHTML = '<div class="eyebrow" style="margin-bottom:2px">Intensidade</div>' +
+        `<div class="ramp" style="background:linear-gradient(90deg,${camada.ramp.join(',')})"></div>
+         <div class="ramp-labels"><span>${fpct(min)}</span><span>${fpct(max)}</span></div>
+         <div class="lg" style="margin-top:2px"><i style="background:${camada.ramp[3]}"></i><b>${state.metrica==='votosvencedor'?'Média municipal':'Média estadual'}</b><span>${camada.total!=null?fpct(camada.total):'—'}</span></div>`;
+    }
+
+    const rank = document.getElementById('ranking');
+    const list = camada.tipo === 'cat'
+      ? [...camada.municipios].filter(x=>x.w.tipo).sort((a,b)=>b.valor-a.valor).slice(0,8)
+      : [...camada.municipios].sort((a,b)=>b.valor-a.valor).slice(0,8);
+    rank.innerHTML = '<div class="eyebrow" style="margin-bottom:2px">' +
+      (camada.tipo==='cat' ? 'Maiores votações do vencedor' : 'Maiores taxas') + '</div>' +
+      list.map((m,i) => {
+        const label = camada.tipo==='cat' ? esc(m.label) : '';
+        return `<div class="rk"><em>${String(i+1).padStart(2,'0')}</em>
+          <span class="nm">${esc(m.nome)}${label?' · '+label:''}</span>
+          <span class="vl">${fpct(m.valor)}</span>
+          <div class="mini"><i style="width:${Math.min(100,m.valor)}%;background:${m.cor}"></i></div></div>`;
+      }).join('');
+
+    document.getElementById('painelFoot').innerHTML = state.metrica==='abstencao'
+      ? `Comparecimento estadual: <b>${fpct(100*T[state.cargo].comp/T[state.cargo].aptos)}</b> · ${fnum(T[state.cargo].aptos)} aptos.`
+      : `Votos válidos no cargo: <b>${fnum(T[state.cargo].concorrentes)}</b> · brancos ${fnum(T[state.cargo].brancos)} · nulos ${fnum(T[state.cargo].nulos)}.`;
+  }
+
+  function renderDetalhe(cod){
+    const m = BYCOD[cod];
+    if (!m) return;
+    state.sel = cod;
+    const painel = document.getElementById('painelTopo');
+    const leg = document.getElementById('legenda');
+    const rank = document.getElementById('ranking');
+    leg.innerHTML = ''; rank.innerHTML = '';
+    const gov = m.porCargo.governador;
+    const rows = D.cargos.map(({id}) => {
+      const oc = m.porCargo[id];
+      if (!oc) return '';
+      const w = winnerInfo(m, id);
+      const cor = w ? (w.tipo==='partido'?corPartido(w.partido):corCand(w.cand)) : '#ccc';
+      return `<div class="doff"><div class="top"><span class="nm">${NOMES[id]}</span><span class="pt">${w?fpct(w.pct):'—'}</span></div>
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:3px">
+          <span style="display:flex;align-items:center;gap:6px"><i style="width:8px;height:8px;border-radius:50%;background:${cor};display:inline-block"></i>${esc(w?w.nome:'—')}</span>
+          <span class="pt">${w?fnum(w.votos)+' votos':''}</span></div></div>`;
+    }).join('');
+    painel.innerHTML = `<button class="close" id="voltarCamada">← voltar para a camada</button>
+      <div class="detail" style="margin-top:8px">
+        <h3>${esc(m.nome)}</h3>
+        <div class="sub">${esc(m.meso)} · ${esc(m.micro)} · ${fnum(gov?gov.aptos:0)} eleitores aptos</div>
+        <div class="dstats">
+          <div class="dstat"><span>Comparecimento</span><b>${gov?fpct(100*gov.comp/gov.aptos):'—'}</b></div>
+          <div class="dstat"><span>Abstenção</span><b>${gov?fpct(100*gov.abst/gov.aptos):'—'}</b></div>
+          <div class="dstat"><span>Brancos + nulos</span><b>${gov?fpct(100*(gov.brancos+gov.nulos)/gov.concorrentes):'—'}</b></div>
+          <div class="dstat"><span>Votos válidos</span><b>${gov?fnum(gov.concorrentes):'—'}</b></div>
+        </div>
+        ${rows}
+      </div>`;
+    document.getElementById('voltarCamada').onclick = () => { state.sel = null; renderMapa(); };
+    document.getElementById('painelFoot').innerHTML = 'Clique em outro município para comparar.';
+    renderMapaCores();
+  }
+  function renderMapaCores(){
+    for (const m of MUN) {
+      const p = paths[m.cod];
+      if (!p) continue;
+      const v = camada.valores[m.cod];
+      p.setAttribute('fill', v ? v.cor : '#ded4c1');
+      p.classList.toggle('sel', state.sel === m.cod);
+    }
+  }
+
+  // controles
+  const segCargo = document.getElementById('segCargo');
+  const segMetrica = document.getElementById('segMetrica');
+  const cargos = [
+    ['presidente','Presidente'],['governador','Governador'],['senador','Senado'],
+    ['deputado_federal','Dep. Federal'],['deputado_estadual','Dep. Estadual']
+  ];
+  segCargo.innerHTML = cargos.map(([id,label]) =>
+    `<button type="button" data-cargo="${id}" aria-pressed="${id===state.cargo}">${label}</button>`).join('');
+  segCargo.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    state.cargo = b.dataset.cargo;
+    [...segCargo.children].forEach(x=>x.setAttribute('aria-pressed', x===b ? 'true':'false'));
+    state.sel = null; renderMetricas(); renderMapa();
+  };
+
+  function renderMetricas(){
+    const ms = metricsFor(state.cargo);
+    if (!ms.includes(state.metrica)) state.metrica = 'vencedor';
+    segMetrica.innerHTML = ms.map(id =>
+      `<button type="button" data-m="${id}" aria-pressed="${id===state.metrica}">${METRICA_LABEL[id]}</button>`).join('');
+  }
+  segMetrica.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    state.metrica = b.dataset.m;
+    [...segMetrica.children].forEach(x=>x.setAttribute('aria-pressed', x===b ? 'true':'false'));
+    state.sel = null; renderMapa();
+  };
+
+  // tooltip
+  const tip = document.createElement('div');
+  tip.className = 'tooltip';
+  document.body.appendChild(tip);
+  function showTip(e, cod){
+    const m = BYCOD[cod]; if (!m) return;
+    const v = camada.valores[cod];
+    const w = winnerInfo(m, state.cargo);
+    let html = `<b>${esc(m.nome)}</b>`;
+    if (state.metrica === 'vencedor' && w) {
+      html += `<div class="tt-sub">${esc(w.nome)} · ${w.partido} · ${fpct(w.pct)}</div>`;
+      html += `<div class="tt-sub">${fnum(w.votos)} votos</div>`;
+    } else if (v) {
+      html += `<div class="tt-sub">${METRICA_LABEL[state.metrica]}: ${fpct(v.valor)}</div>`;
+      if (w) html += `<div class="tt-sub">Vencedor: ${esc(w.nome)} (${fpct(w.pct)})</div>`;
+    }
+    tip.innerHTML = html;
+    tip.classList.add('on');
+    const x = Math.min(window.innerWidth - 290, e.clientX + 14);
+    const y = Math.min(window.innerHeight - 90, e.clientY + 14);
+    tip.style.left = x+'px'; tip.style.top = y+'px';
+  }
+  g.addEventListener('mousemove', e => {
+    const p = e.target.closest('path'); if (!p) return;
+    if (state.sel) return;
+    showTip(e, p.dataset.cod);
+  });
+  g.addEventListener('mouseleave', () => tip.classList.remove('on'));
+  g.addEventListener('click', e => {
+    const p = e.target.closest('path'); if (!p) return;
+    tip.classList.remove('on');
+    renderDetalhe(p.dataset.cod);
+  });
+
+  // zoom
+  let zoom = 1;
+  function applyZoom(){
+    const cx = 500, cy = 663;
+    const w = 1000/zoom, h = 1326/zoom;
+    svg.setAttribute('viewBox', `${cx-w/2} ${cy-h/2} ${w} ${h}`);
+  }
+  document.getElementById('zmais').onclick = () => { zoom = Math.min(6, zoom*1.35); applyZoom(); };
+  document.getElementById('zmenos').onclick = () => { zoom = Math.max(1, zoom/1.35); applyZoom(); };
+  document.getElementById('zreset').onclick = () => { zoom = 1; applyZoom(); };
+
+  /* ---------- eleitos ---------- */
+  (function cards(){
+    const el = document.getElementById('cardsEleitos');
+    const order = ['governador','senador'];
+    const sel = CANDS.filter(c=>c.eleito && order.includes(c.cargo)).sort((a,b)=> a.cargo==='governador'?-1: b.cargo==='governador'?1: b.votos-a.votos);
+    el.innerHTML = sel.map(c => {
+      const cor = corPartido(c.partido);
+      const top = c.topMun ? BYCOD[c.topMun.cod] : null;
+      return `<article class="cand" style="--c:${cor}">
+        <div class="role">${NOMES_LONGO[c.cargo]} eleito</div>
+        <div class="mono">${initials(c.urna)}</div>
+        <h3>${esc(c.urna)}</h3>
+        <div class="party"><span class="chip" style="--c:${cor}">${c.partido}</span> · ${esc(c.numero)} · ${esc(c.coligacao || c.partidoNome)}</div>
+        <div class="big">${fnum(c.votos)} <span>votos · ${fpct(c.pct)}</span></div>
+        <div class="bar"><i style="width:${Math.min(100,c.pct)}%;background:${cor}"></i></div>
+        <div class="meta"><span>${c.situacao}</span>${top?`<span>Reduto: ${esc(top.nome)}</span>`:''}</div>
+      </article>`;
+    }).join('');
+  })();
+
+  const depState = { cargo:'deputado_federal', sort:'votos', dir:-1, q:'' };
+  const tabsDep = document.getElementById('tabsDep');
+  tabsDep.innerHTML = ['deputado_federal','deputado_estadual'].map(id =>
+    `<button type="button" data-cargo="${id}" aria-pressed="${id===depState.cargo}">${id==='deputado_federal'?'Deputados federais · 18':'Deputados estaduais · 42'}</button>`).join('');
+  tabsDep.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    depState.cargo = b.dataset.cargo;
+    [...tabsDep.children].forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false'));
+    renderDep();
+  };
+
+  function situacaoCurta(s){
+    if (/MÉDIA/.test(s)) return 'Média';
+    if (/QP/.test(s)) return 'QP';
+    return s;
+  }
+  function renderDep(){
+    const q = depState.q.toLowerCase();
+    let rows = CANDS.filter(c=>c.cargo===depState.cargo && c.eleito);
+    if (q) rows = rows.filter(c => (c.urna+' '+c.partido+' '+c.nome).toLowerCase().includes(q));
+    rows.sort((a,b) => {
+      const s = depState.sort;
+      let va = a[s], vb = b[s];
+      if (s === 'nome') { va = a.urna; vb = b.urna; }
+      if (s === 'partido') { va = a.partido; vb = b.partido; }
+      if (typeof va === 'string') return depState.dir * va.localeCompare(vb, 'pt-BR');
+      return depState.dir * (va - vb);
+    });
+    const totalValidos = T[depState.cargo].concorrentes;
+    const maxPct = Math.max(...rows.map(r=>r.pct), 1);
+    document.querySelector('#tblDep tbody').innerHTML = rows.map((c,i) => {
+      const cor = corPartido(c.partido);
+      const top = c.topMun ? BYCOD[c.topMun.cod] : null;
+      return `<tr>
+        <td class="n muted">${String(i+1).padStart(2,'0')}</td>
+        <td class="name">${esc(c.urna)}<small>${esc(c.nome)}</small></td>
+        <td><span class="chip" style="--c:${cor}">${c.partido}</span></td>
+        <td class="n">${fnum(c.votos)}</td>
+        <td class="n">${fpct(c.pct)}<div class="vbar" style="margin-top:3px"><i style="width:${100*c.pct/maxPct}%;background:${cor}"></i></div></td>
+        <td><span class="situ">${situacaoCurta(c.situacao)}</span></td>
+        <td class="muted" style="font-size:11.5px">${top?esc(top.nome):'—'}</td>
+      </tr>`;
+    }).join('');
+    document.getElementById('hintDep').textContent = `${rows.length} eleitos · ${fnum(totalValidos)} votos válidos no cargo`;
+  }
+  document.getElementById('buscaDep').addEventListener('input', e => { depState.q = e.target.value; renderDep(); });
+  document.querySelectorAll('#tblDep th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const s = th.dataset.sort;
+      if (depState.sort === s) depState.dir *= -1; else { depState.sort = s; depState.dir = s==='nome'||s==='partido'?1:-1; }
+      renderDep();
+    });
+  });
+  renderDep();
+
+  /* ---------- partidos ---------- */
+  function seats(container, cargo, total){
+    const arr = D.partidos[cargo].filter(p=>p.cadeiras>0).sort((a,b)=>b.cadeiras-a.cadeiras || b.votos-a.votos);
+    const max = Math.max(...arr.map(p=>p.cadeiras), 1);
+    container.innerHTML = arr.map(p => {
+      const cor = corPartido(p.sigla);
+      return `<div class="seat-row" style="--c:${cor}">
+        <div class="sig">${p.sigla}</div>
+        <div class="track"><i style="width:${100*p.cadeiras/max}%"></i><b>${p.cadeiras} de ${total}</b></div>
+      </div>`;
+    }).join('');
+  }
+  seats(document.getElementById('seatsFed'), 'deputado_federal', 18);
+  seats(document.getElementById('seatsEst'), 'deputado_estadual', 42);
+
+  const tabsPart = document.getElementById('tabsPart');
+  let partCargo = 'deputado_federal';
+  tabsPart.innerHTML = cargos.map(([id,label]) =>
+    `<button type="button" data-cargo="${id}" aria-pressed="${id===partCargo}">${NOMES_LONGO[id]}</button>`).join('');
+  function renderVotosPart(){
+    const arr = D.partidos[partCargo].filter(p=>p.votos>0).slice(0,10);
+    const max = Math.max(...arr.map(p=>p.votos),1);
+    document.getElementById('votosPart').innerHTML = arr.map(p => {
+      const cor = corPartido(p.sigla);
+      return `<div class="vb" style="--c:${cor}">
+        <span style="font-weight:800;font-size:10.5px;color:${cor}">${p.sigla}</span>
+        <div class="t"><i style="width:${100*p.votos/max}%"></i></div>
+        <span class="v">${fnum(p.votos)} · ${fpct(p.pct)}</span>
+      </div>`;
+    }).join('');
+  }
+  tabsPart.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    partCargo = b.dataset.cargo;
+    [...tabsPart.children].forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false'));
+    renderVotosPart();
+  };
+  renderVotosPart();
+
+  /* ---------- brancos e nulos ---------- */
+  (function bn(){
+    const grid = document.getElementById('officeBN');
+    grid.innerHTML = D.cargos.map(({id}) => {
+      const t = T[id];
+      const b = 100*t.brancos/t.concorrentes, n = 100*t.nulos/t.concorrentes;
+      return `<div class="off">
+        <div class="lbl">${NOMES_LONGO[id]}</div>
+        <div class="pct">${fpct(b+n)}</div>
+        <div class="abs">${fnum(t.brancos+t.nulos)} votos</div>
+        <div class="stack" title="válidos / brancos / nulos">
+          <i style="width:${100-b-n}%;background:#c9d9cc"></i>
+          <i style="width:${b}%;background:#e0c68d"></i>
+          <i style="width:${n}%;background:#b3402f"></i>
+        </div>
+        <div class="abs" style="margin-top:5px;font-size:10.5px">brancos ${fpct(b)} · nulos ${fpct(n)}</div>
+      </div>`;
+    }).join('');
+
+    const arr = MUN.map(m => {
+      const g = m.porCargo.governador;
+      return { nome:m.nome, v:100*(g.brancos+g.nulos)/g.concorrentes, abs:g.brancos+g.nulos, cod:m.cod };
+    }).sort((a,b)=>b.v-a.v);
+    document.getElementById('topBN').innerHTML = arr.slice(0,10).map(x =>
+      `<div class="li"><b>${esc(x.nome)}</b><span>${fpct(x.v)} · ${fnum(x.abs)}</span>
+        <div class="mini"><i style="width:${100*x.v/arr[0].v}%"></i></div></div>`).join('');
+
+    // histograma
+    const max = Math.ceil(Math.max(...arr.map(x=>x.v)));
+    const bins = 9, step = max/bins;
+    const counts = new Array(bins).fill(0);
+    for (const x of arr) counts[Math.min(bins-1, Math.floor(x.v/step))]++;
+    const maxC = Math.max(...counts);
+    const W=520,H=260, padL=34, padB=34, padT=14, padR=8;
+    const bw = (W-padL-padR)/bins;
+    let svgH = `<svg class="hist" viewBox="0 0 ${W} ${H}" role="img" aria-label="Histograma">`;
+    for (let i=0;i<=4;i++){
+      const y = padT + (H-padT-padB)*(1-i/4);
+      svgH += `<line x1="${padL}" x2="${W-padR}" y1="${y}" y2="${y}" stroke="#e4dccb" stroke-width="1"/>`;
+      svgH += `<text x="${padL-6}" y="${y+4}" text-anchor="end" font-size="9" fill="#8b948a">${Math.round(maxC*i/4)}</text>`;
+    }
+    counts.forEach((c,i) => {
+      const h = (H-padT-padB)*c/maxC;
+      const x = padL + i*bw + 2;
+      svgH += `<rect x="${x}" y="${H-padB-h}" width="${bw-4}" height="${h}" rx="3" fill="#1f7a4d" opacity="${0.55+0.45*(c/maxC)}"/>`;
+      if (i%2===0) svgH += `<text x="${x+bw/2-2}" y="${H-padB+14}" text-anchor="middle" font-size="9" fill="#8b948a">${(i*step).toFixed(0)}%</text>`;
+    });
+    const media = arr.reduce((a,b)=>a+b.v,0)/arr.length;
+    const mx = padL + (media/max)*(W-padL-padR);
+    svgH += `<line x1="${mx}" x2="${mx}" y1="${padT}" y2="${H-padB}" stroke="#b3402f" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+    svgH += `<text x="${mx+5}" y="${padT+10}" font-size="9.5" fill="#b3402f">média ${fpct(media)}</text>`;
+    svgH += '</svg>';
+    document.getElementById('histBN').outerHTML = svgH;
+    document.getElementById('histInfo').textContent = `Mediana ${fpct([...arr].sort((a,b)=>a.v-b.v)[Math.floor(arr.length/2)].v)} · mínimo ${fpct(arr[arr.length-1].v)} (${arr[arr.length-1].nome}) · máximo ${fpct(arr[0].v)} (${arr[0].nome})`;
+  })();
+
+  /* ---------- regiões ---------- */
+  const MESO_COR = {
+    'Norte Maranhense':'#1f6f52','Oeste Maranhense':'#b8892f','Leste Maranhense':'#b3402f',
+    'Centro Maranhense':'#3c6e9f','Sul Maranhense':'#6a4c93'
+  };
+  (function regioes(){
+    const el = document.getElementById('mesoCards');
+    el.innerHTML = D.mesos.map(ms => {
+      const g = ms.porCargo.governador;
+      const win = g.topCandidatos[0];
+      const cor = corPartido(win.partido);
+      return `<div class="meso" style="--meso:${MESO_COR[ms.nome]||'#333'}">
+        <div class="nm">${esc(ms.nome)}</div>
+        <div class="big">${fnum(ms.aptos)}</div>
+        <div class="sm">eleitores aptos · ${ms.municipios} municípios</div>
+        <div class="sm" style="margin-top:7px">Comparecimento ${fpct(100*ms.comp/ms.aptos)}</div>
+        <div class="sm">Brancos+nulos ${fpct(100*(g.brancos+g.nulos)/g.concorrentes)}</div>
+        <div class="win"><span class="chip" style="--c:${cor}">${win.partido}</span> ${esc(win.nome.split(' ')[0])} ${fnum(win.votos)}</div>
+      </div>`;
+    }).join('');
+
+    // mini mapa
+    const svgM = document.getElementById('mapaMeso');
+    const centro = {};
+    for (const m of MUN) {
+      const geo = D.malha.paths[m.cod];
+      if (!geo) continue;
+      const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('d', geo.d);
+      p.setAttribute('fill', MESO_COR[m.meso] || '#ccc');
+      p.setAttribute('stroke', '#fffdf8');
+      p.setAttribute('stroke-width', '0.8');
+      svgM.appendChild(p);
+      const c = centro[m.meso] || (centro[m.meso] = {x:0,y:0,n:0});
+      c.x += geo.cx; c.y += geo.cy; c.n++;
+    }
+    for (const [nome,c] of Object.entries(centro)) {
+      const x = c.x/c.n, y = c.y/c.n;
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x', x); t.setAttribute('y', y);
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('font-size','26');
+      t.setAttribute('font-family','Segoe UI,sans-serif');
+      t.setAttribute('font-weight','700');
+      t.setAttribute('fill','#fffdf8');
+      t.setAttribute('paint-order','stroke');
+      t.setAttribute('stroke','rgba(0,0,0,.35)');
+      t.setAttribute('stroke-width','4');
+      t.textContent = nome.replace(' Maranhense','');
+      svgM.appendChild(t);
+    }
+
+    const tb = document.querySelector('#tblMeso tbody');
+    tb.innerHTML = D.mesos.map(ms => {
+      const g = ms.porCargo.governador;
+      const win = g.topCandidatos[0];
+      const cor = corPartido(win.partido);
+      return `<tr>
+        <td><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${MESO_COR[ms.nome]};margin-right:7px"></span><b>${esc(ms.nome)}</b></td>
+        <td class="n">${fnum(ms.aptos)}</td>
+        <td class="n">${fpct(100*ms.comp/ms.aptos)}</td>
+        <td class="n">${fpct(100*(g.brancos+g.nulos)/g.concorrentes)}</td>
+        <td><span class="chip" style="--c:${cor}">${win.partido}</span> <span style="font-size:11.5px">${esc(win.nome.split(' ')[0])}</span></td>
+      </tr>`;
+    }).join('');
+  })();
+
+  /* ---------- navegação / topo ---------- */
+  document.getElementById('toTop').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+
+  /* ---------- init ---------- */
+  renderMetricas();
+  renderMapa();
+})();
+</script>
+</body>
+</html>

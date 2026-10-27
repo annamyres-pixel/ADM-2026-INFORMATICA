@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inflação e consumo das famílias no Brasil · IBGE</title>
+<style>
+  :root{
+    --paper:#faf7f0;
+    --sheet:#fffdf8;
+    --ink:#16211d;
+    --muted:#5f6d65;
+    --line:#ddd6c7;
+    --green:#0b6b4f;
+    --green-2:#128a66;
+    --green-soft:#e2efe7;
+    --terra:#b4451f;
+    --terra-soft:#f6e3da;
+    --amber:#d99a2b;
+    --amber-soft:#f8ecd4;
+    --shadow:0 1px 0 rgba(22,33,29,.06), 0 18px 40px -28px rgba(22,33,29,.45);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    font-size:15px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px; margin:0 auto; padding:0 28px}
+  h1,h2,h3,.num{font-family:Georgia, "Times New Roman", serif; font-weight:600; letter-spacing:-.01em}
+  h1{font-size:clamp(34px,4.4vw,54px); line-height:1.06; margin:0 0 16px}
+  h2{font-size:clamp(24px,2.5vw,32px); line-height:1.15; margin:0 0 10px}
+  h3{font-size:19px; margin:0 0 6px}
+  p{margin:0 0 12px}
+  a{color:var(--green); text-decoration:none; border-bottom:1px solid rgba(11,107,79,.35)}
+  .eyebrow{
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    font-weight:700; color:var(--green-2); margin:0 0 12px
+  }
+  .hero{
+    background:
+      radial-gradient(1200px 420px at 82% -10%, rgba(217,154,43,.22), transparent 60%),
+      radial-gradient(900px 380px at 8% 110%, rgba(18,138,102,.28), transparent 62%),
+      #10241e;
+    color:#f6f2e9; padding:56px 0 88px; position:relative; overflow:hidden;
+  }
+  .hero:after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.35;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:44px 44px;
+  }
+  .hero .wrap{position:relative; z-index:1}
+  .hero p.lead{font-size:17px; max-width:720px; color:#d9e2db; margin:0}
+  .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:26px}
+  .badge{
+    font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+    padding:6px 12px; border:1px solid rgba(246,242,233,.28); border-radius:999px;
+    color:#f0eadc; background:rgba(255,255,255,.04)
+  }
+  .badge b{color:#fff; font-weight:700}
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:-52px; position:relative; z-index:2}
+  .kpi{
+    background:var(--sheet); border:1px solid var(--line); border-radius:14px;
+    padding:18px 18px 16px; box-shadow:var(--shadow); min-height:132px;
+    display:flex; flex-direction:column; justify-content:space-between
+  }
+  .kpi .lab{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700; line-height:1.35}
+  .kpi .val{font-family:Georgia,serif; font-size:34px; line-height:1; margin:10px 0 4px; letter-spacing:-.02em}
+  .kpi .val small{font-size:16px; color:var(--muted); margin-left:2px}
+  .kpi .cap{font-size:12px; color:var(--muted); line-height:1.4}
+  .kpi.neg .val{color:var(--terra)}
+  .kpi.pos .val{color:var(--green)}
+  .kpi.warm .val{color:#a06612}
+  section{margin:44px 0}
+  .sec-head{display:flex; gap:18px; align-items:flex-start; margin-bottom:18px}
+  .sec-num{
+    font-family:Georgia,serif; font-size:13px; letter-spacing:.08em; color:var(--terra);
+    border:1px solid var(--terra); border-radius:50%; width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center; flex:0 0 34px; margin-top:4px
+  }
+  .sec-head .sub{color:var(--muted); max-width:760px; margin:0; font-size:15px}
+  .card{
+    background:var(--sheet); border:1px solid var(--line); border-radius:14px;
+    padding:22px 22px 18px; box-shadow:var(--shadow); margin:16px 0
+  }
+  .card h3{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:1px 12px}
+  .card h3 span{flex:0 0 auto; margin-left:auto; font-family:"Segoe UI",sans-serif; font-size:12px; color:var(--muted); font-weight:500; text-align:right; white-space:nowrap}
+  .grid-2{display:grid; grid-template-columns:1.15fr .85fr; gap:16px; align-items:start}
+  .grid-2b{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .span-all{grid-column:1/-1}
+  .note{font-size:12.5px; color:var(--muted); line-height:1.5; margin:10px 0 0}
+  .callout{
+    background:var(--green-soft); border:1px solid #c8dfd2; border-left:4px solid var(--green);
+    border-radius:10px; padding:14px 16px; margin:16px 0; font-size:14px
+  }
+  .callout strong{color:#084a37}
+  .callout.warm{background:var(--amber-soft); border-color:#ecd7ac; border-left-color:var(--amber)}
+  .callout.warm strong{color:#7a4d08}
+  .callout.terra{background:var(--terra-soft); border-color:#eccab9; border-left-color:var(--terra)}
+  .callout.terra strong{color:#7e2f13}
+  .chart{width:100%; height:auto; display:block; overflow:visible}
+  .chart text{font-family:"Segoe UI",system-ui,Arial,sans-serif}
+  .legend{display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; margin-top:10px; font-size:12.5px}
+  .legend span{display:flex; align-items:center; gap:8px; color:#33423a}
+  .legend-list{display:grid; grid-template-columns:1fr 1fr; gap:4px 14px; margin-top:12px; font-size:11.5px}
+  .legend-list span{display:flex; align-items:flex-start; gap:7px; color:#33423a; line-height:1.5}
+  .legend-list span .dot{margin-top:6px}
+  .legend-list span em{font-style:normal; flex:1; min-width:0}
+  .legend-list span b{white-space:nowrap; font-variant-numeric:tabular-nums; line-height:1.5}
+  .dot{width:10px;height:10px;border-radius:3px;flex:0 0 10px}
+  table{width:100%; border-collapse:collapse; font-size:13.5px}
+  th{text-align:left; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:700; padding:8px 10px; border-bottom:1px solid var(--line)}
+  td{padding:8px 10px; border-bottom:1px solid #eee8db; vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
+  table.compact{font-size:12.5px}
+  table.compact th,table.compact td{padding:7px 6px}
+  table.compact td.num,table.compact th.num{white-space:nowrap}
+  .tag{display:inline-block; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:999px; background:var(--green-soft); color:#0b5a43; font-weight:700}
+  .tag.terra{background:var(--terra-soft); color:#8b3616}
+  .two-col{columns:2; column-gap:28px}
+  .two-col p{break-inside:avoid}
+  footer{border-top:1px solid var(--line); margin-top:44px; padding:22px 0 40px; color:var(--muted); font-size:12.5px}
+  .foot-grid{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
+  .source-list{font-size:12.5px; color:var(--muted); line-height:1.6}
+  .source-list code{font-family:Consolas,monospace; font-size:11.5px; background:#f1ece0; padding:1px 5px; border-radius:4px; overflow-wrap:anywhere}
+  .pill-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+  .pill{font-size:11px; padding:4px 9px; border-radius:999px; background:#f1ece0; color:#4a584f; border:1px solid #e2dac9}
+  .scrolly{overflow-x:auto}
+  @media (max-width:900px){
+    .kpis{grid-template-columns:1fr 1fr}
+    .grid-2,.grid-2b{grid-template-columns:1fr}
+    .two-col{columns:1}
+    .legend{grid-template-columns:1fr}
+  }
+  @media print{
+    @page{size:A4; margin:12mm 6.8mm}
+    body{font-size:10.9px; background:#fff}
+    .wrap{max-width:none; padding:0 16px}
+    .hero{padding:24px 0 46px}
+    .hero p.lead{font-size:12.2px}
+    h1{font-size:30px}
+    h2{font-size:20px}
+    .kpis{margin-top:-34px; grid-template-columns:repeat(4,1fr)}
+    .kpi{padding:10px 11px; min-height:92px; justify-content:flex-start}
+    .kpi .lab{min-height:29px}
+    .kpi .val{font-size:23px; margin:8px 0 3px}
+    section{margin:14px 0}
+    .card{padding:12px 13px 9px; margin:9px 0; box-shadow:none}
+    .grid-2,.grid-2b{grid-template-columns:1fr 1fr; gap:12px}
+    .legend{grid-template-columns:1fr 1fr}
+    .two-col{columns:2; column-gap:22px}
+    .sec-head{margin-bottom:8px; break-after:avoid; break-inside:avoid}
+    .sec-head .sub{font-size:12.6px; line-height:1.5}
+    .source-list code{font-size:10px}
+    .card h3{break-after:avoid}
+    .page-break{break-before:page}
+    .avoid{break-inside:avoid}
+    .hero,.kpi,.card,.callout,table,tr{break-inside:avoid}
+    footer{padding:12px 0 0; break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Artefato de dados · APIs do IBGE</p>
+    <h1>Inflação e consumo das famílias no Brasil</h1>
+    <p class="lead">O que os preços, a cesta de consumo e a renda domiciliar revelam sobre a vida das famílias brasileiras. Todos os números desta página foram extraídos diretamente das APIs de Agregados e do SIDRA do IBGE.</p>
+    <div class="badges">
+      <span class="badge">IPCA · <b>set/2026</b></span>
+      <span class="badge">POF · <b>2017–2018</b></span>
+      <span class="badge">Censo Demográfico · <b>2022</b></span>
+      <span class="badge">27 unidades da federação</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="kpis" id="kpis"></div>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <div>
+        <h2>Preços: a inflação desacelera, mas a comida ainda pesa</h2>
+        <p class="sub">O IPCA mede a variação dos preços da cesta de consumo das famílias. Em setembro de 2026, o índice ficou em 0,82% no mês e acumulou 3,95% no ano. Em 12 meses, a alta chega a 4,58%.</p>
+      </div>
+    </div>
+
+    <div class="card avoid">
+      <h3>IPCA mês a mês <span>variação mensal (%) · Brasil · set/2025 a set/2026</span></h3>
+      <div id="chart-ipca"></div>
+      <p class="note">Fonte: IBGE, API de Agregados, tabela 7060 (variável 63). Último período disponível na API: setembro de 2026.</p>
+    </div>
+    <div class="callout">
+      <strong>Agosto de 2026 foi o único mês com deflação no período (−0,32%).</strong> Em setembro, os preços voltaram a subir 0,82% — a maior alta mensal desde março (0,88%).
+    </div>
+
+    <div class="grid-2">
+      <div class="card avoid">
+        <h3>O que mais subiu em 12 meses <span>IPCA por grupo · set/2026</span></h3>
+        <div id="chart-grupos"></div>
+        <p class="note">Fonte: tabela 7060, variável 2265 (variação acumulada em 12 meses). Grupos de primeiro nível do IPCA.</p>
+      </div>
+      <div class="card avoid">
+        <h3>Destaques de preço <span>itens selecionados · 12 meses</span></h3>
+        <div id="chart-itens"></div>
+        <div class="callout warm" style="margin-top:12px">
+          <strong>Alimentação fora de casa subiu 8,48%</strong> em 12 meses, o dobro da média geral (4,58%). Já a alimentação no domicílio ficou em 4,21%.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <div>
+        <h2>Consumo: o que entra no carrinho</h2>
+        <p class="sub">A Pesquisa de Orçamentos Familiares (POF) 2017–2018 mede a aquisição alimentar domiciliar per capita. Os volumes revelam uma cesta ainda muito ancorada em itens básicos: água, leite, arroz, pão e açúcar.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card avoid">
+        <h3>Produtos mais adquiridos <span>kg por pessoa por ano · Brasil · 2018</span></h3>
+        <div id="chart-produtos"></div>
+        <p class="note">Fonte: POF 2017–2018, tabela 2393 (variável 1207). A API informa a unidade em quilogramas; para líquidos, o valor representa o volume equivalente.</p>
+      </div>
+      <div class="card avoid">
+        <h3>Onde o orçamento é gasto <span>participação nas despesas de consumo · 2018</span></h3>
+        <div id="chart-despesas"></div>
+        <div id="legenda-despesas" class="legend-list"></div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Habitação (37,7%) e transporte (18,6%)</strong> concentram mais da metade do consumo. Alimentação aparece em terceiro, com 18,0% — mas esse peso cresce muito entre as famílias de menor renda.
+    </div>
+
+    <div class="grid-2">
+      <div class="card avoid">
+        <h3>O peso da comida no orçamento <span>% da despesa total gasta com alimentação · por renda</span></h3>
+        <div id="chart-orcamento"></div>
+        <p class="note">Fonte: POF 2017–2018, tabela 6715. Classes de rendimento total e variação patrimonial mensal familiar.</p>
+      </div>
+      <div class="card avoid">
+        <h3>Quanto de comida por pessoa <span>kg por pessoa por ano · extremos de renda</span></h3>
+        <div id="chart-total-comida"></div>
+        <div class="callout terra" style="margin-top:12px">
+          <strong>198,7 kg</strong> por pessoa/ano na faixa até R$ 1.908 contra <strong>429,4 kg</strong> acima de R$ 14.310: a família de maior renda adquire 2,2 vezes mais alimentos por pessoa.
+        </div>
+      </div>
+    </div>
+
+    <div class="card avoid">
+      <h3>A cesta muda com a renda <span>kg por pessoa por ano · menor faixa vs. maior faixa</span></h3>
+      <div class="scrolly"><table id="tabela-comparativo"></table></div>
+      <p class="note">Fonte: POF 2017–2018, tabela 8157. Faixas: até R$ 1.908 e mais de R$ 14.310 de rendimento mensal familiar.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <div>
+        <h2>Renda: onde há menos recursos</h2>
+        <p class="sub">O Censo Demográfico de 2022 mede o rendimento nominal mensal domiciliar per capita. A média brasileira é de R$ 1.638,06, mas cinco unidades da federação ficam abaixo de R$ 1.035 — todas nas regiões Norte e Nordeste.</p>
+      </div>
+    </div>
+
+    <div class="card avoid">
+      <h3>Renda domiciliar per capita por UF <span>R$ por mês · Censo 2022</span></h3>
+      <div id="chart-renda"></div>
+      <p class="note">Fonte: IBGE, Censo Demográfico 2022, tabela 10295, variável 13431. Valores nominais de 2022. As cinco menores rendas estão destacadas.</p>
+    </div>
+
+    <div class="grid-2b">
+      <div class="callout terra">
+        <strong>Maranhão: R$ 899,87</strong><br>Menor renda domiciliar per capita do país, 45% abaixo da média nacional.
+      </div>
+      <div class="callout terra">
+        <strong>Amazonas: R$ 979,58</strong> e <strong>Pará: R$ 994,00</strong><br>Ambos combinam renda baixa e domicílios mais numerosos.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <div>
+        <h2>Famílias: onde vivem mais pessoas por domicílio</h2>
+        <p class="sub">A média nacional é de 2,79 moradores por domicílio particular ocupado. No Amazonas e no Amapá, passa de 3,6 — um arranjo familiar mais numeroso, que divide o mesmo orçamento entre mais pessoas.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card avoid">
+        <h3>Média de moradores por domicílio <span>pessoas · Censo 2022</span></h3>
+        <div id="chart-moradores"></div>
+        <p class="note">Fonte: Censo 2022, tabela 4712, variável 5930. Domicílios particulares permanentes ocupados. Barras em destaque: as dez maiores médias.</p>
+      </div>
+      <div class="card avoid">
+        <h3>Comparação rápida <span>Brasil e extremos</span></h3>
+        <table class="compact">
+          <tr><th>Indicador</th><th class="num">Brasil</th><th class="num">Menor UF</th></tr>
+          <tr><td>Renda média per capita</td><td class="num">R$ 1.638,06</td><td class="num">R$ 899,87 (MA)</td></tr>
+          <tr><td>Renda mediana per capita</td><td class="num">R$ 1.000,00</td><td class="num">—</td></tr>
+          <tr><td>Média de moradores</td><td class="num">2,79</td><td class="num">3,64 (AM)</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Norte e Nordeste concentram os dois extremos.</strong> Das cinco UFs com menor renda per capita, quatro também estão entre as maiores médias de moradores por domicílio: Maranhão, Amazonas, Pará e Piauí.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <div>
+        <h2>Cruzamento: menos renda, mais gente por casa</h2>
+        <p class="sub">Quando colocamos as duas medidas no mesmo gráfico, a associação aparece: unidades com renda domiciliar per capita mais alta tendem a ter menos moradores por domicílio. A correlação de Pearson entre as 27 UFs é de <b>−0,570</b>.</p>
+      </div>
+    </div>
+
+    <div class="card avoid">
+      <h3>Renda per capita × moradores por domicílio <span>27 UFs · Censo 2022</span></h3>
+      <div id="chart-scatter"></div>
+      <p class="note">Cada ponto é uma unidade da federação. Eixo horizontal: renda média domiciliar per capita (R$). Eixo vertical: média de moradores por domicílio. Correlação calculada sobre os valores da API; associação não implica causalidade.</p>
+    </div>
+
+    <div class="callout warm">
+      <strong>Leitura possível:</strong> renda menor e domicílios mais numerosos se reforçam mutuamente. O mesmo orçamento dividido entre mais pessoas reduz o consumo per capita — e a POF mostra que, nas faixas de menor renda, a alimentação consome 22,0% do orçamento, contra 7,6% na faixa acima de R$ 23.850.
+    </div>
+
+    <div class="card avoid">
+      <h3>O que os dados dizem — e o que não dizem <span>limites da comparação</span></h3>
+      <div class="two-col">
+        <p><b>Os anos são diferentes.</b> O IPCA vai até setembro de 2026; a POF retrata 2017–2018; o Censo, 2022. A página justapõe retratos, não uma série única.</p>
+        <p><b>Renda nominal.</b> Os valores do Censo são nominais de 2022 e não foram deflacionados. Comparações com anos posteriores exigiriam correção pela inflação.</p>
+        <p><b>Consumo alimentar.</b> A POF mede aquisição domiciliar, não consumo efetivo: parte dos alimentos pode ser desperdiçada ou compartilhada fora de casa.</p>
+        <p><b>Correlação.</b> O −0,570 indica associação linear moderada entre renda e moradores por domicílio; não prova que uma variável causa a outra.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">06</div>
+      <div>
+        <h2>Método e fontes</h2>
+        <p class="sub">Todas as séries foram obtidas por requisição direta às APIs do IBGE. Os arquivos brutos (JSON) de cada consulta acompanham o artefato, permitindo conferir cada número.</p>
+      </div>
+    </div>
+
+    <div class="card avoid">
+      <h3>Requisições utilizadas <span>API de Agregados · servicodados.ibge.gov.br</span></h3>
+      <div class="scrolly">
+        <table>
+          <tr><th>Tema</th><th>Pesquisa / tabela</th><th>Recorte</th><th>Variável</th></tr>
+          <tr><td>IPCA mensal</td><td>7060</td><td>Brasil · set/2025–set/2026</td><td>63 — variação mensal (%)</td></tr>
+          <tr><td>IPCA no ano</td><td>7060</td><td>Brasil · set/2026</td><td>69 — acumulada no ano (%)</td></tr>
+          <tr><td>IPCA 12 meses e peso</td><td>7060</td><td>Brasil · set/2026 · 457 categorias</td><td>2265 e 66</td></tr>
+          <tr><td>Alimentos adquiridos</td><td>POF 2393</td><td>Brasil · 2018</td><td>1207 — kg per capita/ano</td></tr>
+          <tr><td>Alimentos por renda</td><td>POF 8157</td><td>Brasil · 2018 · 6 faixas</td><td>1207</td></tr>
+          <tr><td>Despesas por tipo</td><td>POF 6715</td><td>Brasil · 2018 · 8 faixas</td><td>1201 e 1204</td></tr>
+          <tr><td>Moradores por domicílio</td><td>Censo 4712</td><td>27 UFs · 2022</td><td>5930 — média</td></tr>
+          <tr><td>Renda per capita</td><td>Censo 10295</td><td>27 UFs · 2022</td><td>13431 — média</td></tr>
+          <tr><td>População residente</td><td>Censo 9923</td><td>27 UFs · 2022</td><td>93</td></tr>
+        </table>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Dados brutos: dados/*.json</span>
+        <span class="pill">Data da coleta: outubro de 2026</span>
+      </div>
+    </div>
+
+    <div class="card avoid">
+      <h3>Endpoints consultados <span>exemplos reproduzíveis</span></h3>
+      <div class="source-list">
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/7060/periodos/-13/variaveis/63?localidades=N1[all]</code></p>
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/7060/periodos/202609/variaveis/2265|66?localidades=N1[all]&amp;classificacao=315[all]</code></p>
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/2393/periodos/2018/variaveis/1207?localidades=N1[all]&amp;classificacao=217[all]</code></p>
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/8157/periodos/2018/variaveis/1207?localidades=N1[all]&amp;classificacao=339[all]|217[all]</code></p>
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/6715/periodos/2018/variaveis/1201|1204?localidades=N1[all]&amp;classificacao=339[all]|12190[all]</code></p>
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/4712/periodos/2022/variaveis/5930?localidades=N3[all]</code></p>
+        <p><code>https://servicodados.ibge.gov.br/api/v3/agregados/10295/periodos/2022/variaveis/13431|13534?localidades=N3[all]&amp;classificacao=2[6794]|86[95251]|58[95253]</code></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <b>Inflação e consumo das famílias no Brasil</b><br>
+      Artefato analítico produzido a partir das APIs públicas do IBGE.<br>
+      IPCA: set/2026 · POF: 2017–2018 · Censo: 2022.
+    </div>
+    <div>
+      Fontes: IBGE — API de Agregados (v3) e SIDRA.<br>
+      Dados coletados em outubro de 2026.
+    </div>
+  </div>
+</footer>
+
+<script id="dados" type="application/json">{
+  "gerado_em": "2026-10-27T13:21:18.944Z",
+  "ipca": {
+    "mensal": [
+      {
+        "periodo": "202509",
+        "rotulo": "set/2025",
+        "valor": 0.48
+      },
+      {
+        "periodo": "202510",
+        "rotulo": "out/2025",
+        "valor": 0.09
+      },
+      {
+        "periodo": "202511",
+        "rotulo": "nov/2025",
+        "valor": 0.18
+      },
+      {
+        "periodo": "202512",
+        "rotulo": "dez/2025",
+        "valor": 0.33
+      },
+      {
+        "periodo": "202601",
+        "rotulo": "jan/2026",
+        "valor": 0.33
+      },
+      {
+        "periodo": "202602",
+        "rotulo": "fev/2026",
+        "valor": 0.7
+      },
+      {
+        "periodo": "202603",
+        "rotulo": "mar/2026",
+        "valor": 0.88
+      },
+      {
+        "periodo": "202604",
+        "rotulo": "abr/2026",
+        "valor": 0.67
+      },
+      {
+        "periodo": "202605",
+        "rotulo": "mai/2026",
+        "valor": 0.58
+      },
+      {
+        "periodo": "202606",
+        "rotulo": "jun/2026",
+        "valor": 0.16
+      },
+      {
+        "periodo": "202607",
+        "rotulo": "jul/2026",
+        "valor": 0.07
+      },
+      {
+        "periodo": "202608",
+        "rotulo": "ago/2026",
+        "valor": -0.32
+      },
+      {
+        "periodo": "202609",
+        "rotulo": "set/2026",
+        "valor": 0.82
+      }
+    ],
+    "acumulado_ano": 3.95,
+    "acumulado_12m": 4.58,
+    "grupos": [
+      {
+        "id": "7766",
+        "nome": "8.Educação",
+        "nivel": 1,
+        "valor": 5.95,
+        "peso": 6.2085
+      },
+      {
+        "id": "7712",
+        "nome": "7.Despesas pessoais",
+        "nivel": 1,
+        "valor": 5.9,
+        "peso": 10.4075
+      },
+      {
+        "id": "7660",
+        "nome": "6.Saúde e cuidados pessoais",
+        "nivel": 1,
+        "valor": 5.75,
+        "peso": 13.8408
+      },
+      {
+        "id": "7170",
+        "nome": "1.Alimentação e bebidas",
+        "nivel": 1,
+        "valor": 4.66,
+        "peso": 21.509
+      },
+      {
+        "id": "7445",
+        "nome": "2.Habitação",
+        "nivel": 1,
+        "valor": 4.22,
+        "peso": 15.2611
+      },
+      {
+        "id": "7625",
+        "nome": "5.Transportes",
+        "nivel": 1,
+        "valor": 3.94,
+        "peso": 20.1607
+      },
+      {
+        "id": "7558",
+        "nome": "4.Vestuário",
+        "nivel": 1,
+        "valor": 3.34,
+        "peso": 4.6171
+      },
+      {
+        "id": "7786",
+        "nome": "9.Comunicação",
+        "nivel": 1,
+        "valor": 2.79,
+        "peso": 4.5111
+      },
+      {
+        "id": "7486",
+        "nome": "3.Artigos de residência",
+        "nivel": 1,
+        "valor": 2.08,
+        "peso": 3.4843
+      }
+    ],
+    "itens": [
+      {
+        "id": "7215",
+        "nome": "1103043.Cebola",
+        "nivel": 4,
+        "valor": 84.98,
+        "peso": 0.1634
+      },
+      {
+        "id": "7202",
+        "nome": "1103003.Batata-inglesa",
+        "nivel": 4,
+        "valor": 72.8,
+        "peso": 0.1845
+      },
+      {
+        "id": "7265",
+        "nome": "1106015.Limão",
+        "nivel": 4,
+        "valor": 54.94,
+        "peso": 0.0302
+      },
+      {
+        "id": "7634",
+        "nome": "5101010.Passagem aérea",
+        "nivel": 4,
+        "valor": 42.52,
+        "peso": 0.7105
+      },
+      {
+        "id": "7212",
+        "nome": "1103028.Tomate",
+        "nivel": 4,
+        "valor": 39.55,
+        "peso": 0.2196
+      },
+      {
+        "id": "12222",
+        "nome": "1101073.Feijão - carioca (rajado)",
+        "nivel": 4,
+        "valor": 39.11,
+        "peso": 0.1375
+      },
+      {
+        "id": "7216",
+        "nome": "1103044.Cenoura",
+        "nivel": 4,
+        "valor": 35.59,
+        "peso": 0.0746
+      },
+      {
+        "id": "7176",
+        "nome": "1101052.Feijão - preto",
+        "nivel": 4,
+        "valor": 25.68,
+        "peso": 0.0433
+      },
+      {
+        "id": "7292",
+        "nome": "1107085.Filé-mignon",
+        "nivel": 4,
+        "valor": 24.8,
+        "peso": 0.0271
+      },
+      {
+        "id": "7280",
+        "nome": "1106051.Morango",
+        "nivel": 4,
+        "valor": 24.55,
+        "peso": 0.0153
+      }
+    ],
+    "periodo_ultimo": "202609"
+  },
+  "pof": {
+    "ano": "2018",
+    "produtos": [
+      {
+        "id": "4717",
+        "nome": "Água mineral",
+        "valor": 25.851
+      },
+      {
+        "id": "4515",
+        "nome": "Leite de vaca pasteurizado",
+        "valor": 20.112
+      },
+      {
+        "id": "3869",
+        "nome": "Arroz polido",
+        "valor": 18.224
+      },
+      {
+        "id": "4140",
+        "nome": "Pão francês",
+        "valor": 9.491
+      },
+      {
+        "id": "4724",
+        "nome": "Refrigerante de cola",
+        "valor": 6.764
+      },
+      {
+        "id": "4557",
+        "nome": "Açúcar cristal",
+        "valor": 6.048
+      },
+      {
+        "id": "104435",
+        "nome": "Frango abatido (inteiro)",
+        "valor": 5.974
+      },
+      {
+        "id": "4702",
+        "nome": "Cerveja",
+        "valor": 5.907
+      },
+      {
+        "id": "4689",
+        "nome": "Óleo de soja",
+        "valor": 4.581
+      },
+      {
+        "id": "3953",
+        "nome": "Tomate",
+        "valor": 4.209
+      },
+      {
+        "id": "3964",
+        "nome": "Batata-inglesa",
+        "valor": 4.017
+      },
+      {
+        "id": "4514",
+        "nome": "Leite de vaca fresco",
+        "valor": 3.838
+      },
+      {
+        "id": "4559",
+        "nome": "Açúcar refinado",
+        "valor": 3.704
+      },
+      {
+        "id": "4725",
+        "nome": "Refrigerante de guaraná",
+        "valor": 3.577
+      },
+      {
+        "id": "4501",
+        "nome": "Ovo de galinha",
+        "valor": 3.309
+      }
+    ],
+    "classes": [
+      "Até 1.908 Reais",
+      "Mais de 1.908 a 2.862 Reais",
+      "Mais de 2.862 a 5.724 Reais",
+      "Mais de 5.724 a 9.540 Reais",
+      "Mais de 9.540 a 14.310 Reais",
+      "Mais de 14.310 Reais"
+    ],
+    "total_por_classe": {
+      "Total": 262.61,
+      "Até 1.908 Reais": 198.7,
+      "Mais de 1.908 a 2.862 Reais": 231.8,
+      "Mais de 2.862 a 5.724 Reais": 256.88,
+      "Mais de 5.724 a 9.540 Reais": 293.26,
+      "Mais de 9.540 a 14.310 Reais": null,
+      "Mais de 14.310 Reais": 429.35
+    },
+    "despesas": [
+      {
+        "nome": "Habitação",
+        "valor": 1377.14,
+        "pct": 29.6,
+        "consumo": true,
+        "pct_consumo": 37.7
+      },
+      {
+        "nome": "Transporte",
+        "valor": 679.76,
+        "pct": 14.6,
+        "consumo": true,
+        "pct_consumo": 18.6
+      },
+      {
+        "nome": "Alimentação",
+        "valor": 658.23,
+        "pct": 14.2,
+        "consumo": true,
+        "pct_consumo": 18
+      },
+      {
+        "nome": "Assistência à saude",
+        "valor": 302.06,
+        "pct": 6.5,
+        "consumo": true,
+        "pct_consumo": 8.3
+      },
+      {
+        "nome": "Impostos",
+        "valor": 217.05,
+        "pct": 4.7,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Educação",
+        "valor": 175.6,
+        "pct": 3.8,
+        "consumo": true,
+        "pct_consumo": 4.8
+      },
+      {
+        "nome": "Contribuições trabalhistas",
+        "valor": 161.84,
+        "pct": 3.5,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Vestuário",
+        "valor": 160.25,
+        "pct": 3.4,
+        "consumo": true,
+        "pct_consumo": 4.4
+      },
+      {
+        "nome": "Higiene e cuidados pessoais",
+        "valor": 136.82,
+        "pct": 2.9,
+        "consumo": true,
+        "pct_consumo": 3.7
+      },
+      {
+        "nome": "Imóvel (aquisição)",
+        "valor": 126.55,
+        "pct": 2.7,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Despesas diversas",
+        "valor": 112.53,
+        "pct": 2.4,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Empréstimo e carnê",
+        "valor": 109.58,
+        "pct": 2.4,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Recreação e cultura",
+        "valor": 96.16,
+        "pct": 2.1,
+        "consumo": true,
+        "pct_consumo": 2.6
+      },
+      {
+        "nome": "Outras",
+        "valor": 68.8,
+        "pct": 1.5,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Imóvel (reforma)",
+        "valor": 62.02,
+        "pct": 1.3,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Serviços pessoais",
+        "valor": 48.55,
+        "pct": 1,
+        "consumo": true,
+        "pct_consumo": 1.3
+      },
+      {
+        "nome": "Serviços bancários",
+        "valor": 46.23,
+        "pct": 1,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Prestação de imóvel",
+        "valor": 40.8,
+        "pct": 0.9,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Pensões, mesadas e doações",
+        "valor": 40.05,
+        "pct": 0.9,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Fumo",
+        "valor": 17.4,
+        "pct": 0.4,
+        "consumo": true,
+        "pct_consumo": 0.5
+      },
+      {
+        "nome": "Previdência privada",
+        "valor": 11.4,
+        "pct": 0.2,
+        "consumo": false,
+        "pct_consumo": null
+      },
+      {
+        "nome": "Outros investimentos",
+        "valor": 0.2,
+        "pct": 0,
+        "consumo": false,
+        "pct_consumo": null
+      }
+    ],
+    "total_consumo": 3651.97,
+    "comparativo": [
+      {
+        "nome": "Água mineral",
+        "baixa": 19.83,
+        "alta": 56.674
+      },
+      {
+        "nome": "Leite de vaca pasteurizado",
+        "baixa": 11.678,
+        "alta": 32.642
+      },
+      {
+        "nome": "Arroz polido",
+        "baixa": 20.483,
+        "alta": 12.398
+      },
+      {
+        "nome": "Pão francês",
+        "baixa": 8.6,
+        "alta": 9.07
+      },
+      {
+        "nome": "Refrigerante de cola",
+        "baixa": 2.92,
+        "alta": 12.351
+      },
+      {
+        "nome": "Açúcar cristal",
+        "baixa": 6.269,
+        "alta": 3.491
+      },
+      {
+        "nome": "Frango abatido (inteiro)",
+        "baixa": 8.254,
+        "alta": 3.697
+      },
+      {
+        "nome": "Cerveja",
+        "baixa": 1.713,
+        "alta": 15.411
+      }
+    ],
+    "classe_baixa": "Até 1.908 Reais",
+    "classe_alta": "Mais de 14.310 Reais",
+    "orcamento": {
+      "Total": {
+        "total": 4649.03,
+        "alimentacao": 658.23,
+        "pct_alimentacao": 14.2
+      },
+      "Até 1.908 Reais": {
+        "total": 1500.73,
+        "alimentacao": 329.84,
+        "pct_alimentacao": 22
+      },
+      "Mais de 1.908 a 2.862 Reais": {
+        "total": 2350.74,
+        "alimentacao": 449.21,
+        "pct_alimentacao": 19.1
+      },
+      "Mais de 2.862 a 5.724 Reais": {
+        "total": 3705.24,
+        "alimentacao": 634.41,
+        "pct_alimentacao": 17.1
+      },
+      "Mais de 5.724 a 9.540 Reais": {
+        "total": 6326.5,
+        "alimentacao": 872.68,
+        "pct_alimentacao": 13.8
+      },
+      "Mais de 9.540 a 14.310 Reais": {
+        "total": 9401.98,
+        "alimentacao": 1143.83,
+        "pct_alimentacao": 12.2
+      },
+      "Mais de 14.310 a 23.850 Reais": {
+        "total": 14872.3,
+        "alimentacao": 1478.68,
+        "pct_alimentacao": 9.9
+      },
+      "Mais de 23.850 Reais": {
+        "total": 27866.89,
+        "alimentacao": 2105.91,
+        "pct_alimentacao": 7.6
+      }
+    }
+  },
+  "censo": {
+    "ano": "2022",
+    "ufs": [
+      {
+        "uf": "Distrito Federal",
+        "renda": 2999.18,
+        "mediana": 1495,
+        "moradores": 2.83,
+        "pop": 2817381
+      },
+      {
+        "uf": "Santa Catarina",
+        "renda": 2220.4,
+        "mediana": 1533.33,
+        "moradores": 2.7,
+        "pop": 7610361
+      },
+      {
+        "uf": "São Paulo",
+        "renda": 2093.44,
+        "mediana": 1250.17,
+        "moradores": 2.72,
+        "pop": 44411238
+      },
+      {
+        "uf": "Rio Grande do Sul",
+        "renda": 2042.12,
+        "mediana": 1333.33,
+        "moradores": 2.54,
+        "pop": 10882965
+      },
+      {
+        "uf": "Paraná",
+        "renda": 1965.12,
+        "mediana": 1274.67,
+        "moradores": 2.71,
+        "pop": 11444380
+      },
+      {
+        "uf": "Rio de Janeiro",
+        "renda": 1846.5,
+        "mediana": 1006,
+        "moradores": 2.6,
+        "pop": 16055174
+      },
+      {
+        "uf": "Mato Grosso",
+        "renda": 1825.26,
+        "mediana": 1212,
+        "moradores": 2.84,
+        "pop": 3658649
+      },
+      {
+        "uf": "Mato Grosso do Sul",
+        "renda": 1710.13,
+        "mediana": 1133.33,
+        "moradores": 2.79,
+        "pop": 2757013
+      },
+      {
+        "uf": "Goiás",
+        "renda": 1697.17,
+        "mediana": 1125,
+        "moradores": 2.73,
+        "pop": 7056495
+      },
+      {
+        "uf": "Espírito Santo",
+        "renda": 1650.72,
+        "mediana": 1100,
+        "moradores": 2.67,
+        "pop": 3833712
+      },
+      {
+        "uf": "Minas Gerais",
+        "renda": 1611.89,
+        "mediana": 1100,
+        "moradores": 2.71,
+        "pop": 20539989
+      },
+      {
+        "uf": "Tocantins",
+        "renda": 1392.58,
+        "mediana": 879,
+        "moradores": 2.93,
+        "pop": 1511460
+      },
+      {
+        "uf": "Rondônia",
+        "renda": 1374.14,
+        "mediana": 950,
+        "moradores": 2.83,
+        "pop": 1581196
+      },
+      {
+        "uf": "Rio Grande do Norte",
+        "renda": 1246.74,
+        "mediana": 706,
+        "moradores": 2.88,
+        "pop": 3302729
+      },
+      {
+        "uf": "Sergipe",
+        "renda": 1181.9,
+        "mediana": 656,
+        "moradores": 2.81,
+        "pop": 2210004
+      },
+      {
+        "uf": "Roraima",
+        "renda": 1142.41,
+        "mediana": 625,
+        "moradores": 3.51,
+        "pop": 636707
+      },
+      {
+        "uf": "Amapá",
+        "renda": 1142.15,
+        "mediana": 666.67,
+        "moradores": 3.63,
+        "pop": 733759
+      },
+      {
+        "uf": "Pernambuco",
+        "renda": 1141.02,
+        "mediana": 622.4,
+        "moradores": 2.83,
+        "pop": 9058931
+      },
+      {
+        "uf": "Paraíba",
+        "renda": 1097.81,
+        "mediana": 650,
+        "moradores": 2.89,
+        "pop": 3974687
+      },
+      {
+        "uf": "Bahia",
+        "renda": 1079.17,
+        "mediana": 650,
+        "moradores": 2.77,
+        "pop": 14141626
+      },
+      {
+        "uf": "Acre",
+        "renda": 1067.93,
+        "mediana": 606,
+        "moradores": 3.16,
+        "pop": 830018
+      },
+      {
+        "uf": "Ceará",
+        "renda": 1055.98,
+        "mediana": 625,
+        "moradores": 2.9,
+        "pop": 8794957
+      },
+      {
+        "uf": "Alagoas",
+        "renda": 1034.94,
+        "mediana": 606,
+        "moradores": 2.99,
+        "pop": 3127683
+      },
+      {
+        "uf": "Piauí",
+        "renda": 1009.27,
+        "mediana": 624,
+        "moradores": 3.05,
+        "pop": 3271199
+      },
+      {
+        "uf": "Pará",
+        "renda": 994,
+        "mediana": 604.8,
+        "moradores": 3.31,
+        "pop": 8120131
+      },
+      {
+        "uf": "Amazonas",
+        "renda": 979.58,
+        "mediana": 554,
+        "moradores": 3.64,
+        "pop": 3941613
+      },
+      {
+        "uf": "Maranhão",
+        "renda": 899.87,
+        "mediana": 600,
+        "moradores": 3.23,
+        "pop": 6776699
+      }
+    ],
+    "correlacao": -0.57,
+    "brasil": {
+      "renda": 1638.06,
+      "mediana": 1000,
+      "moradores": 2.79
+    }
+  }
+}</script>
+<script>
+(function(){
+  const D = JSON.parse(document.getElementById('dados').textContent);
+  const nf0 = new Intl.NumberFormat('pt-BR', {maximumFractionDigits:0});
+  const nf1 = new Intl.NumberFormat('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1});
+  const nf2 = new Intl.NumberFormat('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+  const brl = v => 'R$ ' + nf2.format(v);
+  const pct = v => nf2.format(v) + '%';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const COR = {verde:'#0b6b4f', verde2:'#128a66', terra:'#b4451f', amber:'#d99a2b', cinza:'#cfc7b6', ink:'#16211d', muted:'#5f6d65'};
+  const PALETA = ['#0b6b4f','#128a66','#2f9e7a','#67b497','#b4451f','#c96336','#d99a2b','#e2b45f','#7a8b7f','#a9b3a8'];
+
+  function svg(w, h, inner, cls){
+    return '<svg class="chart ' + (cls||'') + '" viewBox="0 0 ' + w + ' ' + h + '" role="img" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>';
+  }
+  function t(x, y, s, o){
+    o = o || {};
+    return '<text x="' + x + '" y="' + y + '" font-size="' + (o.size || 12) + '" fill="' + (o.fill || COR.ink) + '" text-anchor="' + (o.anchor || 'start') + '" font-weight="' + (o.weight || 400) + '"' + (o.opacity ? ' opacity="' + o.opacity + '"' : '') + '>' + esc(s) + '</text>';
+  }
+  function rect(x, y, w, h, fill, rx){
+    return '<rect x="' + x + '" y="' + y + '" width="' + Math.max(0, w) + '" height="' + Math.max(0, h) + '" fill="' + fill + '" rx="' + (rx || 0) + '"/>';
+  }
+
+  /* ---------- KPIs ---------- */
+  const kpis = [
+    {lab:'IPCA em 12 meses', val:nf2.format(D.ipca.acumulado_12m)+'<small>%</small>', cap:'até setembro de 2026', cls:'warm'},
+    {lab:'IPCA acumulado no ano', val:nf2.format(D.ipca.acumulado_ano)+'<small>%</small>', cap:'janeiro a setembro de 2026', cls:'pos'},
+    {lab:'Alimentação no orçamento', val:nf1.format(D.pof.orcamento['Até 1.908 Reais'].pct_alimentacao)+'<small>%</small>', cap:'famílias até R$ 1.908 · POF 2018', cls:'neg'},
+    {lab:'Menor renda per capita', val:'R$ 899<small>,87</small>', cap:'Maranhão · Censo 2022', cls:'neg'}
+  ];
+  document.getElementById('kpis').innerHTML = kpis.map(k =>
+    '<div class="kpi ' + k.cls + '"><div class="lab">' + k.lab + '</div><div class="val">' + k.val + '</div><div class="cap">' + k.cap + '</div></div>'
+  ).join('');
+
+  /* ---------- 1. IPCA mensal (colunas) ---------- */
+  (function(){
+    const dados = D.ipca.mensal;
+    const w = 940, h = 270, ml = 44, mr = 14, mt = 22, mb = 42;
+    const iw = w - ml - mr, ih = h - mt - mb;
+    const vals = dados.map(d => d.valor);
+    const max = Math.max(1, Math.ceil(Math.max.apply(null, vals)));
+    const min = Math.min(0, Math.floor(Math.min.apply(null, vals)));
+    const y = v => mt + ih - ((v - min) / (max - min)) * ih;
+    const bw = iw / dados.length;
+    let s = '';
+    const ticks = 4;
+    for (let i = 0; i <= ticks; i++){
+      const v = min + (max - min) * i / ticks;
+      const yy = y(v);
+      s += '<line x1="' + ml + '" x2="' + (w - mr) + '" y1="' + yy + '" y2="' + yy + '" stroke="#e8e2d4" stroke-width="1"/>';
+      s += t(ml - 8, yy + 4, nf1.format(v) + '%', {anchor:'end', size:10, fill:COR.muted});
+    }
+    s += '<line x1="' + ml + '" x2="' + (w - mr) + '" y1="' + y(0) + '" y2="' + y(0) + '" stroke="#b9b09e" stroke-width="1.2"/>';
+    dados.forEach((d, i) => {
+      const x = ml + i * bw + bw * 0.18;
+      const bwid = bw * 0.64;
+      const cor = d.valor < 0 ? COR.terra : (i === dados.length - 1 ? COR.amber : COR.verde);
+      const yy = d.valor >= 0 ? y(d.valor) : y(0);
+      const hh = Math.abs(y(d.valor) - y(0));
+      s += rect(x, yy, bwid, hh, cor, 2);
+      s += t(x + bwid/2, (d.valor >= 0 ? yy - 6 : yy + hh + 13), nf2.format(d.valor) + '%', {anchor:'middle', size:10, fill: cor === COR.terra ? COR.terra : COR.ink, weight:600});
+      s += t(x + bwid/2, h - 10, d.rotulo, {anchor:'middle', size:10, fill:COR.muted});
+    });
+    document.getElementById('chart-ipca').innerHTML = svg(w, h, s);
+  })();
+
+  /* ---------- 2. Grupos 12m (barras horizontais) ---------- */
+  function hbars(el, rows, opt){
+    opt = opt || {};
+    const w = opt.w || 620, rowH = opt.rowH || 26, ml = opt.ml || 190, mr = opt.mr || 54, mt = 8, mb = 8;
+    const h = mt + rows.length * rowH + mb;
+    const max = opt.max || Math.max.apply(null, rows.map(r => r.valor));
+    const iw = w - ml - mr;
+    let s = '';
+    rows.forEach((r, i) => {
+      const y = mt + i * rowH + 5;
+      const bh = rowH - 12;
+      const bw = (r.valor / max) * iw;
+      s += t(ml - 10, y + bh/2 + 4, r.nome, {anchor:'end', size:11.5, fill:COR.ink});
+      s += rect(ml, y, iw, bh, '#efe9dc', 3);
+      s += rect(ml, y, bw, bh, r.cor || opt.cor || COR.verde, 3);
+      s += t(ml + bw + 7, y + bh/2 + 4, opt.fmt ? opt.fmt(r.valor) : nf2.format(r.valor), {size:11, weight:600, fill: r.cor || opt.cor || COR.verde});
+    });
+    el.innerHTML = svg(w, h, s);
+  }
+
+  (function(){
+    const grupos = D.ipca.grupos.map(g => ({
+      nome: g.nome.replace(/^\d+\./, ''),
+      valor: g.valor
+    })).sort((a,b) => b.valor - a.valor);
+    const max = Math.max.apply(null, grupos.map(g => g.valor));
+    hbars(document.getElementById('chart-grupos'), grupos, {
+      w: 610, rowH: 27, ml: 165, mr: 52, max: max * 1.02,
+      fmt: v => nf2.format(v) + '%',
+      cor: COR.verde
+    });
+  })();
+
+  /* ---------- 3. Itens destaque ---------- */
+  (function(){
+    const itens = D.ipca.itens.slice(0, 7).map(i => ({
+      nome: i.nome.replace(/^\d+\./, ''),
+      valor: i.valor
+    })).sort((a,b) => b.valor - a.valor);
+    const max = Math.max.apply(null, itens.map(i => i.valor));
+    hbars(document.getElementById('chart-itens'), itens, {
+      w: 430, rowH: 31, ml: 128, mr: 50, max: max * 1.02,
+      fmt: v => '+' + nf2.format(v) + '%',
+      cor: COR.amber
+    });
+  })();
+
+  /* ---------- 4. Produtos mais adquiridos ---------- */
+  (function(){
+    const ps = D.pof.produtos.slice(0, 15);
+    const max = Math.max.apply(null, ps.map(p => p.valor));
+    hbars(document.getElementById('chart-produtos'), ps.map(p => ({nome:p.nome, valor:p.valor})), {
+      w: 600, rowH: 24, ml: 190, mr: 46, max: max * 1.02,
+      fmt: v => nf1.format(v),
+      cor: COR.verde2
+    });
+  })();
+
+  /* ---------- 5. Donut despesas ---------- */
+  (function(){
+    const ds = D.pof.despesas.filter(d => d.consumo).slice(0, 10);
+    const total = ds.reduce((a,d) => a + d.valor, 0);
+    const w = 300, h = 252, cx = 150, cy = 124, r = 86, ri = 51;
+    let ang = -Math.PI/2, s = '';
+    ds.forEach((d, i) => {
+      const a = (d.valor / total) * Math.PI * 2;
+      const x1 = cx + r * Math.cos(ang), y1 = cy + r * Math.sin(ang);
+      const x2 = cx + r * Math.cos(ang + a), y2 = cy + r * Math.sin(ang + a);
+      const x3 = cx + ri * Math.cos(ang + a), y3 = cy + ri * Math.sin(ang + a);
+      const x4 = cx + ri * Math.cos(ang), y4 = cy + ri * Math.sin(ang);
+      const large = a > Math.PI ? 1 : 0;
+      s += '<path d="M ' + x1 + ' ' + y1 + ' A ' + r + ' ' + r + ' 0 ' + large + ' 1 ' + x2 + ' ' + y2 + ' L ' + x3 + ' ' + y3 + ' A ' + ri + ' ' + ri + ' 0 ' + large + ' 0 ' + x4 + ' ' + y4 + ' Z" fill="' + PALETA[i % PALETA.length] + '" stroke="#fffdf8" stroke-width="2"/>';
+      ang += a;
+    });
+    s += t(cx, cy - 2, 'Consumo', {anchor:'middle', size:12, fill:COR.muted});
+    s += t(cx, cy + 20, brl(total), {anchor:'middle', size:16, weight:700, fill:COR.ink});
+    document.getElementById('chart-despesas').innerHTML = svg(w, h, s);
+    document.getElementById('legenda-despesas').innerHTML = ds.map((d, i) =>
+      '<span><i class="dot" style="background:' + PALETA[i % PALETA.length] + '"></i><em>' + esc(d.nome) + '</em><b>' + nf1.format(d.pct_consumo) + '%</b></span>'
+    ).join('');
+  })();
+
+  /* ---------- 6. Peso da alimentação por renda ---------- */
+  (function(){
+    const o = D.pof.orcamento;
+    const ordem = ['Até 1.908 Reais','Mais de 1.908 a 2.862 Reais','Mais de 2.862 a 5.724 Reais','Mais de 5.724 a 9.540 Reais','Mais de 9.540 a 14.310 Reais','Mais de 14.310 a 23.850 Reais','Mais de 23.850 Reais'];
+    const linhas = ordem.filter(k => o[k] && o[k].pct_alimentacao != null).map(k => ({
+      nome: k.replace('Mais de ', '> ').replace(' a ', ' a ').replace(' Reais',''),
+      valor: o[k].pct_alimentacao
+    }));
+    const max = Math.max.apply(null, linhas.map(l => l.valor));
+    hbars(document.getElementById('chart-orcamento'), linhas, {
+      w: 600, rowH: 30, ml: 172, mr: 48, max: max * 1.05,
+      fmt: v => nf1.format(v) + '%',
+      cor: COR.terra
+    });
+  })();
+
+  /* ---------- 7. Total de comida por classe ---------- */
+  (function(){
+    const t = D.pof.total_por_classe;
+    const ordem = [
+      ['Até R$ 1.908', t['Até 1.908 Reais']],
+      ['R$ 1.908 a 2.862', t['Mais de 1.908 a 2.862 Reais']],
+      ['R$ 2.862 a 5.724', t['Mais de 2.862 a 5.724 Reais']],
+      ['R$ 5.724 a 9.540', t['Mais de 5.724 a 9.540 Reais']],
+      ['R$ 9.540 a 14.310', t['Mais de 9.540 a 14.310 Reais']],
+      ['Acima de R$ 14.310', t['Mais de 14.310 Reais']]
+    ].filter(x => x[1] != null);
+    const max = Math.max.apply(null, ordem.map(x => x[1]));
+    hbars(document.getElementById('chart-total-comida'), ordem.map(x => ({nome:x[0], valor:x[1]})), {
+      w: 600, rowH: 35, ml: 150, mr: 60, max: max * 1.05,
+      fmt: v => nf1.format(v) + ' kg',
+      cor: COR.verde
+    });
+  })();
+
+  /* ---------- 8. Tabela comparativo ---------- */
+  (function(){
+    const rows = D.pof.comparativo;
+    let html = '<tr><th>Produto</th><th class="num">Até R$ 1.908</th><th class="num">Acima de R$ 14.310</th><th class="num">Diferença</th></tr>';
+    rows.forEach(r => {
+      const baixa = r.baixa, alta = r.alta;
+      const dif = (baixa != null && alta != null) ? (alta / baixa) : null;
+      html += '<tr><td>' + esc(r.nome) + '</td><td class="num">' + (baixa==null?'—':nf1.format(baixa)) + '</td><td class="num">' + (alta==null?'—':nf1.format(alta)) + '</td><td class="num">' + (dif==null?'—':(dif>=1?'+':'') + nf1.format((dif-1)*100) + '%') + '</td></tr>';
+    });
+    document.getElementById('tabela-comparativo').innerHTML = html;
+  })();
+
+  /* ---------- 9. Renda por UF ---------- */
+  (function(){
+    const ufs = D.censo.ufs.slice().sort((a,b) => a.renda - b.renda);
+    const cinco = new Set(ufs.slice(0, 5).map(u => u.uf));
+    const max = Math.max.apply(null, ufs.map(u => u.renda));
+    hbars(document.getElementById('chart-renda'), ufs.map(u => ({
+      nome: u.uf, valor: u.renda, cor: cinco.has(u.uf) ? COR.terra : COR.verde
+    })), {
+      w: 660, rowH: 21, ml: 140, mr: 95, max: max * 1.02,
+      fmt: v => brl(v)
+    });
+  })();
+
+  /* ---------- 10. Moradores por UF (top 10 + Brasil) ---------- */
+  (function(){
+    const ufs = D.censo.ufs.slice().sort((a,b) => b.moradores - a.moradores).slice(0, 10);
+    const max = Math.max.apply(null, ufs.map(u => u.moradores));
+    hbars(document.getElementById('chart-moradores'), ufs.map(u => ({nome:u.uf, valor:u.moradores})), {
+      w: 600, rowH: 29, ml: 135, mr: 60, max: max * 1.03,
+      fmt: v => nf2.format(v),
+      cor: COR.verde
+    });
+  })();
+
+  /* ---------- 11. Scatter ---------- */
+  (function(){
+    const ufs = D.censo.ufs;
+    const w = 920, h = 382, ml = 62, mr = 26, mt = 14, mb = 44;
+    const xs = ufs.map(u => u.renda), ys = ufs.map(u => u.moradores);
+    const xmin = Math.min.apply(null, xs) * 0.92, xmax = Math.max.apply(null, xs) * 1.04;
+    const ymin = Math.min.apply(null, ys) - 0.12, ymax = Math.max.apply(null, ys) + 0.12;
+    const X = v => ml + ((v - xmin) / (xmax - xmin)) * (w - ml - mr);
+    const Y = v => mt + (1 - (v - ymin) / (ymax - ymin)) * (h - mt - mb);
+    let s = '';
+    for (let i = 0; i <= 5; i++){
+      const v = ymin + (ymax - ymin) * i / 5;
+      s += '<line x1="' + ml + '" x2="' + (w - mr) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="#e8e2d4"/>';
+      s += t(ml - 8, Y(v) + 4, nf2.format(v), {anchor:'end', size:10, fill:COR.muted});
+    }
+    for (let i = 0; i <= 5; i++){
+      const v = xmin + (xmax - xmin) * i / 5;
+      s += t(X(v), h - mb + 18, 'R$ ' + nf0.format(v), {anchor:'middle', size:10, fill:COR.muted});
+    }
+    s += '<line x1="' + ml + '" x2="' + (w - mr) + '" y1="' + (h - mb) + '" y2="' + (h - mb) + '" stroke="#b9b09e"/>';
+    s += '<line x1="' + ml + '" x2="' + ml + '" y1="' + mt + '" y2="' + (h - mb) + '" stroke="#b9b09e"/>';
+    s += t(w/2, h - 8, 'Renda domiciliar per capita média (R$ nominais de 2022)', {anchor:'middle', size:11, fill:COR.muted});
+    s += '<text x="' + (-(h/2)) + '" y="14" transform="rotate(-90)" font-size="11" fill="' + COR.muted + '" text-anchor="middle">Moradores por domicílio</text>';
+    ufs.forEach(u => {
+      const baixa = u.renda < 1100;
+      s += '<circle cx="' + X(u.renda) + '" cy="' + Y(u.moradores) + '" r="' + (baixa ? 7 : 6) + '" fill="' + (baixa ? COR.terra : COR.verde) + '" fill-opacity=".82" stroke="#fffdf8" stroke-width="1.2"><title>' + esc(u.uf) + ': ' + brl(u.renda) + ' · ' + nf2.format(u.moradores) + ' moradores</title></circle>';
+    });
+    // rótulos dos extremos, posicionados sem sobreposição
+    const rotular = ['Maranhão','Amazonas','Amapá','Distrito Federal','São Paulo','Roraima'];
+    const larguraTexto = (txt, size) => txt.length * size * 0.58;
+    const pontos = ufs.map(u => ({x:X(u.renda), y:Y(u.moradores), r:9}));
+    const tomados = [];
+    const livre = b =>
+      b.x0 >= ml + 1 && b.x1 <= w - mr + 1 && b.y0 >= mt - 1 && b.y1 <= h - mb - 1 &&
+      !pontos.some(p => b.x0 < p.x + p.r && b.x1 > p.x - p.r && b.y0 < p.y + p.r && b.y1 > p.y - p.r) &&
+      !tomados.some(o => b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0);
+    ufs.filter(u => rotular.includes(u.uf)).forEach(u => {
+      const px = X(u.renda), py = Y(u.moradores), size = 10.5;
+      const bw = larguraTexto(u.uf, size), bh = size * 1.05;
+      const cands = [
+        {dx:10, dy:4, anchor:'start'},
+        {dx:-10, dy:4, anchor:'end'},
+        {dx:0, dy:-12, anchor:'middle'},
+        {dx:0, dy:18, anchor:'middle'},
+        {dx:10, dy:-10, anchor:'start'},
+        {dx:-10, dy:-10, anchor:'end'},
+        {dx:10, dy:17, anchor:'start'},
+        {dx:-10, dy:17, anchor:'end'}
+      ];
+      let escolha = null;
+      for (const c of cands){
+        const x0 = c.anchor === 'start' ? px + c.dx : (c.anchor === 'end' ? px + c.dx - bw : px + c.dx - bw/2);
+        const box = {x0:x0, x1:x0 + bw, y0:py + c.dy - bh, y1:py + c.dy + 2};
+        if (livre(box)){ escolha = {c:c, box:box}; break; }
+      }
+      if (!escolha){
+        const x0 = px + 10;
+        escolha = {c:{dx:10, dy:4, anchor:'start'}, box:{x0:x0, x1:x0 + bw, y0:py + 4 - bh, y1:py + 6}};
+      }
+      tomados.push(escolha.box);
+      s += t(px + escolha.c.dx, py + escolha.c.dy, u.uf, {size:size, fill:COR.ink, weight:600, anchor:escolha.c.anchor});
+    });
+    document.getElementById('chart-scatter').innerHTML = svg(w, h, s);
+  })();
+})();
+</script>
+</body>
+</html>
